@@ -1,0 +1,21 @@
+.logo-nav {
+    height: 50px;
+  }
+  .borde-abajo {
+    border-bottom: 1px;
+    box-shadow: 0px 8px 6px -6px #02153e;
+  }
+  .linea-a {
+    margin-top: 5px;
+    margin-left: 3px;
+    height: 30px;
+    width: 3px;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  .buscar {
+    border-color: #bd5349;
+    border-radius: 20px;
+    margin-top: 15px;
+  }
+  

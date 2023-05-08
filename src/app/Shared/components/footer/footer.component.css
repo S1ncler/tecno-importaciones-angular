@@ -1,0 +1,88 @@
+.footer-final {
+    background-color: #b9cbd6;
+    margin-top: 40px;
+  }
+  .linea-azul-pequeña {
+    margin-top: 20px;
+  
+    height: 3px;
+    width: 250px;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  .cont {
+    font-weight: bold;
+  }
+  .redes {
+    height: 30px;
+  }
+  .redes-1 {
+    margin-top: 10px;
+  }
+  .logo-footer {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .img-2l {
+    height: 150px;
+  }
+  .contacto {
+    margin-left: 65px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .codico-qr {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+  }
+  .logo-footer-img {
+    height: 120px;
+    width: 120px;
+  }
+  
+  @media (max-width: 1340px) {
+  }
+  .logo-footer {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .logo-footer-img {
+    height: 90px;
+    width: 90px;
+  }
+  .codico-qr {
+    height: 100px;
+    width: 100px;
+  }
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 970px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  @media (max-width: 666px) {
+    .wrap-666 {
+      flex-wrap: wrap;
+    }
+    .ma {
+      margin-left: 20%;
+      margin-bottom: 50px;
+    }
+  }
+  

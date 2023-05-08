@@ -1,0 +1,88 @@
+.fondo {
+    background-color: #bd5349;
+  }
+  .bg_gray {
+    background-color: #d9dce2ad;
+  }
+  .border-selection {
+    border: 2px solid;
+    border-radius: 30px;
+  }
+  .menu:hover {
+    background-color: rgb(226, 226, 226);
+    border-radius: 5px;
+  }
+  .apps:hover {
+    background-color: rgb(226, 226, 226);
+    border-radius: 5px;
+  }
+  .barra:hover {
+    background-color: rgb(226, 226, 226);
+    border-radius: 5px;
+  }
+  .image-bg-size {
+    width: 100%;
+    height: 6rem;
+    margin-top: -7rem;
+    margin-bottom: 2%;
+  }
+  .card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+  il:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+  
+  #sidebar {
+    position: absolute;
+    top: 50px; /* ajustar según la altura del navbar */
+    left: -250px;
+    width: 250px;
+    padding: 20px;
+    transition: left 0.3s ease-in-out;
+    background-color: #f8f9fa;
+    border-radius: 0px 20px 20px 0px;
+    z-index: 100;
+  }
+  #sidebar.show {
+    left: 0;
+  }
+  .btn-botton {
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  }
+  .separator {
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    height: 5px;
+    border-radius: 0px 0px 40px 0px;
+  }
+  @media (max-width: 970px) {
+  
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .obr {
+      width: 0px;
+      height: 0px;
+      padding: none;
+      margin: none;
+    }
+  }
+  .helvetic {
+    font-family: Helvetica;
+  }
