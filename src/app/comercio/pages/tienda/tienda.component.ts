@@ -21,7 +21,8 @@ export class TiendaComponent {
         precio: 266000,
         categoria: 'Ram',
         stock: 10,
-        descripcion: 'Memoria Ram crucial para portatil de 16Gb a 3200mhz'
+        descripcion: 'Memoria Ram crucial para portatil de 16Gb a 3200mhz',
+        img: "assets/images/Ram.webp"
       },
       {
         id: 2,
@@ -30,7 +31,8 @@ export class TiendaComponent {
         precio: 250000,
         categoria: 'Fuentes de poder',
         stock: 8,
-        descripcion: 'Fuente Evga de 750W de potencia con certificacion 80+ White semimodular'
+        descripcion: 'Fuente Evga de 750W de potencia con certificacion 80+ White semimodular',
+        img: "assets/images/fuente.png"
       },
       {
         id: 3,
