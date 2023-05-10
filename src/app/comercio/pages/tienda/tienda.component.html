@@ -1,38 +1,89 @@
 <app-nav-bar></app-nav-bar>
 <section class="d-flex w-100 mt-5">
-    <!-- barra lateral con los filtros de busqueda y categorias -->
-    <aside
-      class="d-flex flex-column m-4 mt-5 bg_gray p-5 rounded obr d-none d-sm-none d-md-block d-lg-block d-xl-block"
+  <!-- barra lateral con los filtros de busqueda y categorias -->
+  <aside
+    class="d-flex flex-column m-4 mt-5 bg_gray p-5 rounded obr d-none d-sm-none d-md-block d-lg-block d-xl-block"
+  >
+    <span
+      class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
+      >Marcas</span
     >
-      <span
-        class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >Marcas</span
+    <ul class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic">
+      <li *ngFor="let marca of marcas">{{ marca }}</li>
+    </ul>
+    <span
+      class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
+      >Precio</span
+    >
+    <ul class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic">
+      <li *ngFor="let precioRango of precioRangos">{{ precioRango }}</li>
+    </ul>
+    <span
+      class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
+      >Categorias</span
+    >
+    <ul class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic">
+      <li *ngFor="let categoria of categorias"> {{ categoria }} </li>
+    </ul>
+  </aside>
+  <!-- seccion de vista de productos -->
+  <section class="container-fluid justify-content-center">
+    <!-- barra de ordenar y seleccion de tipo de vista -->
+    <div class="row d-flex border-6 w-auto pe-4 mb-5">
+      <div class="col-1 col-sm-1 col-md-2 col-lg-4 col-xl-6"></div>
+      <div
+        class="col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6 d-flex justify-content-end border-selection mt-5 pt-2 ps-4"
       >
-      <ul
-        class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-      >
+        <label for="ordenar-por" class="mb-2 helvetic">Ordenar por:</label>
+        <select
+          class="form-control m-0 ms-3 me-5 mb-2 helvetic"
+          id="ordenar-por"
+        >
+          <option value="nombre">Nombre</option>
+          <option value="precio-ascendente">Precio ascendente</option>
+          <option value="precio-descendente">Precio descendente</option>
+          <option value="relevancia">Relevancia</option>
+        </select>
+        <div class="me-2 mt-1">
+          <span class="material-symbols-outlined fs-1 menu"> menu </span>
+        </div>
+        <div class="me-2 mt-1">
+          <span class="material-symbols-outlined fs-1 apps"> apps </span>
+        </div>
+        <div class="mt-1">
+          <button
+            class="navbar-toggler d-block d-sm-block d-md-none d-lg-none d-xl-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebar"
+            aria-controls="sidebar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="material-symbols-outlined fs-1 barra">
+              more_horiz
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- barra lateral desplegable para mostrar la barra de categorias y filtros -->
+    <div class="collapse navbar-collapse" id="sidebar">
+      <span class="fs-4 fw-bold helvetic">Marcas</span>
+      <ul class="helvetic">
         <li *ngFor="let marca of marcas">{{ marca }}</li>
       </ul>
-      <span
-        class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >Precio</span
-      >
-      <ul
-        class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-      >
-        <li *ngFor="let precioRango of precioRangos">{{ precioRango }}</li>
+      <span class="fs-4 fw-bold helvetic">Precio</span>
+      <ul class="helvetic">
+        <li>$0 a $200.000</li>
+        <li>$200.000 a $400.000</li>
+        <li>$400.000 a $600.000</li>
+        <li>$600.000 en adelante</li>
       </ul>
-      <span
-        class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >Categorias</span
-      >
-      <ul
-        class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-      >
+      <span class="fs-4 fw-bold helvetic">Categorias</span>
+      <ul class="helvetic">
         <li>Discos duros</li>
-        <ul
-          class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >
+        <ul class="helvetic">
           <li>HDD</li>
           <li>SSD</li>
           <li>M.2</li>
@@ -43,301 +94,31 @@
         <li>Cajas</li>
         <li>Procesadores</li>
       </ul>
-      <span
-        class="fs-4 fw-bold obr mb-4 d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >Otros productos</span
+    </div>
+    <!-- visualizacion de elementos -->
+    <div class="row w-100 d-flex flex-wrap mb-5 justify-content-center">
+      <div class="col-12 d-flex flex-wrap align-content-around justify-content-around">
+        <app-square-card
+          *ngFor="let item of productosMostrar"
+          [item]="item"
+        ></app-square-card>
+      </div>
+    </div>
+    <!-- boton para expandir los items que se visualizan en pantalla -->
+    <div class="row">
+      <div
+        class="col-12 d-flex justify-content-center align-items-center w-100"
       >
-      <span
-        class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-        >Promoción</span
-      >
-    </aside>
-    <!-- seccion de vista de productos -->
-    <section class="container-fluid justify-content-center">
-      <!-- barra de ordenar y seleccion de tipo de vista -->
-      <div class="row d-flex border-6 w-auto pe-4 mb-5">
-        <div class="col-1 col-sm-1 col-md-2 col-lg-4 col-xl-6"></div>
-        <div
-          class="col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6 d-flex justify-content-end border-selection mt-5 pt-2 ps-4"
-        >
-          <label for="ordenar-por" class="mb-2 helvetic"
-            >Ordenar por:</label
-          >
-          <select
-            class="form-control m-0 ms-3 me-5 mb-2 helvetic"
-            id="ordenar-por"
-          >
-            <option value="nombre">Nombre</option>
-            <option value="precio-ascendente">Precio ascendente</option>
-            <option value="precio-descendente">Precio descendente</option>
-            <option value="relevancia">Relevancia</option>
-          </select>
-          <div class="me-2 mt-1">
-            <span class="material-symbols-outlined fs-1 menu"> menu </span>
-          </div>
-          <div class="me-2 mt-1">
-            <span class="material-symbols-outlined fs-1 apps"> apps </span>
-          </div>
-          <div class="mt-1">
-            <button
-              class="navbar-toggler d-block d-sm-block d-md-none d-lg-none d-xl-none"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#sidebar"
-              aria-controls="sidebar"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="material-symbols-outlined fs-1 barra">
-                more_horiz
-              </span>
-            </button>
-          </div>
-        </div>
+        <button type="button" class="btn btn-botton btn-lg mb-4 helvetic">
+          Ver mas productos
+        </button>
       </div>
-      <!-- barra lateral desplegable para mostrar la barra de categorias y filtros -->
-      <div class="collapse navbar-collapse" id="sidebar">
-        <span class="fs-4 fw-bold helvetic">Marcas</span>
-        <ul class="helvetic">
-          <li>Nvidia</li>
-          <li>AMD</li>
-          <li>Kingstone</li>
-          <li>EVGA</li>
-          <li>Corsair</li>
-          <li>XPG</li>
-          <li>Asus</li>
-          <li>Asrock</li>
-          <li>Gigabyte</li>
-          <li>Aorus</li>
-          <li>MSI</li>
-        </ul>
-        <span class="fs-4 fw-bold helvetic">Precio</span>
-        <ul class="helvetic">
-          <li>$0 a $200.000</li>
-          <li>$200.000 a $400.000</li>
-          <li>$400.000 a $600.000</li>
-          <li>$600.000 en adelante</li>
-        </ul>
-        <span class="fs-4 fw-bold helvetic">Categorias</span>
-        <ul class="helvetic">
-          <li>Discos duros</li>
-          <ul class="helvetic">
-            <li>HDD</li>
-            <li>SSD</li>
-            <li>M.2</li>
-          </ul>
-          <li>Memorias RAM</li>
-          <li>Fuentes de poder</li>
-          <li>Motherboards</li> 
-          <li>Cajas</li>
-          <li>Procesadores</li>
-        </ul>
-      </div>
-      <!-- visualizacion de elementos -->
-      <div class="row w-100 mb-5 justify-content-center">
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/Ram.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Ram Adata Para Portatil 16gb 3200mhz
-              </h5>
-              <p class="card-text helvetic">$ 266.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/fuente.png"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Fuente EVGA 750W con certificación 80+ white
-              </h5>
-              <p class="card-text helvetic">$ 250.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic align-self-end">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/RTX3090.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Asus Rog Strigks Nvidia RTX3090 24GB GDDR6x
-              </h5>
-              <p class="card-text helvetic">$ 25.000.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/Board.png"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">Motherboard Aours B450M max ram 128GB</h5>
-              <p class="card-text helvetic">$ 500.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/RamRGB.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Memoria Ram Vengance RGB PRO 2x16GB
-              </h5>
-              <p class="card-text helvetic">$ 350.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/SSDm-2.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Disco SSD M.2 Nvme 2280 480GB
-              </h5>
-              <p class="card-text helvetic">$ 280.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/Disipador.png"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Cooler Master Hyper 212 RGB Black Edition
-              </h5>
-              <p class="card-text helvetic">$ 350.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/RL.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Refrigeracion liquida Aero Cool mirage L240 RGB
-              </h5>
-              <p class="card-text helvetic">$ 550.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center"
-        >
-          <div class="card text-center border-0" style="width: 18rem">
-            <div class="ps-4 pe-4" style="margin-left: -5%">
-              <img
-                src="assets/images/RTX3070ti.webp"
-                class="card-img-top m-2 position-relative z-1"
-                alt="..."
-              />
-            </div>
-            <div class="fondo image-bg-size z-0"></div>
-            <div class="card-body">
-              <h5 class="card-title helvetic">
-                Tarjeta de video PNY Nvidia RTX3070 TI 8GB GDDR6x
-              </h5>
-              <p class="card-text helvetic">$ 3.000.000</p>
-              <a href="detalles-producto.html" class="btn btn-primary helvetic">Comprar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- boton para expandir los items que se visualizan en pantalla -->
-      <div class="row">
-        <div
-          class="col-12 d-flex justify-content-center align-items-center w-100"
-        >
-          <button type="button" class="btn btn-botton btn-lg mb-4 helvetic">
-            Ver mas productos
-          </button>
-        </div>
-      </div>
-    </section>
+    </div>
   </section>
-  <!-- separador entre el section y el footer -->
-  <div class="w-100">
-    <div class="separator"></div>
-  </div>
-  <app-footer></app-footer>
-  <app-logo-whats></app-logo-whats>
+</section>
+<!-- separador entre el section y el footer -->
+<div class="w-100">
+  <div class="separator"></div>
+</div>
+<app-footer></app-footer>
+<app-logo-whats></app-logo-whats>

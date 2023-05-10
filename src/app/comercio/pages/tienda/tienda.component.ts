@@ -3,66 +3,49 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.component.html',
-  styleUrls: ['./tienda.component.css']
+  styleUrls: ['./tienda.component.css'],
 })
 export class TiendaComponent {
   constructor() {}
-  productos: any;
-  marcas: any;
+  DB: any;
+  productos: JSON[] = [];
+  productosMostrar: JSON[] = [];
+  cantidadProductosMostrar = 20;
+  marcas: string[] = [];
   precioRangos: any;
-  categorias: any;
+  categorias: string[] = [];
 
-  ngOnInit(): void {
-    this.productos = [
-      {
-        id: 1,
-        marca: 'Crucial',
-        referencia: 'Portatil 16gb 3200mhz',
-        precio: 266000,
-        categoria: 'Ram',
-        stock: 10,
-        descripcion: 'Memoria Ram crucial para portatil de 16Gb a 3200mhz',
-        img: "assets/images/Ram.webp"
-      },
-      {
-        id: 2,
-        marca: 'Evga',
-        referencia: '750W 80+ White',
-        precio: 250000,
-        categoria: 'Fuentes de poder',
-        stock: 8,
-        descripcion: 'Fuente Evga de 750W de potencia con certificacion 80+ White semimodular',
-        img: "assets/images/fuente.png"
-      },
-      {
-        id: 3,
-        marca: 'Asus',
-        referencia: '750W 80+ White',
-        precio: 250000,
-        categoria: 'Fuentes de poder',
-        stock: 8,
-        descripcion: 'Fuente Evga de 750W de potencia con certificacion 80+ White semimodular'
-      },
-    ];
-    this.marcas = [
-      'Nvidia',
-      'AMD',
-      'Kingstone',
-      'EVGA',
-      'Corsair',
-      'XPG',
-      'Asus',
-      'Asrock',
-      'Gigabyte',
-      'Aorus',
-      'MSI',
-    ];
+  async ngOnInit(): Promise<void> {
+    const url: string = 'http://localhost:3000/api/dbti/getproducts';
+
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        this.DB = data;
+        for (let i in this.DB) {
+          this.DB[i].forEach((producto: any) => {
+            if (!this.marcas.includes(producto.marca))
+              this.marcas.push(producto.marca);
+            producto.image = producto.image.replace(/\[|\]|"/g, '').split(',');
+            this.productos.push(producto);
+          });
+        }
+        for (let i = 0; i < this.cantidadProductosMostrar; i++)
+          this.productosMostrar.push(
+            this.productos[Math.floor(Math.random() * this.productos.length)]
+          );
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+
+    this.categorias = Object.keys(this.DB);
+
     this.precioRangos = [
       '$0 a $200.000',
       '$200.000 a $400.000',
       '$400.000 a $600.000',
       '$600.000 en adelante',
     ];
-    this.categorias = [];
   }
 }

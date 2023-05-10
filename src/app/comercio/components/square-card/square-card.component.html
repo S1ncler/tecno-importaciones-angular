@@ -1,0 +1,21 @@
+<div class="card text-center border-0 mb-4" style="width: 18rem; height: 30rem">
+  <div class="ps-4 pe-4" style="margin-left: -5%">
+    <img
+      src="{{ item.image[0] }}"
+      class="card-img-top m-2 position-relative z-1"
+      alt="..."
+    />
+  </div>
+  <div class="fondo image-bg-size z-0"></div>
+  <div class="card-body">
+    <div style="height: 5rem">
+      <h5 class="card-title helvetic">
+        {{ item.descripcion }}
+      </h5>
+    </div>
+    <p class="card-text helvetic">{{ item.price }}</p>
+    <a href="detalles-producto.html" class="btn btn-primary helvetic"
+      >Comprar</a
+    >
+  </div>
+</div>
