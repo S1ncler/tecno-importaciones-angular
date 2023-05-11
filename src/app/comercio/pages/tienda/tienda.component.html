@@ -4,7 +4,7 @@
   <aside
     class="d-flex m-4 mt-5 bg_gray rounded obr d-none d-sm-none d-md-block d-lg-block d-xl-block pt-5"
   >
-    <app-aside></app-aside>
+    <app-aside (productosMostrarChange)="getporductosMostrar($event)"></app-aside>
   </aside>
   <!-- seccion de vista de productos -->
   <section class="container-fluid justify-content-center">
@@ -59,7 +59,7 @@
     </div>
     <!-- barra lateral desplegable para mostrar la barra de categorias y filtros -->
     <div class="collapse navbar-collapse" id="sidebar">
-      <app-aside-collapse></app-aside-collapse>
+      <app-aside-collapse (productosMostrarChange)="getporductosMostrar($event)"></app-aside-collapse>
     </div>
     <!-- visualizacion de elementos -->
     <div class="row w-100 d-flex flex-wrap mb-5 justify-content-center">

@@ -24,7 +24,7 @@
 </ul>
 <span class="fs-4 fw-bold helvetic">Categorias</span>
 <ul class="helvetic list-group-flush">
-  <li *ngFor="let categoria of categorias" class="list-group-item">
+  <li *ngFor="let categoria of categorias" class="list-group-item"  (click)="emitProductosMostrarChange(categoria)">
     {{ categoria }}
   </li>
 </ul>

@@ -39,7 +39,7 @@
 <ul
   class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
 >
-  <li *ngFor="let categoria of categorias" class="list-group-item">
+  <li *ngFor="let categoria of categorias" class="list-group-item" (click)="emitProductosMostrarChange(categoria)" >
     {{ categoria }}
   </li>
 </ul>

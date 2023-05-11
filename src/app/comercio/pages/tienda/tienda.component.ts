@@ -14,6 +14,7 @@ export class TiendaComponent {
   horVer: boolean = false;
 
   async ngOnInit(): Promise<void> {
+    localStorage.removeItem('query');
     const url1: string = 'http://localhost:3000/api/dbti/getrandomproducts';
     await fetch(url1)
       .then((response) => response.json())
@@ -26,7 +27,8 @@ export class TiendaComponent {
   }
 
   async mostrarMas() {
-    const url1: string = 'http://localhost:3000/api/dbti/getrandomproducts';
+    let url1: string = 'http://localhost:3000/api/dbti/getrandomproducts';
+    if (localStorage.getItem('query') != null) url1 = `http://localhost:3000/api/dbti/getrandomproducts?categoria=${localStorage.getItem('query')}`
     await fetch(url1)
       .then((response) => response.json())
       .then((data) => {
@@ -39,5 +41,9 @@ export class TiendaComponent {
 
   horVerchanger (bool: boolean) {
     this.horVer = bool;
+  }
+
+  getporductosMostrar(otrosProductos: JSON[]){
+    this.productosMostrar = otrosProductos;
   }
 }

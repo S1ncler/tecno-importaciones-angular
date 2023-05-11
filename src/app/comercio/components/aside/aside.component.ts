@@ -10,9 +10,10 @@ export class AsideComponent {
   precioRangos: any;
   categorias: string[] = [];
   expand: boolean = true;
+  productosMostrar: JSON[] = [];
 
   async ngOnInit() {
-    const url2: string = 'http://localhost:3000/api/dbti/get5marcas';
+    const url2: string = 'http://localhost:3000/api/dbti/getmarcas?cantidad=5';
     await fetch(url2)
       .then((response) => response.json())
       .then((data) => {
@@ -40,11 +41,22 @@ export class AsideComponent {
     ];
   }
 
-  @Output() titleChange = new EventEmitter<string>();
+  @Output() productosMostrarChange = new EventEmitter<JSON[]>();
   //se crea una funcion que va a devolver la variable al componente padre
-  emitTitleChange() {
+  async emitProductosMostrarChange(query: string) {
+    localStorage.setItem('query', query);
+    const url: string = `http://localhost:3000/api/dbti/getrandomproducts?categoria=${query}`;
+      await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          this.productosMostrar = data;
+        })
+        .catch((error: any) => {
+          console.log(error);
+        });
+
     //cada vez que se ejeucta la funcion se devuelve la variable al componente padre mediante el evento
-    //this.titleChange.emit(this.title);
+    this.productosMostrarChange.emit(this.productosMostrar);
   }
 
   async expandChanger(bool: boolean) {
@@ -71,4 +83,5 @@ export class AsideComponent {
         });
     }
   }
+
 }
