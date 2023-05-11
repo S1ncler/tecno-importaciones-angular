@@ -4,13 +4,19 @@ import { TiendaComponent } from './pages/tienda/tienda.component';
 import { ComercioRoutingModule } from './comercio-routing.module';
 import { SharedModule } from '../Shared/shared.module';
 import { SquareCardComponent } from './components/square-card/square-card.component';
+import { HorizontalCardComponent } from './components/horizontal-card/horizontal-card.component';
+import { AsideComponent } from './components/aside/aside.component';
+import { AsideCollapseComponent } from './components/aside-collapse/aside-collapse.component';
 
 
 
 @NgModule({
   declarations: [
     TiendaComponent,
-    SquareCardComponent
+    SquareCardComponent,
+    HorizontalCardComponent,
+    AsideComponent,
+    AsideCollapseComponent
   ],
   imports: [
     CommonModule,

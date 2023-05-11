@@ -1,0 +1,7 @@
+.expand:hover{
+    cursor: pointer;
+}
+li:hover{
+    cursor: pointer;
+    margin: 10px;
+}

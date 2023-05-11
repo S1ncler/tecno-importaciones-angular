@@ -1,0 +1,45 @@
+<span
+  class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  >Marcas</span
+>
+<ul
+  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
+>
+  <li *ngFor="let marca of marcas" class="list-group-item">{{ marca }}</li>
+  <span
+    *ngIf="expand"
+    (click)="expandChanger(false)"
+    class="material-symbols-outlined expand list-group-item"
+  >
+    expand_more
+  </span>
+  <span
+    *ngIf="!expand"
+    (click)="expandChanger(true)"
+    class="material-symbols-outlined list-group-item"
+  >
+    expand_less
+  </span>
+</ul>
+<span
+  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  >Precio</span
+>
+<ul
+  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
+>
+  <li *ngFor="let precioRango of precioRangos" class="list-group-item">
+    {{ precioRango }}
+  </li>
+</ul>
+<span
+  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  >Categorias</span
+>
+<ul
+  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
+>
+  <li *ngFor="let categoria of categorias" class="list-group-item">
+    {{ categoria }}
+  </li>
+</ul>

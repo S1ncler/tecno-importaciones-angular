@@ -11,12 +11,10 @@ export class TiendaComponent {
   productos: JSON[] = [];
   productosMostrar: JSON[] = [];
   cantidadProductosMostrar = 10;
-  marcas: string[] = [];
-  precioRangos: any;
-  categorias: string[] = [];
+  horVer: boolean = false;
 
   async ngOnInit(): Promise<void> {
-    const url1: string = 'http://localhost:3000/api/dbti/get10randomproducts';
+    const url1: string = 'http://localhost:3000/api/dbti/getrandomproducts';
     await fetch(url1)
       .then((response) => response.json())
       .then((data) => {
@@ -25,37 +23,10 @@ export class TiendaComponent {
       .catch((error: any) => {
         console.log(error);
       });
-
-    const url2: string = 'http://localhost:3000/api/dbti/getmarcas';
-    await fetch(url2)
-      .then((response) => response.json())
-      .then((data) => {
-        this.marcas = data;
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-
-    const url3: string = 'http://localhost:3000/api/dbti/getcategorias';
-    await fetch(url3)
-      .then((response) => response.json())
-      .then((data) => {
-        this.categorias = data;
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-
-    this.precioRangos = [
-      '$0 a $200.000',
-      '$200.000 a $400.000',
-      '$400.000 a $600.000',
-      '$600.000 en adelante',
-    ];
   }
 
   async mostrarMas() {
-    const url1: string = 'http://localhost:3000/api/dbti/get10randomproducts';
+    const url1: string = 'http://localhost:3000/api/dbti/getrandomproducts';
     await fetch(url1)
       .then((response) => response.json())
       .then((data) => {
@@ -64,5 +35,9 @@ export class TiendaComponent {
       .catch((error: any) => {
         console.log(error);
       });
+  }
+
+  horVerchanger (bool: boolean) {
+    this.horVer = bool;
   }
 }

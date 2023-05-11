@@ -85,3 +85,6 @@ il:hover {
 .helvetic {
   font-family: Helvetica;
 }
+aside{
+  min-width: 280px;
+}
