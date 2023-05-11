@@ -10,36 +10,41 @@ export class TiendaComponent {
   DB: any;
   productos: JSON[] = [];
   productosMostrar: JSON[] = [];
-  cantidadProductosMostrar = 20;
+  cantidadProductosMostrar = 10;
   marcas: string[] = [];
   precioRangos: any;
   categorias: string[] = [];
 
   async ngOnInit(): Promise<void> {
-    const url: string = 'http://localhost:3000/api/dbti/getproducts';
-
-    await fetch(url)
+    const url1: string = 'http://localhost:3000/api/dbti/get10randomproducts';
+    await fetch(url1)
       .then((response) => response.json())
       .then((data) => {
-        this.DB = data;
-        for (let i in this.DB) {
-          this.DB[i].forEach((producto: any) => {
-            if (!this.marcas.includes(producto.marca))
-              this.marcas.push(producto.marca);
-            producto.image = producto.image.replace(/\[|\]|"/g, '').split(',');
-            this.productos.push(producto);
-          });
-        }
-        for (let i = 0; i < this.cantidadProductosMostrar; i++)
-          this.productosMostrar.push(
-            this.productos[Math.floor(Math.random() * this.productos.length)]
-          );
+        this.productosMostrar = data;
       })
       .catch((error: any) => {
         console.log(error);
       });
 
-    this.categorias = Object.keys(this.DB);
+    const url2: string = 'http://localhost:3000/api/dbti/getmarcas';
+    await fetch(url2)
+      .then((response) => response.json())
+      .then((data) => {
+        this.marcas = data;
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+
+    const url3: string = 'http://localhost:3000/api/dbti/getcategorias';
+    await fetch(url3)
+      .then((response) => response.json())
+      .then((data) => {
+        this.categorias = data;
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
 
     this.precioRangos = [
       '$0 a $200.000',
@@ -47,5 +52,17 @@ export class TiendaComponent {
       '$400.000 a $600.000',
       '$600.000 en adelante',
     ];
+  }
+
+  async mostrarMas() {
+    const url1: string = 'http://localhost:3000/api/dbti/get10randomproducts';
+    await fetch(url1)
+      .then((response) => response.json())
+      .then((data) => {
+        this.productosMostrar = [ ...this.productosMostrar, ...data];
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   }
 }
