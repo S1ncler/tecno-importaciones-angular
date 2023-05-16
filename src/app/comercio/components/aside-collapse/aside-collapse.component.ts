@@ -13,17 +13,18 @@ export class AsideCollapseComponent {
   productosMostrar: JSON[] = [];
 
   async ngOnInit() {
-    const url2: string = 'http://localhost:3000/api/dbti/getmarcas?cantidad=5';
+    const url2: string = 'http://localhost:3002/productos/marcas';
     await fetch(url2)
       .then((response) => response.json())
       .then((data) => {
+        data = data.slice(0, 5);
         this.marcas = data;
       })
       .catch((error: any) => {
         console.log(error);
       });
 
-    const url3: string = 'http://localhost:3000/api/dbti/getcategorias';
+    const url3: string = 'http://localhost:3002/productos/categorias';
     await fetch(url3)
       .then((response) => response.json())
       .then((data) => {
@@ -60,17 +61,18 @@ export class AsideCollapseComponent {
   async expandChanger(bool: boolean) {
     this.expand = bool;
     if (bool) {
-      const url2: string = 'http://localhost:3000/api/dbti/getmarcas?cantidad=5';
+      const url2: string = 'http://localhost:3002/productos/marcas';
       await fetch(url2)
         .then((response) => response.json())
         .then((data) => {
+          data = data.slice(0, 5);
           this.marcas = data;
         })
         .catch((error: any) => {
           console.log(error);
         });
     } else {
-      const url2: string = 'http://localhost:3000/api/dbti/getmarcas';
+      const url2: string = 'http://localhost:3002/productos/marcas';
       await fetch(url2)
         .then((response) => response.json())
         .then((data) => {
