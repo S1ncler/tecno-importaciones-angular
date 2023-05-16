@@ -5,3 +5,8 @@ li:hover{
     cursor: pointer;
     margin: 10px;
 }
+.eliminar-filtros{
+    border-color: black;
+    border-radius: 10px;
+    border: 2px !important;
+}

@@ -11,6 +11,7 @@ export class AsideCollapseComponent {
   categorias: string[] = [];
   expand: boolean = true;
   productosMostrar: JSON[] = [];
+  filtros: boolean = false;
 
   async ngOnInit() {
     const url2: string = 'http://localhost:3002/productos/marcas';
@@ -43,16 +44,39 @@ export class AsideCollapseComponent {
   }
   @Output() productosMostrarChange = new EventEmitter<JSON[]>();
   //se crea una funcion que va a devolver la variable al componente padre
-  async emitProductosMostrarChange(query: string) {
-    const url: string = `http://localhost:3000/api/dbti/getrandomproducts?categoria=${query}`;
-      await fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          this.productosMostrar = data;
-        })
-        .catch((error: any) => {
-          console.log(error);
-        });
+  async emitProductosMostrarChange(typeQuery: string = "", query: string = "") {
+    this.filtros = true;
+    if (typeQuery === 'marca') {
+      localStorage.setItem('typeQuery', typeQuery);
+      localStorage.setItem('query', query);
+    }
+    if (typeQuery === 'categoria') {
+      localStorage.setItem('typeQuery2', typeQuery);
+      localStorage.setItem('query2', query);
+    }
+    let data: Record<string, any> = {};
+    if (localStorage.getItem('typeQuery'))
+      data[localStorage.getItem('typeQuery') || ''] =
+        localStorage.getItem('query');
+    if (localStorage.getItem('typeQuery2'))
+      data[localStorage.getItem('typeQuery2') || ''] =
+        localStorage.getItem('query2');
+    const url: string = `http://localhost:3002/productos/r`;
+    await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.productosMostrar = data;
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
 
     //cada vez que se ejeucta la funcion se devuelve la variable al componente padre mediante el evento
     this.productosMostrarChange.emit(this.productosMostrar);
@@ -82,5 +106,14 @@ export class AsideCollapseComponent {
           console.log(error);
         });
     }
+  }
+
+  eliminarFiltros() {
+    localStorage.removeItem('typeQuery');
+    localStorage.removeItem('query');
+    localStorage.removeItem('typeQuery2');
+    localStorage.removeItem('query2');
+    this.emitProductosMostrarChange();
+    this.filtros = false;
   }
 }

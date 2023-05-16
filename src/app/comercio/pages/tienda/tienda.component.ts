@@ -1,4 +1,3 @@
-import { query } from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,11 +10,13 @@ export class TiendaComponent {
   DB: any;
   productos: JSON[] = [];
   productosMostrar: any[] = [];
-  cantidadProductosMostrar = 10;
   horVer: boolean = false;
 
   async ngOnInit(): Promise<void> {
+    localStorage.removeItem('typeQuery');
+    localStorage.removeItem('typeQuery2');
     localStorage.removeItem('query');
+    localStorage.removeItem('query2');
     const url1: string = 'http://localhost:3002/productos/r';
     await fetch(url1)
       .then((response) => response.json())
@@ -31,35 +32,25 @@ export class TiendaComponent {
     let url1: string = 'http://localhost:3002/productos/r';
     let idsProductos: number[] = [];
     for (let producto of this.productosMostrar) idsProductos.push(producto.id);
-    let data: any[] = [];
+    let data: Record<string, any> = {};
     if (localStorage.getItem('typeQuery'))
-      data.push(
-        JSON.parse(
-          `${localStorage.getItem('typeQuery')}: ${localStorage.getItem(
-            'query'
-          )}`
-        )
-      );
+      data[localStorage.getItem('typeQuery') || ''] =
+        localStorage.getItem('query');
     if (localStorage.getItem('typeQuery2'))
-      data.push(
-        JSON.parse(
-          `${localStorage.getItem('typeQuery2')}: ${localStorage.getItem(
-            'query2'
-          )}`
-        )
-      );
-    data.push({id: idsProductos});
-    let peticion = {
+      data[localStorage.getItem('typeQuery2') || ''] =
+        localStorage.getItem('query2');
+    data['ids'] = idsProductos;
+    await fetch(url1, {
       method: 'POST',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    };
-    await fetch(url1)
+    })
       .then((response) => response.json())
       .then((data) => {
+        
         this.productosMostrar = [...this.productosMostrar, ...data];
       })
       .catch((error: any) => {

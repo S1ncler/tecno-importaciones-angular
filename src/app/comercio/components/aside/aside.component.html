@@ -5,7 +5,13 @@
 <ul
   class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
 >
-  <li *ngFor="let marca of marcas" class="list-group-item">{{ marca }}</li>
+  <li
+    *ngFor="let marca of marcas"
+    class="list-group-item"
+    (click)="emitProductosMostrarChange('marca', marca)"
+  >
+    {{ marca }}
+  </li>
   <span
     *ngIf="expand"
     (click)="expandChanger(false)"
@@ -39,7 +45,21 @@
 <ul
   class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
 >
-  <li *ngFor="let categoria of categorias" class="list-group-item" (click)="emitProductosMostrarChange(categoria)" >
+  <li
+    *ngFor="let categoria of categorias"
+    class="list-group-item"
+    (click)="emitProductosMostrarChange('categoria', categoria)"
+  >
     {{ categoria }}
   </li>
 </ul>
+<button
+  class="btn btn-dark ms-5 mt-3"
+  *ngIf="filtros"
+  (click)="eliminarFiltros()"
+>
+  <span
+    class="fs-5 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
+    >Eliminar filtros</span
+  >
+</button>

@@ -1,6 +1,12 @@
 <span class="fs-4 fw-bold helvetic">Marcas</span>
 <ul class="helvetic list-group-flush">
-  <li *ngFor="let marca of marcas" class="list-group-item">{{ marca }}</li>
+  <li
+    *ngFor="let marca of marcas"
+    class="list-group-item"
+    (click)="emitProductosMostrarChange('marca', marca)"
+  >
+    {{ marca }}
+  </li>
   <span
     *ngIf="expand"
     (click)="expandChanger(false)"
@@ -24,7 +30,19 @@
 </ul>
 <span class="fs-4 fw-bold helvetic">Categorias</span>
 <ul class="helvetic list-group-flush">
-  <li *ngFor="let categoria of categorias" class="list-group-item"  (click)="emitProductosMostrarChange(categoria)">
+  <li
+    *ngFor="let categoria of categorias"
+    class="list-group-item"
+    (click)="emitProductosMostrarChange('categoria', categoria)"
+  >
     {{ categoria }}
   </li>
 </ul>
+<div class="rounded border-2 ms-5 me-5">
+<span
+  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  *ngIf="filtros"
+  (click)="eliminarFiltros()"
+  >Eliminar filtros</span
+>
+</div>
