@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./square-card.component.css']
 })
 export class SquareCardComponent {
+  // recibe el item a mostrar
   @Input() item: any;
 }

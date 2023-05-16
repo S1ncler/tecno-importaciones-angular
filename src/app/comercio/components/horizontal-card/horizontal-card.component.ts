@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./horizontal-card.component.css']
 })
 export class HorizontalCardComponent {
+  // recibe el item a mostrar
   @Input() item: any;
 }
