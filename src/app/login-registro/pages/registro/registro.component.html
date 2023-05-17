@@ -1,0 +1,444 @@
+<app-nav-bar></app-nav-bar>
+<!-- contenedor generalcon fondo blanco -->
+<div
+  class="d-flex container flex-column bg-white contenedor m-0 align-items-start p-0"
+>
+  <!-- seccion de contenido central -->
+  <section class="container-fluid justify-content-center">
+    <!-- seccion del logo redondo -->
+    <div class="d-flex justify-content-center">
+      <div
+        class="rounded-circle d-flex justify-content-center align-items-center p-4 bg-white con-logo-sup"
+      >
+        <img
+          src="assets/images/LOGO TI SOLO.png"
+          alt="Logo ti"
+          class="m-4 w-logo-ti"
+        />
+      </div>
+    </div>
+    <!-- imagen logo de fondo -->
+    <img
+      src="assets/images/LOGO-MUNDO-SOLO.png"
+      alt="logo mundo solo"
+      class="logo-mundo-fondo"
+    />
+    <!-- contenedor de las secciones de inicio de sesion y registro -->
+    <div class="row justify-content-center">
+      <!-- seccion de inicio de sesion -->
+      <div
+        class="pt-5 pb-5 col-sm-12 col-md-6 col-xl-6 col-xxl-6 fondo d-flex flex-column justify-content-center align-items-center"
+        style="border-radius: 0px 0px 40px 0px"
+      >
+        <span class="fw-bold mb-3 z-index-99 text-bienve helvetic"
+          >Bienvenido</span
+        >
+        <span
+          class="fw-bold fs-5 text-center lh-1 mb-5 z-index-99 helvetic"
+          style="width: 35%; color: white; min-width: 300px"
+          >SI YA TIENES UNA CUENTA PUEDES INGRESAR AQUI.</span
+        >
+        <button
+          id="ir_pagina"
+          class="btn btn-login fw-bold z-index-99 helvetic"
+        >
+          INGRESAR
+        </button>
+      </div>
+      <!-- seccion de campos de registro -->
+      <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6 bg-white p-5">
+        <!-- titulo registro -->
+        <div
+          class="d-flex justify-content-center align-items-center z-index-99"
+        >
+          <span class="fw-bold z-index-99 text-reg helvetic">Registro</span>
+        </div>
+        <!-- seccion de logos de facebook y whatsapp -->
+        <div
+          class="d-flex justify-content-center align-items-center mt-3 z-index-99"
+        >
+          <!-- logo de facebook -->
+          <div
+            class="rounded-circle me-4 border-1 p-2 z-index-99"
+            style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8)"
+          >
+            <span class="z-index-99"
+              ><img
+                class="z-index-99"
+                src="assets/images/Facebook-logo-redondo.png"
+                alt="logo-facebook"
+                width="30px"
+            /></span>
+          </div>
+          <!-- logo de google -->
+          <div
+            class="rounded-circle me-4 p-1 z-index-99"
+            style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8)"
+          >
+            <span class="z-index-99"
+              ><img
+                class="z-index-99"
+                src="assets/images/google-logo.png"
+                alt="logo-google"
+                height="35px"
+                width="35px"
+            /></span>
+          </div>
+        </div>
+        <!-- division entre el titulo y el form -->
+        <div class="w-100 z-index-99">
+          <div
+            class="separator z-index-99"
+            style="height: 0px !important; border: 1px solid black !important"
+          >
+            <span class="z-index-99"></span>
+          </div>
+        </div>
+        <!-- formulario -->
+        <form
+          name="form"
+          action="login.html"
+          method="POST"
+          class="z-index-99 position-relative"
+          (ngSubmit)="registrar()"
+          (ngSubmit)="contrasena2Input.value = ''"
+          [formGroup]="formUser"
+        >
+          <!-- Nombre -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="nombre" class="fw-bold helvetic">Nombre:</label>
+            <input
+              type="text"
+              class="form-control input-registro"
+              id="nombre"
+              placeholder="Ingresa tu nombre"
+              name="nombre"
+              formControlName="nombre"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="nombre.valid || nombre.pristine"
+          >
+            El campo nombre es obligatorio
+          </div>
+          <!-- Username -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="userName" class="fw-bold helvetic">Nick:</label>
+            <input
+              type="text"
+              class="form-control input-registro"
+              id="username"
+              placeholder="Ingresa tu nick"
+              name="username"
+              formControlName="username"
+              required
+              (change)="validarNick()"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="
+              (username.valid || username.pristine || username.untouched) &&
+              valnick
+            "
+          >
+            <span *ngIf="username.errors?.['required']"
+              >El campo Nick es obligatorio</span
+            >
+            <span *ngIf="!valnick">Este nick ya existe</span>
+          </div>
+          <!-- Correo -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="email" class="fw-bold helvetic"
+              >Correo electrónico:</label
+            >
+            <input
+              type="email"
+              class="form-control input-registro"
+              id="email"
+              placeholder="Ingresa tu correo electrónico"
+              name="email"
+              formControlName="email"
+              required
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="email.valid || email.pristine || email.untouched"
+          >
+            <span *ngIf="email.errors?.['required']"
+              >El email es obligatorio</span
+            >
+            <span *ngIf="email.errors?.['email']">Ingrese un email valido</span>
+          </div>
+          <!-- cumpleaños -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="cumpleaños" class="fw-bold helvetic">cumpleaños:</label>
+            <input
+              type="date"
+              class="form-control input-registro"
+              id="cumpleaños"
+              placeholder="Ingresa tu cumpleaños"
+              name="cumpleaños"
+              formControlName="cumpleanos"
+              (change)="compararFecha()"
+              required
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="
+              (cumpleanos.valid ||
+                cumpleanos.pristine ||
+                cumpleanos.untouched) &&
+              valfecha
+            "
+          >
+            <span *ngIf="cumpleanos.errors?.['required']"
+              >La fecha de cumpleaños es obligatoria</span
+            >
+            <span *ngIf="!valfecha"
+              >Tienes que ser mayor de edad para registrarte</span
+            >
+          </div>
+          <!-- Telefono -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="telefono" class="fw-bold helvetic">Telefono:</label>
+            <input
+              type="text"
+              class="form-control input-registro"
+              id="telefono"
+              placeholder="Ingresa tu numero de telefono"
+              name="telefono"
+              formControlName="telefono"
+              required
+              (change)="validarTel()"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="
+              (telefono.valid || telefono.pristine || telefono.untouched) &&
+              valTel
+            "
+          >
+            <span *ngIf="telefono.errors?.['required']"
+              >El campo telefono es obligatorio</span
+            >
+            <span *ngIf="!valTel">Ingrese un telefono valido</span>
+          </div>
+          <!-- Contraseña -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="contraseña" class="fw-bold helvetic">Contraseña:</label>
+            <input
+              type="password"
+              class="form-control input-registro"
+              id="contraseña"
+              placeholder="Ingresa una nueva contraseña"
+              name="contrasena"
+              formControlName="contrasena"
+              required
+              (change)="validarContrasena()"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="
+              (contrasena.valid ||
+                contrasena.pristine ||
+                contrasena.untouched) &&
+              valCont
+            "
+          >
+            <span *ngIf="contrasena.errors?.['required']"
+              >El contraseña es obligatorio</span
+            >
+            <span *ngIf="!valCont">Ingrese una contraseña valida</span>
+          </div>
+          <!-- Confirmar contraseña -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="conf-contraseña helvetic" class="fw-bold"
+              >Confirmar contraseña:</label
+            >
+            <input
+              type="password"
+              class="form-control input-registro"
+              id="conf-contraseña"
+              placeholder="Confirma tu contraseña"
+              name="conf-contraseña"
+              required
+              #contrasena2Input
+              (change)="confirmarContrasena(contrasena2Input.value)"
+            />
+          </div>
+          <div class="alert alert-danger" [hidden]="confirmCont">
+            <span *ngIf="!confirmCont"
+              >Las dos contraseñas deben ser iguales</span
+            >
+          </div>
+          <!-- div para poner la seleccion de departamento y ciudad juntos -->
+          <div class="container-fluid z-index-99">
+            <div class="row">
+              <!-- Departamento -->
+              <div class="form-group col-6 mt-3 ps-0">
+                <label for="departamento" class="fw-bold helvetic"
+                  >Departamento:</label
+                >
+                <select
+                  name="departamento"
+                  class="form-control input-registro helvetic"
+                  id="departamento"
+                  formControlName="departamento"
+                >
+                  <option value="">Seleccione un departamento</option>
+                  <option value="Amazonas">Amazonas</option>
+                  <option value="Antioquia">Antioquia</option>
+                  <option value="Arauca">Arauca</option>
+                  <option value="Atlántico">Atlántico</option>
+                  <option value="Bolívar">Bolívar</option>
+                  <option value="Boyacá">Boyacá</option>
+                  <option value="Caldas">Caldas</option>
+                  <option value="Caquetá">Caquetá</option>
+                  <option value="Casanare">Casanare</option>
+                  <option value="Cauca">Cauca</option>
+                  <option value="Cesar">Cesar</option>
+                  <option value="Chocó">Chocó</option>
+                  <option value="Córdoba">Córdoba</option>
+                  <option value="Cundinamarca">Cundinamarca</option>
+                  <option value="Guainía">Guainía</option>
+                  <option value="Guaviare">Guaviare</option>
+                  <option value="Huila">Huila</option>
+                  <option value="La Guajira">La Guajira</option>
+                  <option value="Magdalena">Magdalena</option>
+                  <option value="Meta">Meta</option>
+                  <option value="Nariño">Nariño</option>
+                  <option value="Norte de Santander">Norte de Santander</option>
+                  <option value="Putumayo">Putumayo</option>
+                  <option value="Quindío">Quindío</option>
+                  <option value="Risaralda">Risaralda</option>
+                  <option value="San Andrés y Providencia">
+                    San Andrés y Providencia
+                  </option>
+                  <option value="Santander">Santander</option>
+                  <option value="Sucre">Sucre</option>
+                  <option value="Tolima">Tolima</option>
+                  <option value="Valle del Cauca">Valle del Cauca</option>
+                  <option value="Vaupés">Vaupés</option>
+                  <option value="Vichada">Vichada</option>
+                </select>
+                <div
+                  class="alert alert-danger"
+                  [hidden]="departamento.valid || departamento.pristine"
+                >
+                  El campo departamento es obligatorio
+                </div>
+              </div>
+              <!-- Ciudad -->
+              <div class="form-group col-6 mt-3 pe-0">
+                <label for="ciudad" class="fw-bold helvetic">Ciudad:</label>
+                <select
+                  name="ciudad"
+                  class="form-control input-registro helvetic"
+                  id="ciudad"
+                  formControlName="ciudad"
+                >
+                  <option value="">Seleccione una ciudad</option>
+                  <option value="Barranquilla">Barranquilla</option>
+                  <option value="Bogotá">Bogotá</option>
+                  <option value="Cali">Cali</option>
+                  <option value="Cartagena">Cartagena</option>
+                  <option value="Cúcuta">Cúcuta</option>
+                  <option value="Ibagué">Ibagué</option>
+                  <option value="Manizales">Manizales</option>
+                  <option value="Medellín">Medellín</option>
+                  <option value="Neiva">Neiva</option>
+                  <option value="Pasto">Pasto</option>
+                  <option value="Pereira">Pereira</option>
+                  <option value="Santa Marta">Santa Marta</option>
+                  <option value="Valledupar">Valledupar</option>
+                  <option value="Villavicencio">Villavicencio</option>
+                </select>
+                <div
+                  class="alert alert-danger"
+                  [hidden]="ciudad.valid || ciudad.pristine"
+                >
+                  El campo ciudad es obligatorio
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="nombre.valid || nombre.pristine"
+          >
+            El campo nombre es obligatorio
+          </div>
+          <!-- direccion -->
+          <div class="form-group mt-3" style="z-index: 100">
+            <label for="direccion" class="fw-bold helvetic" style="z-index: 100"
+              >Dirección:</label
+            >
+            <input
+              type="text"
+              class="form-control input-registro"
+              id="direccion"
+              placeholder="Ingresa tu dirección"
+              name="direccion"
+              required
+              formControlName="direccion"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            [hidden]="direccion.valid || direccion.pristine"
+          >
+            El campo direccion es obligatorio
+          </div>
+          <!-- complemento de la direccion -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="complemento" class="fw-bold helvetic"
+              >Complemento:</label
+            >
+            <input
+              type="text"
+              class="form-control input-registro helvetic"
+              id="complemento"
+              placeholder="Ingresa el complemento de tu dirección"
+              name="complemento"
+              formControlName="complemento"
+            />
+          </div>
+          <!-- codigo postal -->
+          <div class="form-group mt-3 z-index-99">
+            <label for="codigo-postal" class="fw-bold helvetic"
+              >Código postal:</label
+            >
+            <input
+              type="text"
+              class="form-control input-registro helvetic"
+              id="codigo-postal"
+              placeholder="Ingresa tu código postal"
+              name="codigo-postal"
+              formControlName="codigoPostal"
+            />
+          </div>
+          <!-- boton de registro -->
+          <div
+            class="d-flex justify-content-center align-items-center mt-5 z-index-1"
+          >
+            <button type="submit" class="btn btn-reg fw-bold fs-3 helvetic" [disabled]="formUser.invalid">
+              Registrarse
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- separador entre el contenido de la pagina y el footer -->
+  <div class="w-100" style="margin-top: 150px">
+    <div class="separator"></div>
+  </div>
+</div>
+<app-footer></app-footer>
+<app-logo-whats></app-logo-whats>
