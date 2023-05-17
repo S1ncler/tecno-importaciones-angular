@@ -7,6 +7,7 @@ import { SquareCardComponent } from './components/square-card/square-card.compon
 import { HorizontalCardComponent } from './components/horizontal-card/horizontal-card.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { AsideCollapseComponent } from './components/aside-collapse/aside-collapse.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +20,7 @@ import { AsideCollapseComponent } from './components/aside-collapse/aside-collap
     AsideCollapseComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ComercioRoutingModule,
     SharedModule

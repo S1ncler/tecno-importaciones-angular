@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.component.html',
   styleUrls: ['./tienda.component.css'],
 })
-export class TiendaComponent {
+export class TiendaComponent implements OnInit {
+  // valor que guarda la opcion con la que ordenar
+  opcionOrdenar: string = "ordenar";
+
   constructor() {}
+  
   // para saber si hay algun filtro de precio aplicado
   filtradoPrecio: boolean = false
   // almacenar los productos completos cuando haya un filtro de precios
@@ -112,5 +116,21 @@ export class TiendaComponent {
     for (let producto of this.productos)
       if (producto.price >= rangoprecio[0] && producto.price <= rangoprecio[1])
         this.productosMostrar.push(producto);
+  }
+
+  // funcion para ordenar segun lo que escoja el usuario
+  ordenar(){
+    if (this.opcionOrdenar === "nombre-A-Z"){
+      this.productosMostrar = this.productosMostrar.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    if (this.opcionOrdenar === "nombre-Z-A"){
+      this.productosMostrar = this.productosMostrar.sort((a, b) => b.name.localeCompare(a.name));
+    }
+    if (this.opcionOrdenar === "precio-ascendente"){
+      this.productosMostrar = this.productosMostrar.sort((a, b) => a.price - b.price);
+    }
+    if (this.opcionOrdenar === "precio-descendente"){
+      this.productosMostrar = this.productosMostrar.sort((a, b) => b.price - a.price);
+    }
   }
 }

@@ -4,7 +4,11 @@
   <aside
     class="d-flex m-4 mt-5 bg_gray rounded obr d-none d-sm-none d-md-block d-lg-block d-xl-block pt-5"
   >
-    <app-aside (productosMostrarChange)="getporductosMostrar($event)" [RangoPrecios]="rangosPrecios" (filtroPrecio)="filtroPrecio($event)"></app-aside>
+    <app-aside
+      (productosMostrarChange)="getporductosMostrar($event)"
+      [RangoPrecios]="rangosPrecios"
+      (filtroPrecio)="filtroPrecio($event)"
+    ></app-aside>
   </aside>
   <!-- seccion de vista de productos -->
   <section class="container-fluid justify-content-center">
@@ -14,15 +18,19 @@
       <div
         class="col-11 col-sm-11 col-md-10 col-lg-8 col-xl-6 d-flex justify-content-end border-selection mt-5 pt-2 ps-4"
       >
-        <label for="ordenar-por" class="mb-2 helvetic">Ordenar por:</label>
+        
         <select
+          name="seleccionOrdenar"
           class="form-control m-0 ms-3 me-5 mb-2 helvetic"
           id="ordenar-por"
+          [(ngModel)]="opcionOrdenar"
+          (change)="ordenar()"
         >
-          <option value="nombre">Nombre</option>
+          <option value="ordenar">Ordenar por</option>
+          <option value="nombre-A-Z">Nombre de la A a la Z</option>
+          <option value="nombre-Z-A">Nombre de la Z a la A</option>
           <option value="precio-ascendente">Precio ascendente</option>
           <option value="precio-descendente">Precio descendente</option>
-          <option value="relevancia">Relevancia</option>
         </select>
         <div class="me-2 mt-1">
           <span
@@ -59,7 +67,10 @@
     </div>
     <!-- barra lateral desplegable para mostrar la barra de categorias y filtros -->
     <div class="collapse navbar-collapse" id="sidebar">
-      <app-aside-collapse (productosMostrarChange)="getporductosMostrar($event)" (filtroPrecio)="filtroPrecio($event)"></app-aside-collapse>
+      <app-aside-collapse
+        (productosMostrarChange)="getporductosMostrar($event)"
+        (filtroPrecio)="filtroPrecio($event)"
+      ></app-aside-collapse>
     </div>
     <!-- visualizacion de elementos -->
     <div class="row w-100 d-flex flex-wrap mb-5 justify-content-center">
