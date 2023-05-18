@@ -3,7 +3,7 @@
 }
 li:hover{
     cursor: pointer;
-    margin: 10px;
+    color: rgb(124, 124, 124);
 }
 .eliminar-filtros{
     border-color: black;
