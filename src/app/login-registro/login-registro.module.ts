@@ -5,11 +5,13 @@ import { LoginRegistroRoutingModule } from './login-registro-routing.module';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/shared.module';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
-    RegistroComponent
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [    
     FormsModule,
