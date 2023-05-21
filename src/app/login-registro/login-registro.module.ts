@@ -6,19 +6,23 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../Shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegistroService } from './services/registro.service';
 
 
 @NgModule({
   declarations: [
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [    
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     LoginRegistroRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    HttpClientModule
+  ],
+  providers: [RegistroService]
 })
 export class LoginRegistroModule { }

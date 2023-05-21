@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegistroService } from '../../services/registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -7,6 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent {
+
+  constructor(private registroService: RegistroService) {}
+
   get nombre() {
     return this.formUser.get('nombre') as FormControl;
   }
@@ -59,62 +63,26 @@ export class RegistroComponent {
   valTel = true;
   valCont  = true;
   confirmCont = true
-  async registrar() {
-    let url = `http://localhost:3002/auth/register`;
-    await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this.formUser.value),
+  registrar() {
+    this.registroService.registrar(this.formUser).subscribe(data => {
+      alert(data.msg === "ALREADY_USER" ? "Ya tienes un usuario con este mismo email" : data.msg);
+      this.formUser.reset();
+      this.valContrasena = '';      
     })
-      .then(response => response.json())
-      .then(data => {
-        alert(data.msg === "ALREADY_USER" ? "Ya tienes un usuario con este mismo email" : data.msg);
-        this.formUser.reset();
-        this.valContrasena = '';
-      })
-      .catch(e => console.log(e));
   }
   async validarNick() {
-    let url = `http://localhost:3002/usuarios/${this.formUser.value.username}`;
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.username === this.formUser.value.username)
-          this.valnick = false;
-        else this.valnick = true;
-      })
-      .catch((e) => console.log(e));
+    await this.registroService.validarNick(this.formUser).then(bool => this.valnick = bool);
   }
   compararFecha() {
-    this.valfecha =
-      new Date(this.formUser.value.cumpleanos || '') < new Date('2005-01-01');
+    this.valfecha = this.registroService.compararFecha(this.formUser);
   }
   validarTel() {
-    var numbers = /^[0-9+]+$/;
-    if (numbers.test(this.formUser.value.telefono || '')) this.valTel = true;
-    else this.valTel = false;
+    this.valTel = this.registroService.validarTel(this.formUser);
   }
   validarContrasena() {
-    const tieneMayuscula = /[A-Z]/.test(this.formUser.value.contrasena || '');
-    const tieneMinuscula = /[a-z]/.test(this.formUser.value.contrasena || '');
-    const tieneNumero = /[0-9]/.test(this.formUser.value.contrasena || '');
-    const tieneSimbolo = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(
-      this.formUser.value.contrasena || ''
-    );
-    const tieneLongitudSuficiente =
-      this.formUser.value.contrasena || ''.length >= 8;
-    if (tieneMayuscula &&
-      tieneMinuscula &&
-      tieneNumero &&
-      tieneSimbolo &&
-      tieneLongitudSuficiente)this.valCont = true;
-    else this.valCont = false
+    this.valCont = this.registroService.validarContrasena(this.formUser);
   }
   confirmarContrasena(contrasena2: string){
-    if (this.formUser.value.contrasena === contrasena2) this.confirmCont = true;
-    else this.confirmCont = false;
+    this.confirmCont = this.registroService.confirmarContrasena(this.formUser, contrasena2);
   }
 }
