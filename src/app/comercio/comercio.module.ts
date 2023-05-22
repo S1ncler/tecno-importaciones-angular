@@ -8,6 +8,7 @@ import { HorizontalCardComponent } from './components/horizontal-card/horizontal
 import { AsideComponent } from './components/aside/aside.component';
 import { AsideCollapseComponent } from './components/aside-collapse/aside-collapse.component';
 import { FormsModule } from '@angular/forms';
+import { TiendaService } from './services/tienda.service';
 
 
 
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ComercioRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [TiendaService]
 })
 export class ComercioModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TiendaService } from '../../services/tienda.service';
 
 @Component({
   selector: 'app-tienda',
@@ -9,7 +10,7 @@ export class TiendaComponent implements OnInit {
   // valor que guarda la opcion con la que ordenar
   opcionOrdenar: string = "ordenar";
 
-  constructor() {}
+  constructor(private tiendaService: TiendaService) {}
   
   // para saber si hay algun filtro de precio aplicado
   filtradoPrecio: boolean = false
@@ -30,52 +31,17 @@ export class TiendaComponent implements OnInit {
     localStorage.removeItem('query');
     localStorage.removeItem('query2');
     // realiza una consulta inicial de 10 productos random
-    const url1: string = 'http://localhost:3002/productos/r';
-    await fetch(url1)
-      .then((response) => response.json())
-      .then((data) => {
-        this.productosMostrar = data;
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-    this.getPrecios();
+    await this.tiendaService.traerProductos().then(data => this.productosMostrar = data);
+    // obtiene el rango de precios de los productos que se estan mostrando
+    this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
+    // this.getPrecios();
   }
 
   // funcion que se ejecuta en caso de que se accione el boton de mostrar mas productos
   async mostrarMas() {
-    let url1: string = 'http://localhost:3002/productos/r';
-    // llena los ids de los productos ya mostrados para que no se repitan en la nueva consulta
-    let idsProductos: number[] = [];
-    for (let producto of this.productosMostrar) idsProductos.push(producto.id);
-    // evalua si hay filtros y realiza la consulta con los filtros que el usuario haya
-    // seleccionado y los guarda en data para despues hacer la peticion a la api
-    let data: Record<string, any> = {};
-    if (localStorage.getItem('typeQuery'))
-      data[localStorage.getItem('typeQuery') || ''] =
-        localStorage.getItem('query');
-    if (localStorage.getItem('typeQuery2'))
-      data[localStorage.getItem('typeQuery2') || ''] =
-        localStorage.getItem('query2');
-    data['ids'] = idsProductos;
-    // realiza la peticion a la api
-    await fetch(url1, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // obtiene los productos que debe mostrar
-        this.productosMostrar = [...this.productosMostrar, ...data];
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-    this.getPrecios();
+    await this.tiendaService.traerProductos(this.productosMostrar).then(data => this.productosMostrar = data);
+    // obtiene el rango de precios de los productos que se estan mostrando
+    this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
   }
 
   horVerchanger(bool: boolean) {
@@ -86,22 +52,8 @@ export class TiendaComponent implements OnInit {
   // de los componentes aside y tambien su rango de precios
   getporductosMostrar(otrosProductos: JSON[]) {
     this.productosMostrar = otrosProductos;
-    this.getPrecios();
-  }
-
-  // obtiene el rango de precios de los productos que se estan mostrando
-  getPrecios() {
-    this.rangosPrecios = [];
-    let precios: number[] = [];
-    for (let producto of this.productosMostrar) precios.push(producto.price);
-    precios.sort((a, b) => a - b);
-    const totalPrecios = precios.length;
-    const rango = Math.floor(totalPrecios / 4);
-
-    this.rangosPrecios.push([precios[0], precios[rango - 1]]);
-    this.rangosPrecios.push([precios[rango], precios[rango * 2 - 1]]);
-    this.rangosPrecios.push([precios[rango * 2], precios[rango * 3 - 1]]);
-    this.rangosPrecios.push([precios[rango * 3], precios[totalPrecios - 1]]);
+    // obtiene el rango de precios de los productos que se estan mostrando
+    this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
   }
 
   // realiza el filtrado por precio
@@ -120,17 +72,6 @@ export class TiendaComponent implements OnInit {
 
   // funcion para ordenar segun lo que escoja el usuario
   ordenar(){
-    if (this.opcionOrdenar === "nombre-A-Z"){
-      this.productosMostrar = this.productosMostrar.sort((a, b) => a.name.localeCompare(b.name));
-    }
-    if (this.opcionOrdenar === "nombre-Z-A"){
-      this.productosMostrar = this.productosMostrar.sort((a, b) => b.name.localeCompare(a.name));
-    }
-    if (this.opcionOrdenar === "precio-ascendente"){
-      this.productosMostrar = this.productosMostrar.sort((a, b) => a.price - b.price);
-    }
-    if (this.opcionOrdenar === "precio-descendente"){
-      this.productosMostrar = this.productosMostrar.sort((a, b) => b.price - a.price);
-    }
+    this.productosMostrar = this.tiendaService.ordenar(this.productosMostrar, this.opcionOrdenar)
   }
 }
