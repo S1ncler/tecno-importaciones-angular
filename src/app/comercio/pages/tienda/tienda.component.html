@@ -79,6 +79,7 @@
         class="col-12 d-flex flex-wrap align-content-around justify-content-around"
       >
         <app-square-card
+          (cartAdded)="cartAdded()"
           *ngFor="let item of productosMostrar"
           [item]="item"
         ></app-square-card>
@@ -88,6 +89,7 @@
         class="col-12 d-flex flex-wrap align-content-around justify-content-around"
       >
         <app-horizontal-card
+          (cartAdded)="cartAdded()"
           *ngFor="let item of productosMostrar"
           [item]="item"
         ></app-horizontal-card>

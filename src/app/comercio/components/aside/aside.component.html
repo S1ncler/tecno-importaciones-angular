@@ -1,7 +1,7 @@
 <!-- lista de marcas de los productos -->
 <div>
 <span
-  class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
   >Marcas</span
 >
 <ul
@@ -34,13 +34,13 @@
 <!-- lista de los rangos de precios de los productos que se estan mostrando -->
 <div>
 <span
-  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
   >Precio</span
 >
 <ul
   class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
 >
-  <li *ngFor="let precioRango of RangoPrecios" class="list-group-item" (click)="emitfitroPrecioChange(precioRango)">
+  <li *ngFor="let precioRango of RangoPrecios" class="list-group-item m-1" (click)="emitfitroPrecioChange(precioRango)">
     De ${{ precioRango[0] }} hasta $ {{ precioRango[1] }}
   </li>
 </ul>
@@ -48,7 +48,7 @@
 <!-- lista de las categorias de productos -->
 <div>
 <span
-  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5"
+  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
   >Categorias</span
 >
 <ul
@@ -56,7 +56,7 @@
 >
   <li
     *ngFor="let categoria of categorias"
-    class="list-group-item"
+    class="list-group-item m-1 text-capitalize"
     (click)="emitProductosMostrarChange('categoria', categoria)"
   >
     {{ categoria }}

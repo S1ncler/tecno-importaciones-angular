@@ -18,4 +18,13 @@
     border-radius: 20px;
     margin-top: 15px;
   }
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .demo-section + .demo-section {
+    margin-top: 16px;
+  }
   

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TiendaService } from '../../services/tienda.service';
+import { NavBarComponent } from 'src/app/Shared/components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-tienda',
@@ -7,6 +8,9 @@ import { TiendaService } from '../../services/tienda.service';
   styleUrls: ['./tienda.component.css'],
 })
 export class TiendaComponent implements OnInit {
+
+  @ViewChild(NavBarComponent) navBarComponent: NavBarComponent | undefined;
+
   // valor que guarda la opcion con la que ordenar
   opcionOrdenar: string = "ordenar";
 
@@ -34,7 +38,6 @@ export class TiendaComponent implements OnInit {
     await this.tiendaService.traerProductos().then(data => this.productosMostrar = data);
     // obtiene el rango de precios de los productos que se estan mostrando
     this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
-    // this.getPrecios();
   }
 
   // funcion que se ejecuta en caso de que se accione el boton de mostrar mas productos
@@ -73,5 +76,9 @@ export class TiendaComponent implements OnInit {
   // funcion para ordenar segun lo que escoja el usuario
   ordenar(){
     this.productosMostrar = this.tiendaService.ordenar(this.productosMostrar, this.opcionOrdenar)
+  }
+
+  cartAdded(){
+    this.navBarComponent?.updateCartCount();
   }
 }

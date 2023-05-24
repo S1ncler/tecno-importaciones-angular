@@ -21,7 +21,7 @@ import { RegistroService } from './services/registro.service';
     CommonModule,
     LoginRegistroRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [RegistroService]
 })

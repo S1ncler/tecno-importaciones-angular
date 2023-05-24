@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-square-card',
@@ -7,5 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class SquareCardComponent {
   // recibe el item a mostrar
-  @Input() item: any;
+  @Input() item: any;  
+  @Output() cartAdded = new EventEmitter();
+
+  addToCart(item: any){
+    let cart = "";
+    cart = localStorage.getItem('cart') || "";
+    cart += `${item.id},`;
+    localStorage.setItem('cart', cart);
+    this.cartAdded.emit();
+  }
 }
