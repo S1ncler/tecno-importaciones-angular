@@ -7,6 +7,7 @@ export class NavBarService {
 
   constructor() { }
 
+  // cuanta la cantidad de items que hay en el carrito 
   cartCount(){
     let cartCant = 0
     if(!localStorage.getItem('cart')) {
