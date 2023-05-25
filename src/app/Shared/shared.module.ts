@@ -6,6 +6,8 @@ import { LogoWhatsComponent } from './components/logo-whats/logo-whats.component
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
+import { RouterLink } from '@angular/router';
+import { TiendaService } from '../comercio/services/tienda.service';
 
 
 
@@ -21,7 +23,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatBadgeModule, 
     MatButtonModule, 
     MatIconModule,
+    RouterLink
   ],
+  providers: [TiendaService],
   exports:[
     NavBarComponent,
     FooterComponent,

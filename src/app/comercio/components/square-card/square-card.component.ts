@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 @Component({
   selector: 'app-square-card',
@@ -7,16 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class SquareCardComponent {
   // recibe el item a mostrar
-  @Input() item: any;  
-  @Output() cartAdded = new EventEmitter();
+  @Input() item: any;
+
+  constructor(private navBarService: NavBarService){  }
 
   // agrega el id del item y llama una funcion en el componente padre
   addToCart(item: any){
-    let cart = "";
-    cart = localStorage.getItem('cart') || "";
-    cart += `${item.id},`;
-    localStorage.setItem('cart', cart);
     // llama la funcion padre para que el navbar actualice la cantidad de elementos del carrito
-    this.cartAdded.emit();
+    this.navBarService.addToCart(item);
   }
 }

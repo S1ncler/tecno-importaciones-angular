@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TiendaService } from '../../services/tienda.service';
-import { NavBarComponent } from 'src/app/Shared/components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-tienda',
@@ -8,10 +7,6 @@ import { NavBarComponent } from 'src/app/Shared/components/nav-bar/nav-bar.compo
   styleUrls: ['./tienda.component.css'],
 })
 export class TiendaComponent implements OnInit {
-
-
-  // llama al componente hijo navbar para poder llamar la funcion de actualizar el carrito
-  @ViewChild(NavBarComponent) navBarComponent: NavBarComponent | undefined;
 
   // valor que guarda la opcion con la que ordenar
   opcionOrdenar: string = "ordenar";
@@ -82,7 +77,4 @@ export class TiendaComponent implements OnInit {
 
   // es la funcion que recibe la informacion de que se agrego un item al carrito desde el card
   // y le dice al navbar que actualice el conteo
-  cartAdded(item: any){
-    this.tiendaService.addToCart(item);
-  }
 }

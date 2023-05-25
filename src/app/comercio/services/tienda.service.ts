@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TiendaService {
 
-  private productosCarrito: any[];
-  private productosCarrito$: Subject<any>;
-
   constructor() { 
-    this.productosCarrito = [];
-    this.productosCarrito$ = new Subject();
    }
 
   async traerProductos(productosMostrar: any[] = []) {
@@ -82,15 +76,6 @@ export class TiendaService {
     }
 
     return productosMostrar;
-  }
-
-  addToCart(producto :any){
-    this.productosCarrito.push(producto);
-    this.productosCarrito$.next(this.productosCarrito);
-  }
-
-  getProductosCarrito(): Observable<any> {
-    return this.productosCarrito$.asObservable();
   }
 
 }

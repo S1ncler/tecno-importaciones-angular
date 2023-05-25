@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/comercio"
+            <a class="nav-link active" aria-current="page" [routerLink]="'/comercio'" 
               >Componentes PC</a
             >
           </li>
@@ -60,7 +60,7 @@
           ></a>
         </div>
         <div>
-          <a href="/usuarios/registro"
+          <a [routerLink]="'/usuarios/registro'"
             ><button class="border border-0 bg-light" type="">
               <img
                 class="logo-nav"

@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+
 <section class="d-flex w-100 mt-5">
   <!-- barra lateral con los filtros de busqueda y categorias -->
   <aside
@@ -79,7 +79,6 @@
         class="col-12 d-flex flex-wrap align-content-around justify-content-around"
       >
         <app-square-card
-          (cartAdded)="cartAdded(item)"
           *ngFor="let item of productosMostrar"
           [item]="item"
         ></app-square-card>
@@ -89,7 +88,6 @@
         class="col-12 d-flex flex-wrap align-content-around justify-content-around"
       >
         <app-horizontal-card
-          (cartAdded)="cartAdded(item)"
           *ngFor="let item of productosMostrar"
           [item]="item"
         ></app-horizontal-card>
@@ -115,5 +113,3 @@
 <div class="w-100">
   <div class="separator"></div>
 </div>
-<app-footer></app-footer>
-<app-logo-whats></app-logo-whats>
