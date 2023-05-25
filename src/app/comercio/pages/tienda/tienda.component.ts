@@ -82,7 +82,7 @@ export class TiendaComponent implements OnInit {
 
   // es la funcion que recibe la informacion de que se agrego un item al carrito desde el card
   // y le dice al navbar que actualice el conteo
-  cartAdded(){
-    this.navBarComponent?.updateCartCount();
+  cartAdded(item: any){
+    this.tiendaService.addToCart(item);
   }
 }
