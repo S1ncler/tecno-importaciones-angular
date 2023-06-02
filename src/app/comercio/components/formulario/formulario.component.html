@@ -1,0 +1,79 @@
+<div
+  class="position-fixed bg-light d-flex justify-content-center flex-wrap m-3 p-4 shadow-lg rounded"
+  style="z-index: 12"
+>
+  <div class="input-group mb-3">
+    <input
+      type="number"
+      class="form-control"
+      placeholder="ID"
+      aria-label="ID"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name"
+      aria-label="name"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Brand"
+      aria-label="marca"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Description"
+      aria-label="descripcion"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">$</span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Price"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Images"
+      aria-label="image"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Category"
+      aria-label="categoria"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Stock"
+      aria-label="stock"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div>
+    <button class="btn btn-success me-5" (click)="guardar()">Guardar</button>
+    <button class="btn btn-danger" (click)="tiendaService.mostrarFormulario(false)">Cancelar</button>
+  </div>
+</div>

@@ -9,8 +9,13 @@ import { AsideComponent } from './components/aside/aside.component';
 import { AsideCollapseComponent } from './components/aside-collapse/aside-collapse.component';
 import { FormsModule } from '@angular/forms';
 import { TiendaService } from './services/tienda.service';
-
-
+import { AdministrarProductosComponent } from './pages/administrar-productos/administrar-productos.component';
+import { TablaComponent } from './components/tabla/tabla.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormularioComponent } from './components/formulario/formulario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,14 +23,21 @@ import { TiendaService } from './services/tienda.service';
     SquareCardComponent,
     HorizontalCardComponent,
     AsideComponent,
-    AsideCollapseComponent
+    AsideCollapseComponent,
+    AdministrarProductosComponent,
+    TablaComponent,
+    FormularioComponent,
   ],
   imports: [
     FormsModule,
     CommonModule,
     ComercioRoutingModule,
-    SharedModule
+    SharedModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    HttpClientModule,
   ],
-  providers: [TiendaService]
+  providers: [TiendaService],
 })
-export class ComercioModule { }
+export class ComercioModule {}

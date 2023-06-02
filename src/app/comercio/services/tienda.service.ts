@@ -1,12 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
+import { Observable } from 'rxjs';
+export interface productos {
+  id: number;
+  name: string;
+  marca: string;
+  price: number;
+  stock: number;
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TiendaService {
+  public stateFormulario = false;
+  public ELEMENT_DATA: productos[] = [];
+  private url = `${environment.API_URI}productos`;
 
-  constructor() { 
-   }
+  constructor(private http: HttpClient) {}
 
   async traerProductos(productosMostrar: any[] = []) {
     let url1: string = 'http://localhost:3002/productos/r';
@@ -44,7 +56,7 @@ export class TiendaService {
   }
 
   getPrecios(productosMostrar: any[] = []) {
-    // obtiene todos los precios de los productos a mostrar y los divide en 4 rangos 
+    // obtiene todos los precios de los productos a mostrar y los divide en 4 rangos
     const rangosPrecios = [];
     let precios: number[] = [];
     for (let producto of productosMostrar) precios.push(producto.price);
@@ -60,22 +72,33 @@ export class TiendaService {
     return rangosPrecios;
   }
 
-  ordenar(productosMostrar: any[], opcionOrdenar: string){
+  ordenar(productosMostrar: any[], opcionOrdenar: string) {
     // ordena los productos a mostrar segun el criterio elegido por el usuario
-    if (opcionOrdenar === "nombre-A-Z"){
-      productosMostrar = productosMostrar.sort((a, b) => a.name.localeCompare(b.name));
+    if (opcionOrdenar === 'nombre-A-Z') {
+      productosMostrar = productosMostrar.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
     }
-    if (opcionOrdenar === "nombre-Z-A"){
-      productosMostrar = productosMostrar.sort((a, b) => b.name.localeCompare(a.name));
+    if (opcionOrdenar === 'nombre-Z-A') {
+      productosMostrar = productosMostrar.sort((a, b) =>
+        b.name.localeCompare(a.name)
+      );
     }
-    if (opcionOrdenar === "precio-ascendente"){
+    if (opcionOrdenar === 'precio-ascendente') {
       productosMostrar = productosMostrar.sort((a, b) => a.price - b.price);
     }
-    if (opcionOrdenar === "precio-descendente"){
+    if (opcionOrdenar === 'precio-descendente') {
       productosMostrar = productosMostrar.sort((a, b) => b.price - a.price);
     }
 
     return productosMostrar;
   }
 
+  traerTodosProductos(): Observable<any> {
+    return this.http.get(`${this.url}/`)
+  }
+
+  mostrarFormulario(state: boolean): void {
+    this.stateFormulario = state;
+  }
 }
