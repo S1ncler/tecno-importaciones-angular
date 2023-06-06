@@ -79,7 +79,7 @@
     </th>
     <td mat-cell *matCellDef="let element">
       <button type="button" class="btn btn-warning me-1" (click)="editar(element.id)">Edit</button>
-      <button type="button" class="btn btn-danger" (click)="delete(element.id)">Delete</button>
+      <button type="button" class="btn btn-danger" (click)="delete(element)">Delete</button>
     </td>
   </ng-container>
 
@@ -87,7 +87,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 <div class="d-flex bg-white justify-content-between">
-  <a class="btn btn-primary mt-2 ms-4" (click)="tiendaService.mostrarFormulario(true)"> Create new Item</a>
+  <a class="btn btn-primary mt-2 ms-4" (click)="crear()"> Create new Item</a>
 <mat-paginator
   [pageSizeOptions]="[5, 10, 20]"
   showFirstLastButtons

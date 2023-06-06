@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <h2>Atención</h2>
+  <div>{{ message }}</div>
+</div>
+<div mat-dialog-actions>
+  <div class="d-flex w-100 justify-content-center align-content-center">
+    <button class="btn btn-danger me-3 ps-3 pe-3" (click)="onClickNO()">No</button>
+    <button class="btn btn-success ps-4 pe-4" [mat-dialog-close]="true">
+      Si
+    </button>
+  </div>
+</div>

@@ -4,6 +4,8 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { TiendaService } from '../../services/tienda.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-tabla',
@@ -23,7 +25,8 @@ export class TablaComponent {
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    public tiendaService: TiendaService
+    public tiendaService: TiendaService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -33,6 +36,7 @@ export class TablaComponent {
   getAllProducts() {
     this.tiendaService.traerTodosProductos().subscribe((data) => {
       const datos = JSON.parse(JSON.stringify(data));
+      this.tiendaService.ELEMENT_DATA = [];
       for (let dato of datos) {
         this.tiendaService.ELEMENT_DATA.push({
           id: dato.id,
@@ -67,12 +71,35 @@ export class TablaComponent {
     }
   }
 
-  delete(id: number) {
-    console.log('Se va a eliminar el id: ', id);
+  delete(element: any): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '350px',
+      data: `Desea eliminar el elemento: ${element.name}, con ID: ${element.id}`
+    })
+    dialogRef.afterClosed().subscribe(ref => {
+      if (ref)
+        this.tiendaService.eliminarProducto(element.id);
+    })
     this.getAllProducts();
   }
 
-  editar(id: number) {
-    this.tiendaService.mostrarFormulario(true);
+  editar(id: number): void {
+    this.tiendaService.traerUnProducto(id);
+    this.tiendaService.mostrarFormulario(true, true);    
+    this.getAllProducts();
+  }
+
+  crear(): void {
+    this.tiendaService.productoFormulario = {
+      id: 0,
+      name: '',
+      marca: '',
+      descripcion: '',
+      price: 0,
+      image: [""],
+      categoria: '',
+      stock: 0
+    }
+    this.tiendaService.mostrarFormulario(true, false)
   }
 }

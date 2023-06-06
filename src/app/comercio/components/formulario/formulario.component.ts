@@ -11,7 +11,11 @@ export class FormularioComponent {
   constructor(public tiendaService: TiendaService) {}
 
   guardar() {
-    this.tiendaService.mostrarFormulario(false);
+    if (this.tiendaService.updateFormulario)
+      this.tiendaService.actualizarProducto(this.tiendaService.productoFormulario.id);
+    else
+      this.tiendaService.enviarProducto();
+    this.tiendaService.mostrarFormulario(false, false);
   }
 
 }

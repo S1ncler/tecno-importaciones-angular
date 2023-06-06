@@ -13,9 +13,12 @@ import { AdministrarProductosComponent } from './pages/administrar-productos/adm
 import { TablaComponent } from './components/tabla/tabla.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from "@angular/material/dialog";
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdministrarProductosComponent,
     TablaComponent,
     FormularioComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     FormsModule,
@@ -37,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatDialogModule,
   ],
+  entryComponents: [ConfirmDialogComponent],
   providers: [TiendaService],
 })
 export class ComercioModule {}

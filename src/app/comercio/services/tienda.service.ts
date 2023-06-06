@@ -2,12 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
-export interface productos {
+export interface productoTabla {
   id: number;
   name: string;
   marca: string;
   price: number;
   stock: number;
+}
+export interface productoCompleto {
+  id: number;
+  name: string;
+  marca: string;
+  descripcion: string;
+  price: number;
+  image: string[];
+  categoria: string;
+  stock: number;  
 }
 
 @Injectable({
@@ -15,7 +25,18 @@ export interface productos {
 })
 export class TiendaService {
   public stateFormulario = false;
-  public ELEMENT_DATA: productos[] = [];
+  public updateFormulario = false;
+  public productoFormulario: productoCompleto = {
+    id: 0,
+    name: '',
+    marca: '',
+    descripcion: '',
+    price: 0,
+    image: [""],
+    categoria: '',
+    stock: 0
+  };
+  public ELEMENT_DATA: productoTabla[] = [];
   private url = `${environment.API_URI}productos`;
 
   constructor(private http: HttpClient) {}
@@ -98,7 +119,47 @@ export class TiendaService {
     return this.http.get(`${this.url}/`)
   }
 
-  mostrarFormulario(state: boolean): void {
+  mostrarFormulario(state: boolean, fun: boolean): void {
     this.stateFormulario = state;
+    this.updateFormulario = fun;
+  }
+
+  enviarProducto(): void {
+    this.http.post(`${this.url}`, this.productoFormulario).subscribe(data => {
+      const data2 = JSON.parse(JSON.stringify(data));
+      alert(data2.msg);
+    })
+  }
+
+  actualizarProducto(id: number): void {
+    this.http.put(`${this.url}/${id}`, this.productoFormulario).subscribe(data => {
+      const data2 = JSON.parse(JSON.stringify(data));
+      alert(data2.msg);
+    })
+  }
+
+  traerUnProducto(id: number): void {
+    this.http.get(`${this.url}/${id}`).subscribe(data => {
+      const data2 = JSON.parse(JSON.stringify(data));
+      if (data2.msg === "No encontrado") {
+        alert("Producto no encontrado");
+        return;
+      }
+      this.productoFormulario.id = data2.msg.id;
+      this.productoFormulario.name = data2.msg.name;
+      this.productoFormulario.categoria = data2.msg.categoria;
+      this.productoFormulario.descripcion = data2.msg.descripcion;
+      this.productoFormulario.image = data2.msg.image;
+      this.productoFormulario.marca = data2.msg.marca;
+      this.productoFormulario.price = data2.msg.price;
+      this.productoFormulario.stock = data2.msg.stock;
+    })
+  }
+
+  eliminarProducto(id: number): void {
+    this.http.delete(`${this.url}/${id}`).subscribe(data => {
+      const data2 = JSON.parse(JSON.stringify(data));
+      alert(data2.msg);
+    })
   }
 }
