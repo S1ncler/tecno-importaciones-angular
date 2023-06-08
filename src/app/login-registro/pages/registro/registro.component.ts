@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RegistroService } from '../../services/registro.service';
+import { RegistroService } from '../../services/login-registro.service';
 
 @Component({
   selector: 'app-registro',

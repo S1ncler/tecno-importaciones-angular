@@ -2,13 +2,38 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { user } from '../interfaces/user.interface';
+import { environment } from '../../../environments/environment.development';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegistroService {
-  constructor(private http: HttpClient) {}
+  token: string = "";
+  loginForm: any = {
+    username: '',
+    password: '',
+  };
+  constructor(private http: HttpClient, private router: Router) {}
+
+  login() {
+    const url = environment.API_URI + 'auth/login';
+    this.http
+      .post(`${url}`, {
+        email: this.loginForm.username,
+        contraseña: this.loginForm.password,
+      })
+      .subscribe((res) => {
+        const res2 = JSON.parse(JSON.stringify(res));
+        if(res2.token){
+          this.token = res2.token;
+          this.router.navigate(["../../comercio/"]);
+        }
+        else{
+          alert("Usuario o contraseña incorrectos")
+        }
+      });
+  }
 
   registrar(formUser: FormGroup): Observable<any> {
     let url = `http://localhost:3002/auth/register`;
@@ -18,14 +43,17 @@ export class RegistroService {
     let url = `http://localhost:3002/usuarios/${formUser.value.username}`;
     let retornador: boolean = true;
     await fetch(url)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data.username === formUser.value.username) retornador = false;
       });
-    return retornador;            
+    return retornador;
   }
   compararFecha(formUser: FormGroup): boolean {
-    return new Date(formUser.value.cumpleanos || '').getTime() < new Date().getTime() - (1000 * 60 * 60 * 24 * 365 * 18);
+    return (
+      new Date(formUser.value.cumpleanos || '').getTime() <
+      new Date().getTime() - 1000 * 60 * 60 * 24 * 365 * 18
+    );
   }
   validarTel(formUser: FormGroup): boolean {
     var numbers = /^[0-9+]+$/;
@@ -39,14 +67,16 @@ export class RegistroService {
     const tieneSimbolo = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(
       formUser.value.contrasena || ''
     );
-    const tieneLongitudSuficiente =
-      formUser.value.contrasena || ''.length >= 8;
-    if (tieneMayuscula &&
+    const tieneLongitudSuficiente = formUser.value.contrasena || ''.length >= 8;
+    if (
+      tieneMayuscula &&
       tieneMinuscula &&
       tieneNumero &&
       tieneSimbolo &&
-      tieneLongitudSuficiente)return true;
-    else return false
+      tieneLongitudSuficiente
+    )
+      return true;
+    else return false;
   }
   confirmarContrasena(formUser: FormGroup, contrasena2: string): boolean {
     if (formUser.value.contrasena === contrasena2) return true;

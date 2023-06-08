@@ -1,1 +1,66 @@
-<p>login works!</p>
+<div class="mt-5" style="margin-bottom: -50px;">
+  <div class="waterMark position-absolute w-100 vh-100"></div>
+  <div class="d-flex flex-column contenedorPrincipal">
+    <!-- Contenedor principal -->
+    <div
+      class="position-absolute contenedorPrincipal d-flex flex-column justify-content-center align-items-center gap-5"
+    >
+      <div class="d-flex flex-column justify-content-center">
+        <div
+          class="sizeLogoTechBox translate-middle position-relative bg-white bg-opacity-75 rounded-circle border border-2 border-end-0 border-dark border-opacity-75 divLogoTechPosition shadow-lg"
+        >
+          <div class="logoTech position-absolute"></div>
+        </div>
+        <h1 class="text-center text-white-50 mb-5">Login</h1>
+        <main
+          class="mtn1 mainSize d-flex flex-column justify-content-center align-items-center border shadow p-0 bg-body rounded-5 bg-opacity-75"
+        >
+          <section
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="logoTI"></div>
+            <form class="font" action="home.html">
+              <label for="telOrEmail">TELEFONO O EMAIL:</label><br />
+              <input
+                [(ngModel)]="RegisterService.loginForm.username"
+                type="text"
+                id="telOrEmail"
+                name="telOrEmail"
+                placeholder="Number Or Email"
+              /><br />
+              <label for="pass">CONTRASEÑA:</label><br />
+              <input
+                [(ngModel)]="RegisterService.loginForm.password"
+                type="password"
+                id="pass"
+                name="pass"
+                placeholder="Password"
+              /><br />
+              <a class="text-decoration-none align-text-bottom font" href="#"
+                >Olvidaste tu contraseña</a
+              ><br /><br />
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Guardar contraseña
+                </label>
+              </div>
+
+              <input
+                (click)="RegisterService.login()"
+                class="btn btn-light btnIngresar mx-auto ms-5"
+                type="submit"
+                value="Ingresar"
+              />
+            </form>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
