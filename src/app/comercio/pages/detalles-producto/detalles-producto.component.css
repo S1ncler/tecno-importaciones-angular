@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .margen-a {
+    margin-top: 114px;
+  }
+  .borde-abajo {
+    border-bottom: 1px;
+    box-shadow: 0px 8px 6px -6px #02153e;
+  }
+  
+  body {
+    background-color: #bd5349;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-s {
+    width: 5rem;
+    height: 5rem;
+  }
+  .cont-s-1 {
+    width: 5.5rem;
+    height: 4.4rem;
+    background-color: #bd5349;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 425px) {
+    .hide-despues {
+      visibility: hidden;
+    }
+    .epa {
+      width: 0;
+      height: 0;
+    }
+  }
+  .img-m {
+    width: 25rem;
+    height: 25rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .carrusel-i {
+    width: 25rem;
+  }
+  .name-producto {
+    font-size: 3rem;
+    font-weight: bolder;
+    font-style: italic;
+  }
+  .cont-info {
+    width: 35vw;
+    height: 10rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+  .txt-precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 8%;
+  }
+  
+  .input {
+    height: 3rem;
+    width: 3rem;
+    background-color: #bd5349;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  .input::placeholder {
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+  .btn1 {
+    background-color: #bd5349;
+    border-radius: 10px;
+    width: 25vw;
+    color: #fff !important;
+    font-size: 2rem;
+    font-weight: bold;
+  
+    border: 0;
+    height: 3rem;
+    text-align: center;
+  }
+  .btn1:hover {
+    background-color: #d46359;
+    font-weight: bolder;
+    width: 26vw;
+    height: 3.5rem;
+  }
+  .linea-azul {
+    width: 100%;
+    height: 4px;
+    background-color: #02153e;
+    margin-top: 40px;
+  }
+  .linea-a{
+    margin-top: 5px;
+    margin-left: 3px;
+    height: 30px;
+    width: 3px;
+    background-color: #02153E;
+    box-shadow: 8px #666;
+  }
+  
+  
+  
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 970px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+    .btn1 {
+      font-size: 0.7rem;
+    }
+    .txt-precio {
+      font-size: 1rem;
+    }
+    .cont-info {
+      width: 38vw;
+      height: 12rem;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+  
+  
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 940px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  
+  @media (max-width: 940px) {
+    .imagen-1-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 20rem;
+      height: 10rem;
+      margin: auto;
+    }
+    .imagen-2-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 15rem;
+      height: 15rem;
+      margin: auto;
+    }
+  }
+  
+  @media (max-width: 940px) {
+    .imagen-1-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 20rem;
+      height: 10rem;
+      margin: auto;
+    }
+    .imagen-2-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 15rem;
+      height: 15rem;
+      margin: auto;
+    }
+  }
+  @media (max-width: 940px) {
+    .texto-co {
+      color: #bd5349;
+      font-size: 6rem;
+      font-weight: bold;
+    }
+  
+    .marcas {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+    }
+  
+    .marcas-imgs {
+      display: flex;
+      width: 14rem;
+      gap: 20px;
+      height: 400px;
+      margin-top: 3rem;
+      flex-direction: column;
+    }
+    .img-marcas {
+      width: 150px;
+      height: 100px;
+    }
+    .info-marcas {
+      width: 520px;
+      height: 310px;
+    }
+  }
+  
+  @media (max-width: 655px) {
+    h1 {
+      font-size: 3rem !important;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+    h5 {
+      font-size: 2rem;
+    }
+    .info-marcas {
+      width: 349px;
+      height: 80px;
+    }
+    .marcas-imgs {
+      display: flex;
+      width: 3rem;
+      gap: 20px;
+      height: 468px;
+      margin-top: 3rem;
+      flex-direction: column;
+    }
+    .marcas {
+      margin-left: 2rem;
+      gap: 40px;
+    }
+  
+    .column-s {
+      flex-direction: column;
+    }
+    .m-s {
+      margin-right: 64px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    body {
+      background-color: white;
+    }
+  }

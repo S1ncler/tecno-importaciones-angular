@@ -18,7 +18,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component'
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { DetallesProductoComponent } from './pages/detalles-producto/detalles-producto.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     TablaComponent,
     FormularioComponent,
     ConfirmDialogComponent,
+    DetallesProductoComponent,
   ],
   imports: [
     FormsModule,

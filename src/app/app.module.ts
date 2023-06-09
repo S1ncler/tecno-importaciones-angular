@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './Shared/shared.module';
 import { TiendaService } from './comercio/services/tienda.service';
+import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CarritoComponent,
   ],
   imports: [
     FormsModule,

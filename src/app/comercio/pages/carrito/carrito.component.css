@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+  }
+  body {
+    background-color: #bd5349;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg-carro {
+    background-image: url(../../../../assets/images/cristiano-firmani-tmTidmpILWw-unsplash.jpg);
+    width: 90%;
+    height: 23rem;
+    background-size: cover;
+    font-size: 6rem !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    margin-top: 90px !important;
+  }
+  .linea-lrg {
+    border-top: solid white 2px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .linea-brd {
+    width: 89vw;
+    height: 4rem;
+    border-radius: 10px;
+  }
+  .ln-r {
+    border: #bd5349 3px solid;
+    height: 15rem;
+    border-radius: 45px;
+  }
+  .corsair {
+    background-image: url(../../../../assets/images/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png);
+    background-size: cover;
+    width: 10rem;
+    height: 10rem;
+  }
+  .btn-sc {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    color: black;
+  }
+  .btn-sc::placeholder {
+    text-align: center;
+    color: black;
+
+  }
+  .linea-a{
+    margin-top: 5px;
+    margin-left: 3px;
+    height: 30px;
+    width: 3px;
+    background-color: #02153E;
+    box-shadow: 8px #666;
+}
+  
+  .btn-r {
+    height: 3rem;
+    width: 16rem;
+    background-color: #bd5349;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.914);
+    border-radius: 15px;
+    border: none;
+  }
+  .btn-r:hover {
+    background-color: #ad4c43;
+    color: white;
+    text-justify: center;
+  }
+  
+  
+  .container-b {
+    width: 90%;
+    height: 30%;
+    background-color: rgb(241, 238, 238);
+  }
+  
+  .img-1 {
+    background-image: url(../../../../assets/images/VISA-Logo.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-2 {
+    background-image: url(../../../../assets/images/Boton_PSE-01.png);
+    width: 125px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-3 {
+    background-image: url(../../../../assets/images/payu-logo.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-4 {
+    background-image: url(../../../../assets/images/1609314895logo-mastercard-mobile.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-5 {
+    background-image: url(../../../../assets/images/egi-mp-efecty.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-6 {
+    background-image: url(../../../../assets/images/egi-mp-davivienda.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-7 {
+    background-image: url(../../../../assets/images/grupo-bancolombia.png);
+    width: 180px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+  }
+  .carrito-compras {
+    background-image: url(../../../../assets/images/carro-final.png);
+    width: 186px;
+    height: 178px;
+    background-size: cover;
+    background-position: center;
+    transform: scaleX(-1);
+  }
+  
+  .whatsapp {
+    width: 75px;
+    height: 75px;
+    background-image: url(../../../../assets/images/Whatsapp.png);
+    position: fixed;
+    bottom: 13px;
+    right: 38px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @media (max-width: 970px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+    .btn1 {
+      font-size: 0.7rem;
+    }
+    .txt-precio {
+      font-size: 1rem;
+    }
+    .cont-info {
+      width: 35vw;
+      height: 10rem;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+    }
+  }  
+  .marcas-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 53rem;
+    gap: 20px;
+    margin-top: 3rem;
+  }  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 940px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  
+  @media (max-width: 940px) {
+    .imagen-1-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 20rem;
+      height: 10rem;
+      margin: auto;
+    }
+    .imagen-2-carrusel {
+      background-image: url(../../../../assets/images/Corsair-Logo.png);
+      background-size: cover;
+      width: 15rem;
+      height: 15rem;
+      margin: auto;
+    }
+  } 
+  
+  @media (max-width: 1340px) {
+    .img-1 {
+      background-image: url(../../../../assets/images/VISA-Logo.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-2 {
+      background-image: url(../../../../assets/images/Boton_PSE-01.png);
+      width: 105px;
+      height: 100px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-3 {
+      background-image: url(../../../../assets/images/payu-logo.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-4 {
+      background-image: url(../../../../assets/images/1609314895logo-mastercard-mobile.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-5 {
+      background-image: url(../../../../assets/images/egi-mp-efecty.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-6 {
+      background-image: url(../../../../assets/images/egi-mp-davivienda.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+    }
+    .img-7 {
+      background-image: url(../../../../assets/images/grupo-bancolombia.png);
+      width: 150px;
+      height: 70px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 10px;
+    }
+    .whatsapp {
+      width: 65px;
+      height: 65px;
+      background-image: url(../../../../assets/images/Whatsapp.png);
+      position: fixed;
+      bottom: 13px;
+      right: 38px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  
+  @media (max-width: 970px) {
+    .container-b {
+      width: 90%;
+      height: 35%;
+      background-color: #f1eeee;
+    }
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  
+  @media (max-width:1220px) {
+    .column-flex {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .ln-r {
+      border: #bd5349 3px solid;
+      height: 0rem;
+      border-radius: 45px;
+      width: 80vw;
+    }
+    .whatsapp {
+      width: 50px;
+      height: 50px;
+      background-image: url(../../../../assets/images/Whatsapp.png);
+      position: fixed;
+      bottom: 13px;
+      right: 38px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 700px) {
+      .bg-carro {
+        font-size: 3rem !important;
+      }
+    }
+  }
