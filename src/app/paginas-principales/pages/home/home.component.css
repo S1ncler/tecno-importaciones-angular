@@ -1,0 +1,358 @@
+body {
+    background-color: #bd5349;
+  }
+  .imagen-1-carrusel {
+    background-image: url(../assets/images/CPU\ 02.png);
+    background-size: cover;
+    width: 40rem;
+    height: 20rem;
+    margin: auto;
+  }
+  .imagen-2-carrusel {
+    background-image: url(../assets/images/CPU\ 1.png);   
+    background-size: cover;
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+  
+  }
+  .imagen-3-carrusel {
+    background-image: url(../assets/images/producto-12.jpg);   
+    background-size: cover;
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+  
+  }
+  .imagen-4-carrusel {
+    background-image: url(../assets/images/CPU\ 1.png);   
+    background-size: cover;
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+  
+  }
+  .bigcontainer {
+    margin: 30px;
+  }
+  .linea-a{
+    margin-top: 5px;
+    margin-left: 3px;
+    height: 30px;
+    width: 3px;
+    background-color: #02153E;
+    box-shadow: 8px #666;
+  } 
+  .logo-nav {
+    height: 50px;
+  }
+  .texto-co {
+    color: #bd5349;
+    font-size: 7rem;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 2rem;
+  }
+  .color-b {
+    color: #02153e;
+  }
+  .buscar {
+    border-color: #bd5349;
+    border-radius: 20px;
+    margin-top: 15px;
+  }
+  .carrus {
+  
+    height: 20%;
+    margin-top: 70px;
+    width: 60vw;
+  }
+  
+  .btn-carrusel-2 {
+      background-color: #e2e1e1;
+      width: 3rem;
+  }
+  
+  .txt.negro {
+      color: black;
+  }
+  .borde-abajo {
+    border-bottom: 1px;
+    box-shadow: 0px 8px 6px -6px #02153e;
+  }
+  .linea-azul {
+    margin-top: 50px;
+    margin-left: 65px;
+    height: 3px;
+    width: 90%;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  .categorias {
+    margin-top: 40px;
+  }
+  .img-categorias {
+    height: 140px;
+  }
+  .container-categorias {
+    margin-top: 30px;
+  }
+  .container-Nproductos {
+    margin-top: 30px;
+  }
+  .info-marcas {
+    width: 50%;
+  }
+  .texto-m {
+    width: 50%;
+    margin-left: 65px;
+    margin-top: 30px;
+  }
+  .iconos-m {
+    width: 60%;
+    margin-top: -145px;
+    margin-left: 35%;
+  }
+  
+  .img-marcas {
+    width: 200px;
+    height: 110px;
+  }
+  .footer-final {
+    background-color: #b9cbd6;
+    margin-top: 40px;
+  }
+  .linea-azul-pequeña {
+    margin-top: 20px;
+  
+    height: 3px;
+    width: 250px;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  
+  .contacto {
+    margin-left: 65px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .cont {
+    font-weight: bold;
+  }
+  .redes {
+    height: 30px;
+  }
+  .redes-1 {
+    margin-top: 10px;
+  }
+  .opciones-1 {
+    margin-top: 90px;
+    margin-left: 130px;
+  }
+  .opciones-2 {
+    margin-top: 90px;
+    margin-left: 40px;
+  }
+  .codico-qr {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+  }
+  .logo-footer {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .img-2l {
+    height: 150px;
+  }
+  .marcas {
+    margin-left: 5rem;
+    gap: 40px;
+  }
+  .borde-rojo-abajo {
+    width: 100%;
+    height: 3vh;
+    background-color: #bd5349;
+  }
+  .nav-custom {
+    width: 95.9%;
+    height: 4rem;
+    margin-left: 30px;
+  }
+  
+  .logo-footer-img {
+    height: 120px;
+    width: 120px;
+  }
+  
+  .marcas-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 53rem;
+    gap: 20px;
+    margin-top: 3rem;
+  }
+  .linea-a{
+    margin-top: 5px;
+    margin-left: 3px;
+    height: 30px;
+    width: 3px;
+    background-color: #02153E;
+    box-shadow: 8px #666;
+  } 
+  h5 {
+    font-size: 3rem;
+  }
+  @media (max-width: 940px) {
+  }
+  .logo-footer {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  .logo-footer-img {
+    height: 90px;
+    width: 90px;
+  }
+  .codico-qr {
+    height: 100px;
+    width: 100px;
+  }
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 940px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  
+  @media (max-width: 940px) {
+      .imagen-1-carrusel {
+          background-image: url(../assets/images/CPU\ 02.png);
+          background-size: cover;
+          width: 20rem;
+          height: 10rem;
+          margin: auto;
+        }
+        .imagen-2-carrusel {
+          background-image: url(../assets/images/CPU\ 1.png);   
+          background-size: cover;
+          width: 15rem;
+          height: 15rem;
+          margin: auto;
+        
+        }
+  }
+  
+  @media (max-width: 940px) {
+      .imagen-1-carrusel {
+          background-image: url(../assets/images/CPU\ 02.png);
+          background-size: cover;
+          width: 20rem;
+          height: 10rem;
+          margin: auto;
+        }
+        .imagen-2-carrusel {
+          background-image: url(../assets/images/CPU\ 1.png);   
+          background-size: cover;
+          width: 15rem;
+          height: 15rem;
+          margin: auto;
+        
+        }
+        .c-f{
+        margin-left: 20%;
+      margin-bottom: 50px;
+      }
+  }
+  @media (max-width: 940px) {
+  
+    .texto-co {
+      color: #bd5349;
+      font-size: 6rem;
+      font-weight: bold;
+    }
+  
+    .marcas{
+      display: flex;
+      flex-direction: column;
+     width: 90%;
+    }
+  
+    .marcas-imgs {
+      display: flex;
+      width: 14rem;
+      gap: 20px;
+      height: 400px;
+      margin-top: 3rem;
+      flex-direction: column;
+  }
+  .img-marcas {
+    width: 150px;
+    height: 100px;
+  }
+  .info-marcas{
+  
+      width: 520px;
+      height: 310px;
+  
+  }
+  }
+  
+  @media (max-width:655px) {
+  h1{
+    font-size: 3rem !important;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 2rem;
+  }
+  .info-marcas {
+    width: 349px;
+    height: 80px;
+  }
+  .marcas-imgs {
+    display: flex;
+    width: 3rem;
+    gap: 20px;
+    height: 468px;
+    margin-top: 3rem;
+    flex-direction: column;
+  }
+  .marcas {
+    margin-left: 2rem;
+    gap: 40px;
+  }
+  
+  .column-s {
+    flex-direction: column;
+  }
+  .m-s {
+    margin-right: 64px;
+      margin-bottom: 20px;
+  }
+  }
+  
+  @media (max-width:400px) {
+    body {
+      background-color: white;
+    }
+  }

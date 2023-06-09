@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tecno-importaciones</title>
+    <link rel="shortcut icon" href="assets/images/Asset1.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Estilos BS-->
+    <link rel="stylesheet" type="" href="assets/css/bootstrap.min.css" />
+
+    <!--Mis estilos-->
+    <link rel="stylesheet" type="" href="assets/homestyles.css" />
+    <!--Iconos-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="bigcontainer d-flex flex-column bg-white">
+      <div class="header">
+        <nav class="navbar navbar-expand-lg bg-light fixed-top borde-abajo">
+          <div class="container-fluid">
+            <a href="home.html"><img
+              class="logo-nav"
+              src="assets/images/logo-horizontal.png"
+              alt=""
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="" href="tienda.html"
+                    >Componentes PC</a
+                  >
+                </li>
+                <div class="linea-a"></div>
+                <li class="nav-item">
+                  <a class="nav-link active" href="desarrollo.html">Desarrollo Web</a>
+                </li>
+                <div class="linea-a"></div>
+              </ul>
+              <form class="d-flex" role="search">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="buscar form-control"
+                    placeholder="Buscar"
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                  />
+                  <span
+                    class="buscar input-group-text material-symbols-outlined"
+                    id="basic-addon2"
+                  >
+                    search
+                  </span>
+                </div>
+              </form>
+
+              <div><a href="tus-compras.html">
+                <button class="border gap-5 border-0 bg-light" type="">
+                  <img
+                    class="logo-nav"
+                    src="assets/images/logo-compras.png"
+                    alt=""
+                  />
+                </button>
+                </a>
+              </div>
+              <div>
+              <a href="registro.html">
+                <button class="border border-0 bg-light" type="">
+                  <img class="logo-nav" src="assets/images/login.png" alt="" />
+                </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div
+        id="carouselExampleIndicators"
+        class="carrus carousel slide align-self-center"
+        data-bs-ride="true"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="imagen-1-carrusel"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="imagen-2-carrusel"></div>
+          </div>
+          <div class="carousel-item">
+            <div class="imagen-3-carrusel"></div>
+          </div>
+        </div>
+        <button
+          class="btn-carrusel-2 carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span
+            class="carousel-control-prev-icon text-black"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="btn-carrusel-2 carousel-control-next btn-carrusel"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon txt.negro"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="linea-azul shadow mx-auto"></div>
+
+      <h3 class="categorias d-flex justify-content-center">Categorías</h3>
+
+      <div
+        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
+      >
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/tarjeta-de-video.png"
+            alt=""
+          />
+          <p class="fw-bold">Tarjetas Gráficas</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/memoria-ram.png"
+            alt=""
+          />
+          <p class="fw-bold">Memorias Ram</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/fuente-de-alimentacion.png"
+            alt=""
+          />
+          <p class="fw-bold">Fuentes de poder</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/motherboard.jpeg"
+            alt=""
+          />
+          <p class="fw-bold">Motherboards</p>
+        </div>
+      </div>
+
+      <div class="linea-azul mx-auto shadow"></div>
+
+      <h3 class="categorias d-flex justify-content-center">Nuevos productos</h3>
+
+      <div
+        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
+      >
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/tarjeta-de-video.png"
+            alt=""
+          />
+          <p class="fw-bold">Tarjetas Gráficas</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/memoria-ram.png"
+            alt=""
+          />
+          <p class="fw-bold">Memorias Ram</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/fuente-de-alimentacion.png"
+            alt=""
+          />
+          <p class="fw-bold">Fuentes de poder</p>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/Motherboard.jpeg"
+            alt=""
+          />
+          <p class="fw-bold">Motherboards</p>
+        </div>
+      </div>
+
+      <div class="linea-azul shadow mx-auto"></div>
+
+      <div class="marcas d-flex justify-content-start">
+        <div class="info-marcas">
+          <h1 class="text-decoration-underline texto-co">Marcas</h1>
+          <h4 class="color-b">
+            Tenemos la mejor mercancía del mercado y al mejor precio.
+          </h4>
+          <h2 class="fw-bold color-b">¡Imposible de superar!</h2>
+        </div>
+        <div class="marcas-imgs">
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-01.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-02.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-03.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-04.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-05.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-06.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-07.png"
+              alt=""
+            />
+          </div>
+
+          <div class="cuadro-marcas">
+            <img
+              class="img-marcas"
+              src="assets/images/Untitled-1-08.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="linea-azul shadow mx-auto"></div>
+
+      <footer style="width: 100%" class="footer-final d-flex flex-column">
+        <div class="d-flex gap-5 no-gap column-s">
+          <div class="contacto">
+            <h5 class="cont">Contacto</h5>
+            <p class="m-0">Teléfono: +57 322 398 91 26</p>
+            <p>Dirección: Calle 127c # 03-60 LC 4</p>
+            <div class="linea-azul-pequeña shadow mx-auto"></div>
+
+            <p class="redes-1">Síguenos en nuestras redes</p>
+            <a href="https://www.instagram.com/tecno.importaciones.v/"><img class="redes" src="assets/images/instagram.png" alt="" /></a>
+            <a href="https://www.facebook.com/people/Tecno-Imporaciones/pfbid033B3Fzmb22pPeendCR3gDRdGKt95YSz8Z6naU6ndTWwB7i1CHQ9BtQAh9BACQJhUHl/"><img class="redes" src="assets/images/Facebook.png" alt="" /></a>
+          </div>
+
+          <div
+            class="hide d-flex flex-column justify-content-center align-items-start ms-4"
+          >
+            <a href="Nosotros.html" class="text-decoration-none text-black"><h5>Sobre nosotros</h5></a>
+            <a href="https://wa.me/message/Z7KUL4SEQXHTD1" class="text-decoration-none text-black"><h5>Atención al cliente</h5></a>
+          </div>
+
+          <div
+            class="hide d-flex flex-column justify-content-center align-items-start"
+          >
+            <a href="tus-compras.html" class="text-decoration-none text-black"><h5>Métodos de pago</h5></a>
+            <a href="https://wa.me/message/Z7KUL4SEQXHTD1" class="text-decoration-none text-black"><h5>Preguntas frecuentes</h5></a>
+          </div>
+
+          <div
+            class="d-flex justify-content-around align-items-center gap-5 ms-auto m-s"
+          >
+            <img class="codico-qr" src="assets/images/codigo.jpg" alt="" />
+            <div
+              class="logo-footer d-flex justify-content-center align-items-center me-3"
+            >
+              <img
+                class="img-2l logo-footer-img"
+                src="assets/images/logo-vertical.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- boton flotante de whatsapp -->
+    <a href="https://wa.me/message/Z7KUL4SEQXHTD1" class="btn position-fixed bottom-0 end-0 mb-4 me-4"
+      ><img src="assets/images/Whatsapp.png" alt="" width="80px" height="80px"
+    /></a>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
