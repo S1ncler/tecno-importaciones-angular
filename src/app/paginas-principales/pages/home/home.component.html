@@ -27,14 +27,14 @@
             aria-label="Slide 3"
           ></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" [routerLink]="'/comercio/detallesProductos'">
           <div class="carousel-item active">
             <div class="imagen-1-carrusel"></div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" [routerLink]="'/comercio/detallesProductos'">
             <div class="imagen-2-carrusel"></div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" [routerLink]="'/comercio/detallesProductos'">
             <div class="imagen-3-carrusel"></div>
           </div>
         </div>
@@ -51,13 +51,13 @@
       <div
         class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
       >
-        <div class="">
+        <div class="" >
           <img
             class="img-categorias"
             src="../../../../assets/images/tarjeta-de-video.png"
             alt=""
           />
-          <h1 class="fw-bold m-3">Tarjetas Gráficas</h1>
+          <h1 class="fw-bold m-3" >Tarjetas Gráficas</h1>
         </div>
 
         <div class="">
