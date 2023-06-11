@@ -1,15 +1,15 @@
-body {
-    background-color: #bd5349;
+.home {
+    margin-top: 23px;
   }
   .imagen-1-carrusel {
-    background-image: url(../assets/images/CPU\ 02.png);
+    background-image: url(https://m.media-amazon.com/images/I/41KxCjeWHyL._SL500_.jpg);   
     background-size: cover;
     width: 40rem;
     height: 20rem;
     margin: auto;
   }
   .imagen-2-carrusel {
-    background-image: url(../assets/images/CPU\ 1.png);   
+    background-image: url(https://m.media-amazon.com/images/I/41n+VAAb68L._SL500_.jpg);   
     background-size: cover;
     width: 20rem;
     height: 20rem;
@@ -17,7 +17,7 @@ body {
   
   }
   .imagen-3-carrusel {
-    background-image: url(../assets/images/producto-12.jpg);   
+    background-image: url("https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Aimg.computerunivers.net%2Fimages%2F700%2F90825593F9F61D50D15C4435A58C868D.jpg&feedId=26619&k=edac11c8e8342232e34c97e7b29dc3a9937d454c");   
     background-size: cover;
     width: 20rem;
     height: 20rem;
@@ -25,7 +25,7 @@ body {
   
   }
   .imagen-4-carrusel {
-    background-image: url(../assets/images/CPU\ 1.png);   
+    background-image: url(/tecno-importaciones/src/assets/images/CPU\ 1.png);   
     background-size: cover;
     width: 20rem;
     height: 20rem;
@@ -55,7 +55,19 @@ body {
     font-size: 2rem;
   }
   .color-b {
+    margin-top: 80px;
     color: #02153e;
+    font-size:40px ;
+  }
+  .color-b-0 {
+    margin-top: 30px;
+    color: #02153e;
+    font-size:40px ;
+  }
+  .color-b-1 {
+    margin-top: 65px;
+    color: #02153e;
+    font-size:40px ;
   }
   .buscar {
     border-color: #bd5349;
@@ -84,25 +96,28 @@ body {
   .linea-azul {
     margin-top: 50px;
     margin-left: 65px;
-    height: 3px;
+    height: 4px;
     width: 90%;
     background-color: #02153e;
     box-shadow: 8px #666;
   }
   .categorias {
     margin-top: 40px;
+    font-size: 40px;
+    color:  #bd5349;
   }
   .img-categorias {
     height: 140px;
   }
   .container-categorias {
-    margin-top: 30px;
+    margin-top: 50px;
   }
   .container-Nproductos {
     margin-top: 30px;
   }
   .info-marcas {
     width: 50%;
+    margin-top: 49px;
   }
   .texto-m {
     width: 50%;
@@ -244,14 +259,14 @@ body {
   
   @media (max-width: 940px) {
       .imagen-1-carrusel {
-          background-image: url(../assets/images/CPU\ 02.png);
+          background-image: url(/tecno-importaciones/src/assets/images/CPU\ 02.png);
           background-size: cover;
           width: 20rem;
           height: 10rem;
           margin: auto;
         }
         .imagen-2-carrusel {
-          background-image: url(../assets/images/CPU\ 1.png);   
+          background-image: url(/tecno-importaciones/src/assets/images/CPU\ 1.png);   
           background-size: cover;
           width: 15rem;
           height: 15rem;
@@ -262,14 +277,14 @@ body {
   
   @media (max-width: 940px) {
       .imagen-1-carrusel {
-          background-image: url(../assets/images/CPU\ 02.png);
+          background-image: url(/tecno-importaciones/src/assets/images/CPU\ 02.png);
           background-size: cover;
           width: 20rem;
           height: 10rem;
           margin: auto;
         }
         .imagen-2-carrusel {
-          background-image: url(../assets/images/CPU\ 1.png);   
+          background-image: url(/tecno-importaciones/src/assets/images/CPU\ 1.png);   
           background-size: cover;
           width: 15rem;
           height: 15rem;

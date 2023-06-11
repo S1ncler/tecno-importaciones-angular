@@ -1,6 +1,4 @@
-body{
-    background-color:#BD5349;
-}
+
 .bigcontainer{
     margin: 30px;
    
@@ -40,6 +38,7 @@ body{
         display: flex;justify-content: center; flex-direction: column; text-align: center;
     }
     .Titulo-1{
+      margin-top: 36px !important;
         font-size: 70px;
         font-weight: bold;
     }
@@ -48,7 +47,7 @@ body{
         
         display: flex; align-items: center; justify-content: center;
         height: 3px;
-      
+      margin: 23px;
         background-color: white;
         box-shadow: 8px #666;
     }
@@ -68,15 +67,22 @@ body{
     }
     
     .bordea-1{
-        
+      margin-top: 40px;
         border-style:solid;
         border-width:6px;
         border-radius: 22px;
         border-top-color: #BD5349;
         border-bottom-color: #02153E ;
-        font-size: 35px;
+        padding: 15px!important ;
+        height: 66px;
+    }
+    .tex-en{
+      font-size: 30px;
+      
+      
     }
     .tex-a{
+      margin-top: 46px;
         font-size: 27px;
         font-weight: bold;
     }
@@ -95,7 +101,7 @@ body{
     }
 
     .bac-g{
-        background-image: url(../assets/images/logo-1.jfif);
+        background-image: url(/tecno-importaciones/src/assets/images/logo-1.jfif);
         background-repeat: no-repeat;
        
     }
@@ -107,20 +113,24 @@ body{
     .mision{
         background-color: #02153E;
         width: 550px;
+        height: 250px;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
+        
     }
     .vision{
         width: 550px;
+        height: 250px;
         background-color: #02153E;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
     }
     .tit{
+      margin-top: 20px;
        display: flex;text-align: center;
     }
 
@@ -341,7 +351,6 @@ h5 {
     }
 
     .linea-blanca{
-        
       display: flex; align-items: center;
         height: 3px;
         background-color: white;
@@ -351,9 +360,7 @@ h5 {
        
         font-size: 20px;
     }
-    .bordea-1{  
-      font-size: 26px;
-    }
+    
     .contain-3{
       display: flex;justify-content: center;flex-direction: column;
     }
@@ -416,7 +423,7 @@ flex-direction: column;
 }
 @media(max-width:520px){
   .bac-g{
-    background-image: url(../assets/images/logo-1.jfif);
+    background-image: url(/tecno-importaciones/src/assets/images/logo-1.jfif);
     background-repeat: no-repeat;
     background-size: 380px;
     
