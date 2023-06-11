@@ -84,65 +84,71 @@
         <div
           class="gap-5 conta-equi d-flex justify-content-around justify-content-center w-75"
         >
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/Melquin.jpg"
-              alt=""
-            />
-            <p class="name-1">Melquin Barrientos</p>
-            <p class="ocupation-1">Desarrollador Web</p>
-          </div>
+<!--Melquin-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo1 = true" (mouseleave)="mostrarInfo1 = false">
+  <ng-container *ngIf="!mostrarInfo1">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Melquin.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo1" class="texto-info fw-medium">
+    <p class="name-1 d-flex justify-content-center">Melquin Barrientos</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
 
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/alejandra.jpg"
-              alt=""
-            />
-            <p class="name-1">Alejandra Gomez</p>
-            <p class="ocupation-1">Desarrolladora Web</p>
-          </div>
+ <!--Alejandra-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo2 = true" (mouseleave)="mostrarInfo2 = false">
+  <ng-container *ngIf="!mostrarInfo2">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/alejandra.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo2" class="texto-info fw-medium">
+    <p class="name-1">Alejandra Gomez</p>
+    <p class="ocupation-1">Desarrolladora Web</p>
+  </div>
+</div>
+<!--David-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo3 = true" (mouseleave)="mostrarInfo3 = false">
+  <ng-container *ngIf="!mostrarInfo3">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/David.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo3" class="texto-info fw-medium">
+    <p class="name-1">David Loaiza</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+          <!--Daniel-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo4 = true" (mouseleave)="mostrarInfo4 = false">
+  <ng-container *ngIf="!mostrarInfo4">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Daniel.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo4" class="texto-info fw-medium">
+    <p class="name-1">Daniel Corredor</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
 
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/David.jpg"
-              alt=""
-            />
-            <p class="name-1">David Loaiza</p>
-            <p class="ocupation-1">Desarrollador Web</p>
-          </div>
+<!--Sebastian-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo5 = true" (mouseleave)="mostrarInfo5 = false">
+  <ng-container *ngIf="!mostrarInfo5">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Sebastian.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo5" class="texto-info fw-medium">
+    <p class="name-1">Sebastian Osorio</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+          
+<!--JeanCarlo-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo6 = true" (mouseleave)="mostrarInfo6 = false">
+  <ng-container *ngIf="!mostrarInfo6">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/jeancarlo.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo6" class="texto-info fw-medium ">
+    <p class="name-1">Jeancarlo Almario</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
 
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/Daniel.jpg"
-              alt=""
-            />
-            <p class="name-1">Daniel Corredor</p>
-            <p class="ocupation-1">Desarrollador Web</p>
-          </div>
-
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/Sebastian.jpg"
-              alt=""  
-            />
-            <p class="name-1">Sebastian Osorio</p>
-            <p class="ocupation-1">Desarrollador Web</p>
-          </div>
-
-          <div class="cont-e-i">
-            <img
-              class="shadow rounded-circle im-e"
-              src="../../../../assets/images/jeancarlo.jpg"
-              alt=""
-            />
-            <p class="name-1">Jeancarlo Almario</p>
-            <p class="ocupation-1">Desarrollador Web</p>
-          </div>
+          
         </div>
       </div>
 

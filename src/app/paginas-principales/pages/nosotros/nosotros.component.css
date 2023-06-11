@@ -65,7 +65,23 @@
         
         display: flex;justify-content: center; flex-direction: column; text-align: center;
     }
-    
+    .texto-info{
+      display: flex;
+  flex-direction: column;
+  justify-content: center;
+      height: 180px;
+      width: 180px;
+          border-style:solid;
+          border-width:4px;
+          border-radius: 50%;
+          border-color: #BD5349;
+          
+          padding: 5px!important ;
+          display: flex;
+          text-align: center;
+        
+          
+    }
     .bordea-1{
       margin-top: 40px;
         border-style:solid;
@@ -174,7 +190,7 @@ color: #02153E;
 }
 
 .ocupation-1{
-    font-size: 23px;
+    font-size: 20px;
     color: #02153E;
 }
 
