@@ -10,7 +10,7 @@ const routes: Routes = [
     component: RegistroComponent
   },
   {
-    path:"manageUsers",
+    path: "manageUsers",
     component: AdminUsersComponent
   },
   {
@@ -25,7 +25,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class LoginRegistroRoutingModule { }

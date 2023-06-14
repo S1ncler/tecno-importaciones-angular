@@ -1,24 +1,30 @@
 <p>form works!</p>
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" />
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="container mt-5">
+  <table class="table table-striped border">
+    <thead class="text-center">
+      <th class="p-3 bg-dark text-white">Usuario</th>
+      <th class="p-3 bg-dark text-white">Id</th>
+      <th class="p-3 bg-dark text-white">Documento</th>
+      <th class="p-3 bg-dark text-white">Nombre</th>
+      <th class="p-3 bg-dark text-white">Apellidos</th>
+      <th class="p-3 bg-dark text-white" colspan="2">Acciones</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of adminUserService.allUsers">
+        <td>{{ user.username }}</td>
+        <td>{{ user._id }}</td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.dateBirth }}</td>
+        <td>
+          <!-- <a class="btn btn-danger" (click)="deleteUser(user._id || '')" -->
+          <a class="btn btn-danger">Eliminar</a>
+        </td>
+        <td>
+          <!-- <a class="btn btn-warning" (click)="updateUser(user)">Editar</a> -->
+          <a class="btn btn-warning">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { AdminUserService } from "../../services/admin-user.service";
+
+
 @Component({
   selector: 'app-admin-users',
   templateUrl: './admin-users.component.html',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AdminUsersComponent {
 
+  constructor(public adminUserService: AdminUserService) {
+  }
+  ngOnInit() {
+    this.adminUserService.getAllUsers();
+  }
 }

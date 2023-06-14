@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { FormComponent } from './components/form/form.component';
+import { AdminUserService } from './services/admin-user.service';
+
 
 
 @NgModule({
@@ -19,7 +21,7 @@ import { FormComponent } from './components/form/form.component';
     AdminUsersComponent,
     FormComponent,
   ],
-  imports: [    
+  imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -27,6 +29,9 @@ import { FormComponent } from './components/form/form.component';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [RegistroService]
+  providers: [
+    RegistroService,
+    AdminUserService
+  ]
 })
 export class LoginRegistroModule { }
