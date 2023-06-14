@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Page404Component } from './paginas-principales/pages/page404/page404.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,8 @@ const routes: Routes = [
     path: "principal",
     loadChildren: () => import('./paginas-principales/paginas-principales.module').then(m => m.PaginasPrincipalesModule)
   },
+  {path: "**", component: Page404Component},
+ 
 ];
 
 @NgModule({

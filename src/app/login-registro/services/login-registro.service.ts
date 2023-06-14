@@ -93,4 +93,8 @@ export class RegistroService {
     const decoded = jwtDecode(token ? token : "Error en el token");
     return decoded;
   }
+  logout(): Observable<any> {
+    const url = environment.API_URI + 'logout'; 
+    return this.http.get(url);
+  }
 }

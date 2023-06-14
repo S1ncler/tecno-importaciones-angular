@@ -7,6 +7,7 @@ import { NavBarService } from '../../services/nav-bar.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
+  loggedIn = false;
   // variable con la cantidad de items del carrito
   cartCant: number = 0;
 
