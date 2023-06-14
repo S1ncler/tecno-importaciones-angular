@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminUserService } from "../../services/admin-user.service";
 
 @Component({
   selector: 'app-form',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+
+  constructor(public adminUserService: AdminUserService) {
+  }
 
 }
