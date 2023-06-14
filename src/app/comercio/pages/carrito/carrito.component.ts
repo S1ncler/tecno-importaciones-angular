@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 @Component({
   selector: 'app-carrito',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent {
+
+  constructor(public navBarService: NavBarService) {}
   //lista de productos recibida por el localhost 
   arrayProductos: any[] = [];
   //precio sumado de todos los productos (sin iva)
@@ -53,6 +56,7 @@ export class CarritoComponent {
     this.iva=0
     this.total=0
     this.ngOnInit()
+    this.navBarService.loadCart()
   }
 
   addProduct(data:object){
