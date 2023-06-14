@@ -47,16 +47,13 @@ export class CarritoComponent {
     for (let item of this.arrayProductos){
       i+=1
       if (item == data){
-        this.arrayProductos.splice(i,1)
+        this.navBarService.removeFromCart(this.arrayProductos[i])
       }
     }
-    localStorage.removeItem("carrito")
-    localStorage.setItem("carrito" , JSON.stringify(this.arrayProductos))
     this.subtotal=0
     this.iva=0
     this.total=0
     this.ngOnInit()
-    this.navBarService.loadCart()
   }
 
   addProduct(data:object){

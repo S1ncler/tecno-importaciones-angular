@@ -25,6 +25,21 @@ export class NavBarService {
     this.productosCarrito$.next(this.productosCarrito);
   }
 
+  removeFromCart(producto: any){
+    this.loadCart()
+    let i=-1
+    for (let item of this.productosCarrito){
+      i+=1
+      if (item._id === producto._id){
+        console.log("hola")
+        this.productosCarrito.splice(i,1)
+      }
+    }
+    localStorage.removeItem("carrito")
+    localStorage.setItem("carrito" , JSON.stringify(this.productosCarrito))
+    this.productosCarrito$.next(this.productosCarrito)
+  }
+
   getProductosCarrito$(): Observable<any[]> {
     return this.productosCarrito$.asObservable();
   }
