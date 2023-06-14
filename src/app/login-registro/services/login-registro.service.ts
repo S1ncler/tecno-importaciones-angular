@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -81,5 +82,15 @@ export class RegistroService {
   confirmarContrasena(formUser: FormGroup, contrasena2: string): boolean {
     if (formUser.value.contrasena === contrasena2) return true;
     else return false;
+  }
+
+  isLoggedIn(){
+    return localStorage.getItem('token') ? true : false;
+  }
+
+  decodeToken(){
+    const token = localStorage.getItem('token');
+    const decoded = jwtDecode(token ? token : "Error en el token");
+    return decoded;
   }
 }
