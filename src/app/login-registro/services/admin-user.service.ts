@@ -23,4 +23,16 @@ export class AdminUserService {
     return this.http.delete(`${this.urlApi}/delete${_id}`)
   }
 
+  createUser(data: user) {
+    return this.http.post(`${this.urlApi}`, data)
+  }
+
+  updateUser(data: user) {
+    let dataToUpdate = {
+      _id: data._id,
+      dataToUpdate: data
+    }
+    return this.http.put(`${this.urlApi}/update`, dataToUpdate)
+  }
+
 }
