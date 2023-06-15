@@ -8,7 +8,6 @@ import { SharedModule } from './Shared/shared.module';
 import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

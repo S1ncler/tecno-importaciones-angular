@@ -59,8 +59,39 @@
               /></button
           ></a>
         </div>
-        <div>
-          <a [routerLink]="'/usuarios/registro'"
+    
+
+ <!-- ha iniciado sesión -->
+<div *ngIf="tokenExist">
+
+<div class="contai-d">
+  <a class="texto-a"
+            ><button class="border border-0 bg-light" type="">
+              <img
+                class="logo-nav"
+                src="../../assets/images/camara.png"
+                alt=""
+              /></button
+          ></a>
+  <div class="menu">
+  
+<div class="option">Nombre</div>
+<div class="option">Apellido</div>
+<div class="option">Mi perfil</div>
+
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+ <!--No  ha iniciado sesión -->
+<div *ngIf="!tokenExist">
+<a [routerLink]="'/usuarios/registro'"
             ><button class="border border-0 bg-light" type="">
               <img
                 class="logo-nav"
@@ -68,7 +99,25 @@
                 alt=""
               /></button
           ></a>
-        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   </nav>  

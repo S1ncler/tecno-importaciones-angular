@@ -27,4 +27,53 @@
   .demo-section + .demo-section {
     margin-top: 16px;
   }
+
+
+  
+  .contai-d {
+    min-height: 45px;
+    position: relative;
+    width: 60px;
+    float: left;
+    text-align: center;
+  }
+  
+  .texto-a {
+    display: block;
+    color: black;
+    padding: 5px;
+  }
+  
+  .contai-d:hover .menu {
+   
+border:  solid #02153e 1px;
+    border-width: 5px!important;
+    border-radius: 10px;
+    background-color: #b9cbd6;
+    display: block;
+  }
+  
+  .menu {
+    
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 220px;
+    height: 250px;
+    right: 0; 
+  }
+  
+  .option {
+    cursor: pointer;
+    background-color: var(--red);
+    color: black;
+    padding-top: 5px;
+    min-height: 25px;
+  }
+  
+  .option:hover {
+    border-radius: 10px;
+    background-color:#bd534951;
+    color: white;
+  }
   
