@@ -4,17 +4,42 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
+import { user } from '../interfaces/user.interface';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegistroService {
+  userToUpdate: User = new User ()
+  user: user = {
+    username: "",
+    nombre: "",
+    email: "",
+    cumpleanos: "",
+    telefono: "",
+    contrasena: "",
+    departamento: "",
+    ciudad: "",
+    direccion: "",
+    complemento: "",
+    codigoPostal: ""
+  }
   token: string = "";
   loginForm: any = {
     username: '',
     password: '',
   };
+
   constructor(private http: HttpClient, private router: Router) {}
+  usuarioPropio(usuario:string){
+    const url = environment.API_URI + `usuarios/${usuario}`
+    return this.http.get(url)
+  }
+  updateUser(usuario:string){
+    const url = environment.API_URI + `usuarios/${usuario}`
+    
+  }
 
   login() {
     const url = environment.API_URI + 'auth/login';

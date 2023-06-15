@@ -31,7 +31,6 @@ export class NavBarService {
     for (let item of this.productosCarrito){
       i+=1
       if (item._id === producto._id){
-        console.log("hola")
         this.productosCarrito.splice(i,1)
       }
     }

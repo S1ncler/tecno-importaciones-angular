@@ -1,12 +1,35 @@
 import { Component } from '@angular/core';
 import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
+export interface productoCompleto {
+  id: number;
+  name: string;
+  marca: string;
+  descripcion: string;
+  price: number;
+  image: string[];
+  categoria: string;
+  stock: number;
+  repetidos: number  
+}
+
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent {
+  public productoFormulario: productoCompleto = {
+    id: 0,
+    name: '',
+    marca: '',
+    descripcion: '',
+    price: 0,
+    image: [""],
+    categoria: '',
+    stock: 0,
+    repetidos: 0
+  };
 
   constructor(public navBarService: NavBarService) {}
   //lista de productos recibida por el localhost 
