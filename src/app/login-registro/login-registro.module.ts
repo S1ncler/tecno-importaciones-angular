@@ -11,6 +11,7 @@ import { RegistroService } from './services/login-registro.service';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { FormComponent } from './components/form/form.component';
 import { AdminUserService } from './services/admin-user.service';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -20,6 +21,7 @@ import { AdminUserService } from './services/admin-user.service';
     LoginComponent,
     AdminUsersComponent,
     FormComponent,
+    TableComponent,
   ],
   imports: [
     FormsModule,

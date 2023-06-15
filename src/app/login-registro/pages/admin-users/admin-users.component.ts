@@ -12,7 +12,5 @@ export class AdminUsersComponent {
 
   constructor(public adminUserService: AdminUserService) {
   }
-  ngOnInit() {
-    this.adminUserService.getAllUsers();
-  }
+
 }

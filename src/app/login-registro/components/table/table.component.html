@@ -1,0 +1,33 @@
+<p>table works!</p>
+
+<div class="container mt-5">
+  <table class="table table-striped border">
+    <thead class="text-center">
+      <th class="p-3 bg-dark text-white">Nickname</th>
+      <th class="p-3 bg-dark text-white">Email</th>
+      <th class="p-3 bg-dark text-white">Nombre</th>
+      <th class="p-3 bg-dark text-white">Cumpleaños</th>
+      <th class="p-3 bg-dark text-white">Ciudad</th>
+      <th class="p-3 bg-dark text-white" colspan="2">Acciones</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of adminUserService.allUsers">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.cumpleanos }}</td>
+        <td>{{ user.ciudad }}</td>
+        <td>
+          <!-- <a class="btn btn-danger" (click)="deleteUser(user._id || '')" -->
+          <a class="btn btn-danger" (click)="deleteUser(user._id || '')"
+            >Eliminar</a
+          >
+        </td>
+        <td>
+          <!-- <a class="btn btn-warning" (click)="updateUser(user)">Editar</a> -->
+          <a class="btn btn-warning">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
