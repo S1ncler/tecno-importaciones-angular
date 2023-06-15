@@ -4,20 +4,25 @@
     <div class="col">
       <!-- formulario -->
       <!-- <form #userForm="ngForm"> -->
-        <form #userForm="ngForm" (ngSubmit)="createOrUpdateUser(userForm)">
+      <form #userForm="ngForm" (ngSubmit)="createOrUpdateUser(userForm)">
         <div class="d-flex flex-column gap-3">
           <div class="d-flex justify-content-center">
             <h1>Sign up</h1>
           </div>
           <div class="d-flex flex-column flex-sm-row gap-3">
             <input
+              *ngIf="false"
               name="_id"
               #_id="ngModel"
               [(ngModel)]="adminUserService.userToCreate._id"
               type="text"
+            />
+            <input
+              name="nombre"
+              #nombre="ngModel"
               [(ngModel)]="adminUserService.userToCreate.nombre"
               type="text"
-              placeholder="Name"
+              placeholder="Nombre"
             />
             <input
               name="email"
@@ -54,6 +59,14 @@
               placeholder="Ciudad"
             />
             <input
+              class="icon"
+              name="departamento"
+              #departamento="ngModel"
+              [(ngModel)]="adminUserService.userToCreate.departamento"
+              type="text"
+              placeholder="Departamento"
+            />
+            <input
               name="contrasena"
               #password="ngModel"
               [(ngModel)]="adminUserService.userToCreate.contrasena"
@@ -83,11 +96,11 @@
             <div class="flex-grow-1">
               <input
                 class="icon"
-                name="direccion"
-                #direccion="ngModel"
-                [(ngModel)]="adminUserService.userToCreate.direccion"
+                name="telefono"
+                #telefono="ngModel"
+                [(ngModel)]="adminUserService.userToCreate.telefono"
                 type="text"
-                placeholder="Direccion"
+                placeholder="Telefono"
               />
             </div>
           </div>

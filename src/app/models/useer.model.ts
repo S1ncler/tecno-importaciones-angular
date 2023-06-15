@@ -3,6 +3,7 @@ export class useer {
   id?: string;
   role?: string;
   metodosDePago?: string;
+  telefono?: string;
   nombre?: string;
   email?: string;
   username?: string;
@@ -19,6 +20,7 @@ export class useer {
     id = '',
     role = '',
     metodosDePago = '',
+    telefono = '',
     nombre = '',
     email = '',
     username = '',
@@ -34,6 +36,7 @@ export class useer {
     this.id = id;
     this.role = role;
     this.metodosDePago = metodosDePago;
+    this.telefono = telefono;
     this.nombre = nombre;
     this.email = email;
     this.username = username;

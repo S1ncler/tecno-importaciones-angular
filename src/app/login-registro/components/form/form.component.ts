@@ -43,6 +43,12 @@ export class FormComponent {
     // revisar los campos
     let data = form.value
 
+    console.log('createorupdate');
+    console.log(data);
+
+    console.log(data._id);
+
+
     if (data._id) {
       // actualizar
       this.adminUserService.updateUser(data).subscribe((data) => {
