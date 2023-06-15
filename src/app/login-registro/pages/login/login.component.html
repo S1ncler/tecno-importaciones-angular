@@ -1,4 +1,4 @@
-<div class="mt-5" style="margin-bottom: -50px;">
+<div class="mt-5" style="margin-bottom: -50px">
   <div class="waterMark position-absolute w-100 vh-100"></div>
   <div class="d-flex flex-column contenedorPrincipal">
     <!-- Contenedor principal -->
@@ -22,6 +22,7 @@
             <form class="font" action="home.html">
               <label for="telOrEmail">TELEFONO O EMAIL:</label><br />
               <input
+                class="form-control"
                 [(ngModel)]="RegisterService.loginForm.username"
                 type="text"
                 id="telOrEmail"
@@ -30,13 +31,15 @@
               /><br />
               <label for="pass">CONTRASEÑA:</label><br />
               <input
+                class="form-control"
                 [(ngModel)]="RegisterService.loginForm.password"
                 type="password"
                 id="pass"
                 name="pass"
                 placeholder="Password"
               /><br />
-              <a class="text-decoration-none align-text-bottom font" href="#"
+              <a class="text-decoration-none align-text-bottom font"
+              (click)="showModal()"
                 >Olvidaste tu contraseña</a
               ><br /><br />
               <div class="form-check">

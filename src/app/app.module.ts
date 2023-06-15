@@ -18,7 +18,7 @@ import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [TiendaService],
   bootstrap: [AppComponent]

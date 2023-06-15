@@ -8,12 +8,16 @@ import { SharedModule } from '../Shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
+import { ForgPassComponent } from './components/forg-pass/forg-pass.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 @NgModule({
   declarations: [
     RegistroComponent,
     LoginComponent,
+    ForgPassComponent,
   ],
   imports: [    
     FormsModule,
@@ -22,6 +26,7 @@ import { RegistroService } from './services/login-registro.service';
     LoginRegistroRoutingModule,
     SharedModule,
     HttpClientModule,
+    SweetAlert2Module,
   ],
   providers: [RegistroService]
 })
