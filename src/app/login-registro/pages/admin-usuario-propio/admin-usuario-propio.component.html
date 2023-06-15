@@ -1,0 +1,14 @@
+<div style="height: 85px;" ></div>
+<div *ngIf="!this.editOpt" style="height: 90vh;" class="d-flex justify-content-center align-items-center">
+   <h2>{{RegisterService.user.username}}</h2>
+</div>
+<div *ngIf="this.editOpt" style="height: 90vh;" class="d-flex justify-content-center align-items-center">
+    <form #userForm="ngForm" (ngSubmit)="UpdateUser(userForm)">
+        <input name="username"
+    #username="ngModel"
+    [(ngModel)]="RegisterService.userToUpdate.username"
+    type="text" value="{{RegisterService.user.username}}">
+    </form>
+ </div>
+<button *ngIf="!this.editOpt" (click)="edit()">Editar</button>
+<button *ngIf="this.editOpt" (click)="edit()" type="submit">Guardar</button>
