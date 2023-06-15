@@ -10,6 +10,7 @@ export class User {
   complemento?: string;
   codigoPostal?: string;
   telefono?: string;
+  pedidos?: any[];
 
   constructor(
     nombre = '',
@@ -22,7 +23,8 @@ export class User {
     direccion = '',
     complemento = '',
     codigoPostal = '',
-    telefono = ''
+    telefono = '',
+    pedidos = []
   ) {
     this.nombre = nombre;
     this.email = email;
@@ -34,6 +36,7 @@ export class User {
     this.direccion = direccion;
     this.complemento = complemento;
     this.codigoPostal = codigoPostal;
-    this.telefono = telefono
+    this.telefono = telefono;
+    this.pedidos = []
   }
 }

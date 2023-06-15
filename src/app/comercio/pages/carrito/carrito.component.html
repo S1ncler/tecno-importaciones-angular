@@ -77,8 +77,8 @@
           <div class="d-flex justify-content-between">
             <span>Total</span> <span> ${{total}}COP</span>
           </div>
-          <a href="resumen-compra.html"
-            ><button class="btn-r shadow-lg">Finalizar Compra</button></a
+          <a [routerLink]="'/comercio/finalCompra'"
+            ><button class="btn-r shadow-lg" (click)="factura()">Finalizar Compra</button></a
           >
         </div>
       </article>

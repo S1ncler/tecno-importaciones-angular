@@ -112,4 +112,13 @@ export class CarritoComponent {
     this.ngOnInit()
   }
 
+  factura(){
+    let factura = {
+      subtotal: this.subtotal,
+      iva: this.iva,
+      total: this.total
+    }
+    localStorage.setItem("factura" , JSON.stringify(factura))
+  }
+
 }
