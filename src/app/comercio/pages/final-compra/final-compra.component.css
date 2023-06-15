@@ -1,0 +1,150 @@
+.body {
+    background-color: #bd5349;
+    font-family: Helvetica;
+  }
+  .container-prin {
+    width: 100uw ;
+  
+    background-color: white;
+  }
+  
+  
+  
+  .borde-abajo {
+    border-bottom: 1px;
+    box-shadow: 0px 8px 6px -6px #02153e;
+  }
+  .carrus {
+    height: 20%;
+    margin-top: 50px;
+    margin-left: 240px;
+  }
+  
+  .img-1 {
+    background-image: url(../../../../assets/images/visa.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-2 {
+    background-image: url(../../../../assets/images/PSE.png);
+    width: 62px;
+    height: 58px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-3 {
+    background-image: url(../../../../assets/images/payu.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-4 {
+    background-image: url(../../../../assets/images/mastercard.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-5 {
+    background-image: url(../../../../assets/images/efecty.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-6 {
+    background-image: url(../../../../assets/images/davivienda.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img-7 {
+    background-image: url(../../../../assets/images/bancolombia.png);
+    width: 125px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+ 
+  .linea-azul-pequeña {
+    margin-top: 20px;
+  
+    height: 3px;
+    width: 250px;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  
+  .contacto {
+    margin-left: 65px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .cont {
+    font-weight: bold;
+  }
+ 
+  
+  .opciones-1 {
+    margin-top: 90px;
+    margin-left: 130px;
+  }
+  .opciones-2 {
+    margin-top: 90px;
+    margin-left: 40px;
+  }
+  
+  
+  h5 {
+    font-size: 1rem;
+  }
+  @media (max-width: 970px) {
+    .hide {
+      visibility: hidden;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+    .no-gap {
+      gap: 0 !important;
+    }
+  }
+  
+  @media (max-width: 790px) {
+    .wrap-666 {
+      flex-wrap: wrap;
+    }
+    .m-a {
+      margin-left: 24%;
+      margin-bottom: 50px;
+    }
+  }
+  
+  .btn1 {
+    background-color: white;
+    border-radius: 1ch;
+    width: 30vw;
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #318aac;
+    position: relative;
+    border: 2px solid #318aac;
+    outline: 1px solid;
+    outline-color: rgba(49, 138, 172, 0.4);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .btn1:hover {
+    box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5),
+      0 0 20px rgba(49, 138, 172, 0.4);
+    outline-color: rgba(49, 138, 172, 0);
+    outline-offset: 80px;
+    text-shadow: 1px 1px 6px #fff;
+  }
+  

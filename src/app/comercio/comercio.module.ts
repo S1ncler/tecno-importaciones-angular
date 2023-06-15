@@ -19,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { DetallesProductoComponent } from './pages/detalles-producto/detalles-producto.component'
+import { DetallesProductoComponent } from './pages/detalles-producto/detalles-producto.component';
+import { FinalCompraComponent } from './pages/final-compra/final-compra.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DetallesProductoComponent } from './pages/detalles-producto/detalles-pr
     FormularioComponent,
     ConfirmDialogComponent,
     DetallesProductoComponent,
+    FinalCompraComponent,
   ],
   imports: [
     FormsModule,
