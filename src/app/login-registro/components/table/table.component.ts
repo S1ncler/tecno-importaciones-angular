@@ -26,8 +26,31 @@ export class TableComponent {
       alert('Usuario Eliminado');
       this.getAllUsers();
     });
+
   }
 
+  // createOrUpdateUser(form: NgForm) {
+  //   // revisar los campos
+  //   let data = form.value
 
+  //   if (data._id) {
+  //     // actualizar
+  //     this.adminUserService.updateUser(data).subscribe((data) => {
+  //       alert('Usuario actualizado');
+  //       this.getAllUsers();
+  //     });
+  //     this.cleanForm();
+  //     return;
+  //   }
+
+  //   //crear usuario
+  //   delete data._id;
+
+  //   this.adminUserService.createUser(data).subscribe((data: any) => {
+  //     console.log({ data });
+  //     this.getAllUsers();
+  //     this.cleanForm();
+  //   });
+  // }
 
 }

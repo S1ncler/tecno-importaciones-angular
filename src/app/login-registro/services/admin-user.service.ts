@@ -1,7 +1,8 @@
-import { user } from './../interfaces/user.interface';
+// import { user } from './../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
+import { useer } from "src/app/models/useer.model";
 
 
 @Injectable({
@@ -12,8 +13,9 @@ export class AdminUserService {
   constructor(private http: HttpClient) { }
 
   urlApi = `${environment.API_URI}usuarios`;
-  allUsers: user[] = [];
+  allUsers: useer[] = [];
   // allUsers: any = [];
+  userToCreate: useer = new useer()
 
   getAllUsers() {
     return this.http.get(`${this.urlApi}`)
@@ -23,11 +25,11 @@ export class AdminUserService {
     return this.http.delete(`${this.urlApi}/delete${_id}`)
   }
 
-  createUser(data: user) {
+  createUser(data: useer) {
     return this.http.post(`${this.urlApi}`, data)
   }
 
-  updateUser(data: user) {
+  updateUser(data: useer) {
     let dataToUpdate = {
       _id: data._id,
       dataToUpdate: data

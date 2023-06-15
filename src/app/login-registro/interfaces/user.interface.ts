@@ -1,5 +1,8 @@
 export interface user {
   _id: string;
+  id?: string;
+  role?: string;
+  metodosDePago?: string;
   username: string;
   nombre: string;
   email: string;
