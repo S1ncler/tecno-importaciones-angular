@@ -1,90 +1,104 @@
 <!-- BANNER MIS COMPRAS -->
 <section class="d-flex justify-content-center">
-<section
-      style="height: 100%; width: 96vw"
-      class="bg-light mt-3 d-flex flex-column align-items-center gap-4"
+  <section
+    style="height: 100%; width: 96vw"
+    class="bg-light mt-3 d-flex flex-column align-items-center gap-4"
+  >
+    <section class="d-flex flex-column align-items-center w-100">
+      <article
+        class="shadow-lg bg-carro d-flex flex-column align-items-center justify-content-center mt-5 gap-0"
+      >
+        <div class="carrito-compras mb-5"></div>
+        <span class="text-light mb-5">Tus compras</span>
+        <div class="linea-lrg shadow"></div>
+      </article>
+
+      <!-- SECCION PRODUCTO Y RESUMEN DE COMPRAS -->
+    </section>
+    <section
+      style="width: 82%"
+      class="d-flex mt-5 gap-5 column-flex flex-wrap justify-content-center align-content-center fondo-blanco"
     >
-      <section class="d-flex flex-column align-items-center w-100">
-<article
-class="shadow-lg bg-carro d-flex flex-column align-items-center justify-content-center mt-5 gap-0"
->
-<div class="carrito-compras mb-5"></div>
-<span class="text-light mb-5">Tus compras</span>
-<div class="linea-lrg shadow"></div>
-</article>
+      <div class="d-flex gap-4 flex-wrap flex-column gap-4">
+        <div *ngIf="!arrayProductos[0]" class="d-flex justify-content-center flex-column align-items-center">
+          <h1>¡No has agregado nada a tu carrito!</h1>
+          <img src="../../../../assets/images/triste.png" style="width: 30%; height: 55%;" alt="">
+          <button class="btn btn-success mt-3" [routerLink]="'/comercio'">¡Visita nuestros productos aqui!</button>
+        </div>
+        <div *ngFor="let item of arrayProductos">
+          <div *ngIf="item">
+        <div class="corsair"><img src="{{item.image}}" class="corsair" alt=""></div>
+        <span class="fw-bold">{{item.name}}</span>
+        <div class="d-flex">
+          <button
+            class="btn-sc border-0 shadow border-dark border-opacity-25 bg-light"
+            (click)="substractProduct(item)"
+          >
+            -
+          </button>
+          <input
+            class="border-0 shadow btn-sc"      
+            type="number"
+            min="1"
+            placeholder="1"
+            value="{{item.repetidos}}"
+          />
+          <button
+            class="btn-sc border-0 shadow border-dark border-opacity-25 bg-light"
+            (click)="addProduct(item)"
+          >
+            +
+          </button>
+        </div>
+        <div class="fw-bold">{{item.price}}</div>
+        <button (click)="removeProduct(item)">Quitar producto</button>
+      </div>
+      </div>
+      </div>
+      <div class="ln-r"></div>
+      <article class="d-flex justify-content-center">
+        <div class="d-flex flex-column gap-3">
+          <div
+            style="width: 63%"
+            class="text-black border-bottom border-3 border-dark fw-semibold"
+          >
+            Resumen de compra
+          </div>
 
-<!-- SECCION PRODUCTO Y RESUMEN DE COMPRAS -->
-</section>
-<section
-style="width: 82%"
-class="d-flex mt-5 gap-5 column-flex flex-wrap justify-content-center align-content-center fondo-blanco"
->
-<div class="d-flex gap-4 flex-wrap">
-<div class="corsair"></div>
-<span class="fw-bold">PC Corsair gamer RGB</span>
-<div class="d-flex">
-  <button
-    class="btn-sc border-0 shadow border-dark border-opacity-25 bg-light"
-  >
-    -
-  </button>
-  <input
-    class="border-0 shadow btn-sc"
-    type="number"
-    min="1"
-    placeholder="1"
-  />
-  <button
-    class="btn-sc border-0 shadow border-dark border-opacity-25 bg-light"
-  >
-    +
-  </button>
-</div>
-<div class="fw-bold">$6’000.000COP</div>
-</div>
-<div class="ln-r"></div>
-<article class="d-flex justify-content-center">
-<div class="d-flex flex-column gap-3">
-  <div
-    style="width: 63%"
-    class="text-black border-bottom border-3 border-dark fw-semibold"
-  >
-    Resumen de compra
-  </div>
+          <span>{{arrayProductos.length}} Productos en el carro de compras</span>
+          <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between">
+              <span>Subtotal</span> <span> ${{subtotal}}COP</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>IVA 19%</span> <span> ${{iva}}COP</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Total</span> <span> ${{total}}COP</span>
+          </div>
+          <a href="resumen-compra.html"
+            ><button class="btn-r shadow-lg">Finalizar Compra</button></a
+          >
+        </div>
+      </article>
+    </section>
 
-  <span>2 Productos en el carro de compras</span>
-  <div class="d-flex flex-column">
-    <div class="d-flex justify-content-between">
-      <span>Subtotal</span> <span> $12’000.695COP</span>
-    </div>
-    <div class="d-flex justify-content-between">
-      <span>IVA 19%</span> <span> $220.000COP</span>
-    </div>
-  </div>
-  <div class="d-flex justify-content-between">
-    <span>Total</span> <span> $12’220.695COP</span>
-  </div>
-  <a href="resumen-compra.html"
-    ><button class="btn-r shadow-lg">Finalizar Compra</button></a
-  >
-</div>
-</article>
-</section>
-
-<!-- SECCION MIS MARCAS -->
-<section class="container-b mt-5 d-flex flex-column align-items-center">
-<span class="f-1 fw-bold mt-4">Nuestras Formas de Pago</span>
-<article
-style="width: 70%; height: 60%"
-class="d-flex gap-5 flex-wrap justify-content-evenly mt-4"
->
-<div class="img-1"></div>
-<div class="img-2"></div>
-<div class="img-3"></div>
-<div class="img-4"></div>
-<div class="img-5"></div>
-<div class="img-6"></div>
-<div class="img-7"></div>
-</article>
-</section>
+    <!-- SECCION MIS MARCAS -->
+    <section class="container-b mt-5 d-flex flex-column align-items-center">
+      <span class="f-1 fw-bold mt-4">Nuestras Formas de Pago</span>
+      <article
+        style="width: 70%; height: 60%"
+        class="d-flex gap-5 flex-wrap justify-content-evenly mt-4"
+      >
+        <div class="img-1"></div>
+        <div class="img-2"></div>
+        <div class="img-3"></div>
+        <div class="img-4"></div>
+        <div class="img-5"></div>
+        <div class="img-6"></div>
+        <div class="img-7"></div>
+      </article>
+    </section>
+  </section>
 </section>

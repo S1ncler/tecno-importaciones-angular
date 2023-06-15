@@ -8,12 +8,14 @@ import { SharedModule } from '../Shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
+import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
 
 
 @NgModule({
   declarations: [
     RegistroComponent,
     LoginComponent,
+    AdminUsuarioPropioComponent,
   ],
   imports: [    
     FormsModule,

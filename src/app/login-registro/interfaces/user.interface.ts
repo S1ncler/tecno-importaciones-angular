@@ -2,7 +2,7 @@ export interface user {
     username: string;
     nombre: string;
     email: string;
-    cumpleanos: Date;
+    cumpleanos: string;
     telefono: string;
     contrasena: string;
     departamento: string;

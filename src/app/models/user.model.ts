@@ -1,4 +1,4 @@
-class user {
+export class User {
   nombre?: string;
   email?: string;
   username?: string;
@@ -9,6 +9,7 @@ class user {
   direccion?: string;
   complemento?: string;
   codigoPostal?: string;
+  telefono?: string;
 
   constructor(
     nombre = '',
@@ -20,7 +21,8 @@ class user {
     ciudad = '',
     direccion = '',
     complemento = '',
-    codigoPostal = ''
+    codigoPostal = '',
+    telefono = ''
   ) {
     this.nombre = nombre;
     this.email = email;
@@ -32,5 +34,6 @@ class user {
     this.direccion = direccion;
     this.complemento = complemento;
     this.codigoPostal = codigoPostal;
+    this.telefono = telefono
   }
 }
