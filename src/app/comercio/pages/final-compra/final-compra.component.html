@@ -93,23 +93,20 @@
               >
                 Resumen de compra
               </div>
-
-              <span class="col">2 Productos en el carro de compras</span>
-              <div class="row">
-                <div class="col">Subtotal</div>
-                <div class="col">$12.000.659 COP</div>
-              </div>
-
-              <div class="row">
-                <div class="col">IVA 19%</div>
-                <div class="col">$220.000 COP</div>
-              </div>
-
-              <div class="row">
-                <div class="col mt-2">Total</div>
-                <div class="col mt-2"><b>$12.220.659 COP</b></div>
-              </div>
-              <a  routerLink="carrito-compras"><button class=" mx-5 btn1 ">Finalizar compra</button></a>
+        
+              <span>{{arrayProductos.length}} Productos en el carro de compras</span>
+          <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between">
+              <span>Subtotal</span> <span> ${{subtotal}}COP</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>IVA 19%</span> <span> ${{iva}}COP</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Total</span> <span> ${{total}}COP</span>
+          </div>
+          <a  routerLink="carrito-compras"><button class=" mx-5 btn1 ">Finalizar compra</button></a>
             </div>
           </article>
         </div>
@@ -118,16 +115,9 @@
           <div
             class="col-12 col-sm-12 col-md-12 col-lg-6 d-flex  align-items-center"
           >
-            <img src="../../../../assets/images/CPU1.png" alt="" style="width: 11vw" />
-            <div class="m-4">
-              <b>
-                <h4 accordion-body="mx-4 p-2 ">Combo gamer RGB</h4>
-                <h5>$6’000.000COP</h5>
-                <h5>Cantidad: 2</h5></b
-              >
-            </div>
+            
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+          <div class="col-12">
             <article
               style="background-color: #f1eeee"
               class="d-flex gap-5 flex-wrap justify-content-evenly mt-3">
@@ -137,8 +127,7 @@
               <div class="img-3"></div>
               <div class="img-4"></div>
               <div class="img-5"></div>
-              <div class="img-6"></div>
-              <div class="img-7"></div>
+              
             </article>
           </div>
         </div>
