@@ -1,4 +1,5 @@
 export class User {
+  _id: string;
   nombre?: string;
   email?: string;
   username?: string;
@@ -12,6 +13,7 @@ export class User {
   telefono?: string;
 
   constructor(
+    _id = '',
     nombre = '',
     email = '',
     username = '',
@@ -24,6 +26,7 @@ export class User {
     codigoPostal = '',
     telefono = ''
   ) {
+    this._id = _id
     this.nombre = nombre;
     this.email = email;
     this.username = username;

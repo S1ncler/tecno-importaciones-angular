@@ -1,14 +1,109 @@
-<div style="height: 85px;" ></div>
-<div *ngIf="!this.editOpt" style="height: 90vh;" class="d-flex justify-content-center align-items-center">
-   <h2>{{RegisterService.user.username}}</h2>
+<div style="height: 85px"></div>
+<div
+  *ngIf="!this.editOpt"
+  style="height: 90vh"
+  class="d-flex justify-content-center align-items-center flex-column"
+>
+  <h1 class="fw-bold">MI PERFIL</h1>
+  <h2>{{ RegisterService.user.nombre }}</h2>
+  <h2>{{ RegisterService.user.email }}</h2>
+  <h2>{{ RegisterService.user.username }}</h2>
+  <h2>{{ RegisterService.user.cumpleanos }}</h2>
+  <h2>{{ RegisterService.user.departamento }}</h2>
+  <h2>{{ RegisterService.user.ciudad }}</h2>
+  <h2>{{ RegisterService.user.direccion }}</h2>
+  <h2>{{ RegisterService.user.complemento }}</h2>
+  <h2>{{ RegisterService.user.codigoPostal }}</h2>
+  <h2>{{ RegisterService.user.telefono }}</h2>
+
 </div>
-<div *ngIf="this.editOpt" style="height: 90vh;" class="d-flex justify-content-center align-items-center">
-    <form #userForm="ngForm" (ngSubmit)="UpdateUser(userForm)">
-        <input name="username"
-    #username="ngModel"
-    [(ngModel)]="RegisterService.userToUpdate.username"
-    type="text" value="{{RegisterService.user.username}}">
-    </form>
- </div>
-<button *ngIf="!this.editOpt" (click)="edit()">Editar</button>
-<button *ngIf="this.editOpt" (click)="edit()" type="submit">Guardar</button>
+<div
+  *ngIf="this.editOpt"
+  style="height: 90vh"
+  class="d-flex justify-content-center align-items-center flex-column gap-3"
+>
+  <form #userForm="ngForm" (ngSubmit)="UpdateUser(userForm)" class="d-flex flex-column gap-3">
+    <input
+      name="_id"
+      #_id="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate._id"
+      type="text"
+      value="{{ RegisterService.user._id }}"
+      hidden
+    />
+    <input
+      name="nombre"
+      #nombre="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.nombre"
+      type="text"
+      value="{{ RegisterService.user.nombre }}"
+    />
+    <input
+      name="email"
+      #email="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.email"
+      type="text"
+      value="{{ RegisterService.user.email }}"
+    />
+    <input
+      name="username"
+      #username="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.username"
+      type="text"
+      value="{{ RegisterService.user.username }}"
+    />
+    <input
+      name="cumpleanos"
+      #cumpleanos="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.cumpleanos"
+      type="text"
+      value="{{ RegisterService.user.cumpleanos }}"
+    />
+    <input
+      name="departamento"
+      #departamento="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.departamento"
+      type="text"
+      value="{{ RegisterService.user.departamento }}"
+    />
+    <input
+      name="ciudad"
+      #ciudad="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.ciudad"
+      type="text"
+      value="{{ RegisterService.user.ciudad }}"
+    />
+    <input
+      name="direccion"
+      #direccion="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.direccion"
+      type="text"
+      value="{{ RegisterService.user.direccion }}"
+    />
+    <input
+      name="complemento"
+      #complemento="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.complemento"
+      type="text"
+      value="{{ RegisterService.user.complemento }}"
+    />
+    <input
+      name="codigoPostal"
+      #codigoPostal="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.codigoPostal"
+      type="text"
+      value="{{ RegisterService.user.codigoPostal }}"
+    />
+    <input
+      name="telefono"
+      #telefono="ngModel"
+      [(ngModel)]="RegisterService.userToUpdate.telefono"
+      type="text"
+      value="{{ RegisterService.user.telefono }}"
+    />
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+<button *ngIf="!this.editOpt" (click)="edit(RegisterService.user)">
+  Editar
+</button>

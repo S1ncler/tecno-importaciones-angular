@@ -13,6 +13,7 @@ import { User } from 'src/app/models/user.model';
 export class RegistroService {
   userToUpdate: User = new User ()
   user: user = {
+    _id: "",
     username: "",
     nombre: "",
     email: "",
@@ -36,8 +37,13 @@ export class RegistroService {
     const url = environment.API_URI + `usuarios/${usuario}`
     return this.http.get(url)
   }
-  updateUser(usuario:string){
-    const url = environment.API_URI + `usuarios/${usuario}`
+  updateUser(usuario: User){
+    const url = environment.API_URI + `usuarios`
+    let data = {
+      _id: usuario._id,
+      dataToUpdate: usuario
+    }
+    return this.http.put(`${url}`, data)
     
   }
 
