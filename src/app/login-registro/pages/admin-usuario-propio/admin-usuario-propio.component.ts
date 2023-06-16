@@ -26,7 +26,7 @@ export class AdminUsuarioPropioComponent {
   }
 
   getUser() {
-    let username = 'vane';
+    let username = 'Daniel1234';
     this.RegisterService.usuarioPropio(username).subscribe((res: any) => {
       this.RegisterService.user = JSON.parse(JSON.stringify(res)) || [];
     });
