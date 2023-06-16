@@ -43,13 +43,10 @@ export class FormComponent {
     // revisar los campos
     let data = form.value
 
-    console.log('createorupdate');
-    console.log(data);
-
-    console.log(data._id);
 
 
     if (data._id) {
+
       // actualizar
       this.adminUserService.updateUser(data).subscribe((data) => {
         alert('Usuario actualizado');
@@ -63,10 +60,17 @@ export class FormComponent {
     delete data._id;
 
     this.adminUserService.createUser(data).subscribe((data: any) => {
-      console.log({ data });
+      alert('Usuario creado');
       this.getAllUsers();
       this.cleanForm();
     });
+  }
+
+  updateUser(user: useer) {
+    this.adminUserService.userToCreate = user;
+    alert('Usuario cargado en el formulario');
+    console.log(user);
+
   }
 
 }

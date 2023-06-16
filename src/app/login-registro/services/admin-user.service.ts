@@ -14,7 +14,7 @@ export class AdminUserService {
   constructor(private http: HttpClient) { }
 
   urlApi = `${environment.API_URI}usuarios`;
-  allUsers: user[] = [];
+  allUsers: useer[] = [];
   // allUsers: any = [];
   userToCreate: useer = new useer()
 
@@ -23,19 +23,18 @@ export class AdminUserService {
   }
 
   deleteUser(_id: string) {
-    return this.http.delete(`${this.urlApi}/delete${_id}`)
+    return this.http.delete(`${this.urlApi}/delete/${_id}`)
   }
 
-  createUser(data: user) {
+  createUser(data: useer) {
     return this.http.post(`${this.urlApi}/`, data)
   }
 
-  updateUser(data: user) {
+  updateUser(data: useer) {
     let dataToUpdate = {
       _id: data._id,
       dataToUpdate: data
     }
-    return this.http.put(`${this.urlApi}/update`, dataToUpdate)
+    return this.http.put(`${this.urlApi}/update/${data._id}`, data)
   }
-
 }

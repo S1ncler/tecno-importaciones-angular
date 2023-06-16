@@ -1,7 +1,6 @@
 export class useer {
   _id?: string;
-  id?: string;
-  role?: string;
+  rol?: string;
   metodosDePago?: string;
   telefono?: string;
   nombre?: string;
@@ -17,8 +16,7 @@ export class useer {
 
   constructor(
     _id = '',
-    id = '',
-    role = '',
+    rol = '',
     metodosDePago = '',
     telefono = '',
     nombre = '',
@@ -33,8 +31,7 @@ export class useer {
     codigoPostal = ''
   ) {
     this._id = _id;
-    this.id = id;
-    this.role = role;
+    this.rol = rol;
     this.metodosDePago = metodosDePago;
     this.telefono = telefono;
     this.nombre = nombre;

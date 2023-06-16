@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './Shared/shared.module';
 import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
+import { AdminUserService } from "./login-registro/services/admin-user.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [TiendaService],
+  providers: [
+    TiendaService,
+    AdminUserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
