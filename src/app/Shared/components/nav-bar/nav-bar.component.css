@@ -46,8 +46,8 @@
   
   .contai-d:hover .menu {
    
-border:  solid #02153e 1px;
-    border-width: 5px!important;
+border:  solid #02153e 3px;
+    
     border-radius: 10px;
     background-color: #b9cbd6;
     display: block;
@@ -58,8 +58,8 @@ border:  solid #02153e 1px;
     display: none;
     position: absolute;
     top: 100%;
-    width: 220px;
-    height: 250px;
+    width: 190px;
+    height: 200px;
     right: 0; 
   }
   
@@ -67,13 +67,51 @@ border:  solid #02153e 1px;
     cursor: pointer;
     background-color: var(--red);
     color: black;
+    padding: 5px;
+    min-height: 25px;
+    font-size: 20px;
+    
+  }
+  .option-name{
+    margin: 20px;
+    margin-bottom: 20px; font-family:Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    background-color: var(--red);
+    color: black;
     padding-top: 5px;
     min-height: 25px;
   }
-  
   .option:hover {
     border-radius: 10px;
     background-color:#bd534951;
     color: white;
   }
   
+  .logo-nav-2{
+    height: 50px;
+    border-radius:25px;
+    border: #02153e 2px solid;
+   
+  }
+  .boton-cerrar{
+    margin-top: 25px;
+    border-radius: 3px;
+    background-color: #bd5349;
+    color: white;
+    border: #9c3127 solid;
+  }
+  .boton-cerrar:hover {
+    border-radius: 3px;
+    background-color:#c17d77;
+    color: white;
+    border: #a00707 solid;
+  }
+  .linea-pequeña{
+    margin-bottom: 15px;
+    margin-top: 3px;
+    margin-left: 10px;
+    height: 2px;
+    width: 165px;
+    background-color: #02153E;
+    box-shadow: 8px #666;
+  }
