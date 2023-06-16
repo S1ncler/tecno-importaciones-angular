@@ -49,7 +49,7 @@
 border:  solid #02153e 3px;
     
     border-radius: 10px;
-    background-color: #b9cbd6;
+    background-color: rgb(196, 215, 227);
     display: block;
   }
   
@@ -70,7 +70,6 @@ border:  solid #02153e 3px;
     padding: 5px;
     min-height: 25px;
     font-size: 20px;
-    
   }
   .option-name{
     margin: 20px;
