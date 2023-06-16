@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RegistroService } from '../../services/login-registro.service';
-import {User} from '../../../models/user.model'
+import { User } from 'src/app/models/user.model';
 import { NgForm } from '@angular/forms';
 
 @Component({
