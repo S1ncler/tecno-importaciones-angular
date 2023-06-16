@@ -1,0 +1,221 @@
+<div class="home d-flex justify-content-center">
+  <div
+    id="carouselExampleIndicators"
+    class="carrus carousel slide align-self-center"
+    data-bs-ride="carousel"
+    data-bs-interval="2800" 
+  >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner" [routerLink]="'/comercio/detallesProductos'">
+          <div class="carousel-item active">
+            <div class="imagen-1-carrusel"></div>
+          </div>
+          <div class="carousel-item" [routerLink]="'/comercio/detallesProductos'">
+            <div class="imagen-2-carrusel"></div>
+          </div>
+          <div class="carousel-item" [routerLink]="'/comercio/detallesProductos'">
+            <div class="imagen-3-carrusel"></div>
+          </div>
+        </div>
+        
+       
+      </div>
+ </div>
+
+ <!-- inicio categorias-->
+      <div class="linea-azul shadow mx-auto"></div>
+
+      <p class="categorias d-flex justify-content-center fw-bold">Categorías</p>
+
+      <div
+        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
+      >
+        <div class="" >
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/tarjeta-de-video.png"
+            alt=""
+          />
+          <h1 class="fw-bold m-3" >Tarjetas Gráficas</h1>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/memoria-ram.png"
+            alt=""
+          />
+          <h2 class="fw-bold m-3">Memorias Ram</h2>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/fuente-de-alimentacion.png"
+            alt=""
+          />
+          <h2 class="fw-bold m-3">Fuentes de poder</h2>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/Motherboard.jpeg"
+            alt=""
+          />
+          <h2 class="fw-bold m-3">Motherboards</h2>
+        </div>
+      </div>
+
+      <div class="linea-azul mx-auto shadow"></div>
+
+      <p class="categorias d-flex justify-content-center fw-bold">Nuevos productos</p>
+
+      <div
+        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
+      >
+        <div class="">
+          <img
+            class="img-categorias"
+            src="assets/images/tarjeta-de-video.png"
+            alt=""
+          />
+          <h1 class="fw-bold m-3">Tarjetas Gráficas</h1>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/memoria-ram.png"
+            alt=""
+          />
+          <h2 class="fw-bold m-3">Memorias Ram</h2>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/fuente-de-alimentacion.png"
+            alt=""
+          />
+         <h2 class="fw-bold m-3">Fuentes de poder</h2>
+        </div>
+
+        <div class="">
+          <img
+            class="img-categorias"
+            src="../../../../assets/images/Motherboard.jpeg"
+            alt=""
+          />
+          <h2 class="fw-bold m-3">Motherboards</h2>
+        </div>
+      </div>
+
+      <div class="linea-azul shadow mx-auto"></div>
+
+      <div class="marcas d-flex justify-content-start">
+      <!--Marcas-->
+        <div class="info-marcas">
+          <h1 class="text-decoration-underline texto-co">Marcas</h1>
+          <p class="color-b fw-medium">
+            Tenemos la mejor mercancía del
+          </p>
+           <p class="color-b-0 fw-medium">
+             mercado y al mejor precio.
+          </p>
+          <p class="fw-bold color-b-1">¡Imposible de superar!</p>
+        </div>
+        <!--Marcas logos-->
+        <div class="marcas-imgs">
+
+       <!--nvidia-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro1 = true" (mouseleave)="mostrarCuadro1 = false">
+  <ng-container *ngIf="!mostrarCuadro1">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-01.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro1" class="texto-cuadro fw-medium">Diseña unidades de procesamiento de gráficos para los mercados de videojuegos.</div>
+</div>
+
+<!--msi-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro2 = true" (mouseleave)="mostrarCuadro2 = false">
+  <ng-container *ngIf="!mostrarCuadro2">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-02.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro2" class="texto-cuadro fw-medium">Es una de las marcas más grandes dentro del mundo del PC gaming.</div>
+</div>
+
+<!--asrock-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro3 = true" (mouseleave)="mostrarCuadro3 = false">
+  <ng-container *ngIf="!mostrarCuadro3">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-03.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro3" class="texto-cuadro fw-medium">Es fabricante de placas base, PC industriales y HTPCs.</div>
+</div>
+
+<!--kingston-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro4 = true" (mouseleave)="mostrarCuadro4 = false">
+  <ng-container *ngIf="!mostrarCuadro4">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-04.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro4" class="texto-cuadro fw-medium">Es fabricante de productos de memorias de ordenadores.</div>
+</div>
+
+<!--evga-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro5 = true" (mouseleave)="mostrarCuadro5 = false">
+  <ng-container *ngIf="!mostrarCuadro5">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-05.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro5" class="texto-cuadro fw-medium">Es una compañía dedicada principalmente a la industria del hardware.</div>
+</div>
+
+
+<!--Asus-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro6 = true"  (mouseleave)="mostrarCuadro6 = false">
+  <ng-container *ngIf="!mostrarCuadro6">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-06.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro6" class="texto-cuadro fw-medium">Es una corporación multinacional de hardware, electrónica y robótica​.</div>
+</div>
+
+<!--Corsair-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro7 = true" (mouseleave)="mostrarCuadro7 = false">
+  <ng-container *ngIf="!mostrarCuadro7">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-07.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro7" class="texto-cuadro fw-medium">Es una empresa de hardware de computadoras y periféricos.</div>
+</div>
+
+<!--Amd-->
+<div class="cuadro-marcas" (mouseenter)="mostrarCuadro8 = true" (mouseleave)="mostrarCuadro8 = false">
+  <ng-container *ngIf="!mostrarCuadro8">
+    <img class="img-marcas" src="../../../../assets/images/Untitled-1-08.png" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarCuadro8" class="texto-cuadro fw-medium ">Es una compañía estadounidense de semiconductores.</div>
+</div>
+          
+        </div>
+      </div>
+
+      <div class="linea-azul shadow mx-auto"></div>
+    

@@ -1,0 +1,156 @@
+
+      <div
+        class="contain-1 d-flex flex-column justify-content-center align-items-center"
+      >
+        <div class="conta-a">
+          <p class="Titulo-1">Nuestra empresa</p>
+          <div class="linea-blanca shadow"></div>
+          <h2 class="texto-I">
+            Suministramos mercancía para equipos de tecnología al mejor precio
+            del mercado, con la más alta calidad, productos completamente
+            garantizados.
+          </h2>
+        </div>
+      </div>
+
+      <div class="bac-g d-flex align-items-center flex-column">
+        <div class="contain-2">
+          <p class="Titulo-1 color-a">Nuestros Servicios</p>
+          <div class="bordea-1">
+            <p class="tex-en">Envíos a todo el país y domicilios en la ciudad de Bogotá</p>
+          </div>
+        </div>
+
+        <div class="contain-3 d-flex ms-5">
+          <div class="c-ubicanos">
+            <p class="Titulo-1 color-a">Ubícanos</p>
+            <div class="tex-a d-flex">
+              <p class="color-a">Tel:</p>
+              <p class="color-b">322-398-9126</p>
+            </div>
+            <div class="tex-a d-flex">
+              <p class="color-a">Dirección:</p>
+              <p class="color-b">Calle 127c # 03 - 60 LC 4</p>
+            </div>
+            <div class="tex-a d-flex l-m">
+              <p class="color-a">Correo:</p>
+              <p class="color-b">tecno.importaciones.v@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="c-imge">
+            <img
+              class="c-image"
+              src="../../../../assets/images/ubicacion-del-mapa.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="container-mv flex-column-m">
+          <div class="mision text-white">
+            <p class="fs-1 tit align-self-center">MISIÓN</p>
+            <p class="tit">
+              En Tecno-Importaciones nos enfocamos en satisfacer las necesidades
+              de nuestros clientes, al igual que en el desarrollo de soluciones
+              tecnológicas que les permitan mejorar su productividad y
+              eficiencia. Buscamos mantener relaciones de largo plazo con
+              nuestros clientes y proveedores; nos comprometemos a brindar un
+              servicio de alta calidad, personalizado y oportuno, apoyados en
+              nuestro equipo humano altamente capacitado y comprometido con la
+              satisfacción del cliente.
+            </p>
+          </div>
+
+          <div class="vision text-white align-s">
+            <p class="fs-1 tit align-self-center">VISIÓN</p>
+            <p class="tit">
+              Ser líderes en la importación y distribución de partes de
+              tecnología para computadores, así como en el desarrollo de
+              soluciones tecnológicas innovadoras para empresas en toda la
+              región, ofreciendo productos, servicios de alta calidad y un
+              excelente servicio al cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="team d-flex justify-content-center mt-2 flex-wrap">
+        <p class="Titulo-1 color-b">Nuestro Equipo</p>
+      </div>
+
+      <div class="linea-azul shadow"></div>
+
+      <div class="d-flex justify-content-center">
+        <div
+          class="gap-5 conta-equi d-flex justify-content-around justify-content-center w-75"
+        >
+<!--Melquin-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo1 = true" (mouseleave)="mostrarInfo1 = false">
+  <ng-container *ngIf="!mostrarInfo1">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Melquin.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo1" class="texto-info fw-medium">
+    <p class="name-1 ">Melquin Barrientos</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+
+ <!--Alejandra-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo2 = true" (mouseleave)="mostrarInfo2 = false">
+  <ng-container *ngIf="!mostrarInfo2">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/alejandra.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo2" class="texto-info fw-medium">
+    <p class="name-1">Alejandra Gomez</p>
+    <p class="ocupation-1">Desarrolladora Web</p>
+  </div>
+</div>
+<!--David-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo3 = true" (mouseleave)="mostrarInfo3 = false">
+  <ng-container *ngIf="!mostrarInfo3">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/David.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo3" class="texto-info fw-medium">
+    <p class="name-1">David Loaiza</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+          <!--Daniel-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo4 = true" (mouseleave)="mostrarInfo4 = false">
+  <ng-container *ngIf="!mostrarInfo4">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Daniel.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo4" class="texto-info fw-medium">
+    <p class="name-1">Daniel Corredor</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+
+<!--Sebastian-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo5 = true" (mouseleave)="mostrarInfo5 = false">
+  <ng-container *ngIf="!mostrarInfo5">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/Sebastian.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo5" class="texto-info fw-medium">
+    <p class="name-1">Sebastian Osorio</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+          
+<!--JeanCarlo-->
+<div class="cont-e-i" (mouseenter)="mostrarInfo6 = true" (mouseleave)="mostrarInfo6 = false">
+  <ng-container *ngIf="!mostrarInfo6">
+    <img class="shadow rounded-circle im-e" src="../../../../assets/images/jeancarlo.jpg" alt="" />
+  </ng-container>
+  <div *ngIf="mostrarInfo6" class="texto-info fw-medium ">
+    <p class="name-1">Jeancarlo Almario</p>
+    <p class="ocupation-1">Desarrollador Web</p>
+  </div>
+</div>
+
+          
+        </div>
+      </div>
+
+      <div class="linea-azul-2 shadow"></div>
+
