@@ -39,5 +39,8 @@ testToken(){
 getTokenExist$():Observable<boolean> {
   return this.tokenExist$.asObservable();
 }
-
+removeToken() {
+  localStorage.removeItem('token');
+  this.tokenExist$.next(false);
+}
 }
