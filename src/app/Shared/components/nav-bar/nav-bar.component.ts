@@ -34,6 +34,7 @@ export class NavBarComponent implements OnInit{
 
   eliminarToken() {
     this.navBarService.removeToken();
+    this.tokenExist = this.navBarService.testToken();
   }
 
 
