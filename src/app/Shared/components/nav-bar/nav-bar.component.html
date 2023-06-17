@@ -59,8 +59,39 @@
               /></button
           ></a>
         </div>
-        <div>
-          <a [routerLink]="'/usuarios/registro'"
+    
+
+ <!-- ha iniciado sesión -->
+<div *ngIf="tokenExist">
+
+<div class="contai-d">
+  <a class="texto-a"
+            ><button class="border border-0 bg-light" type="">
+              <img
+                class="logo-nav-2"
+                src="../../assets/images/icono-perfil.jpg"
+                alt=""
+              /></button
+          ></a>
+  <div class="menu">
+  
+<div class="option-name">Hola Nombre</div>
+<div class="linea-pequeña"></div>
+<div class="option">Mi perfil</div>
+<button (click)="eliminarToken()"class="boton-cerrar"type="Boton">Cerrar sesión</button>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+ <!--No  ha iniciado sesión -->
+<div *ngIf="!tokenExist">
+<a [routerLink]="'/usuarios/registro'"
             ><button class="border border-0 bg-light" type="">
               <img
                 class="logo-nav"
@@ -68,7 +99,25 @@
                 alt=""
               /></button
           ></a>
-        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   </nav>  

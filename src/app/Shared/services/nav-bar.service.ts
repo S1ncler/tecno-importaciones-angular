@@ -5,13 +5,16 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class NavBarService {
-
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;
-
+  private tokenExist$: Subject<boolean>;
+  
   constructor() { 
     this.productosCarrito = [];
     this.productosCarrito$ = new Subject();
+    this.tokenExist$ = new Subject();
+
+    this.testToken();
    }
 
   loadCart(){
@@ -42,4 +45,18 @@ export class NavBarService {
   getProductosCarrito$(): Observable<any[]> {
     return this.productosCarrito$.asObservable();
   }
+
+testToken(){
+  const token = localStorage.getItem('token');
+  return !!token;
+}
+getTokenExist$():Observable<boolean> {
+  return this.tokenExist$.asObservable();
+}
+removeToken() {
+  localStorage.removeItem('token');
+  this.tokenExist$.next(false);
+}
+
+
 }

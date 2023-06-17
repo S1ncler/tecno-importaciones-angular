@@ -59,7 +59,7 @@ export class RegistroService {
         const res2 = JSON.parse(JSON.stringify(res));
         if(res2.token){
           this.token = res2.token;
-          localStorage.setItem("token",this.token)
+          localStorage.setItem("token", this.token);
           this.router.navigate(["../../comercio/"]);
         }
         else{
@@ -125,8 +125,5 @@ export class RegistroService {
     const decoded = jwtDecode(token ? token : "Error en el token");
     return decoded;
   }
-  logout(): Observable<any> {
-    const url = environment.API_URI + 'logout'; 
-    return this.http.get(url);
-  }
+  
 }

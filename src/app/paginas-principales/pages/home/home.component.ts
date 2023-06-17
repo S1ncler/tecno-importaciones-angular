@@ -14,8 +14,7 @@ export class HomeComponent {
   public mostrarCuadro6: boolean = false;
   public mostrarCuadro7: boolean = false;
   public mostrarCuadro8: boolean = false;
-
-
+ 
   public toggleCuadro(cuadro: string): void {
     switch (cuadro) {
       case 'cuadro1':
@@ -46,5 +45,6 @@ export class HomeComponent {
         break;
     }
   }
-  
+
+ 
 }
