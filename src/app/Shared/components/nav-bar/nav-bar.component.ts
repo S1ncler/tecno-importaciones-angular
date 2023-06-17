@@ -27,6 +27,7 @@ export class NavBarComponent implements OnInit{
     this.navBarService.getProductosCarrito$().subscribe(productosCarrito => {
       this.cartCant = productosCarrito.length;
     });
+   
 
   }
  
