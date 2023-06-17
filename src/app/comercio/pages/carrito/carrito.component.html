@@ -77,7 +77,10 @@
           <div class="d-flex justify-content-between">
             <span>Total</span> <span> ${{total}}COP</span>
           </div>
-          <a href="resumen-compra.html"
+          <a *ngIf="!log"
+            ><button class="btn-r shadow-lg">Iniciar sesion para finalizar compra</button></a
+          >
+          <a *ngIf="total && log"
             ><button class="btn-r shadow-lg">Finalizar Compra</button></a
           >
         </div>

@@ -10,6 +10,11 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminUsuarioPropioComponent {
   editOpt: boolean = false;
+  token:any= {
+    exp: "",
+    iat:"",
+    username:""
+  }
   constructor(public RegisterService: RegistroService) {}
   ngOnInit() {
     this.getUser();
@@ -26,10 +31,11 @@ export class AdminUsuarioPropioComponent {
   }
 
   getUser() {
-    let username = 'Daniel1234';
-    this.RegisterService.usuarioPropio(username).subscribe((res: any) => {
+    this.token = this.RegisterService.decodeToken()
+    this.RegisterService.usuarioPropio(this.token.username).subscribe((res: any) => {
       this.RegisterService.user = JSON.parse(JSON.stringify(res)) || [];
-    });
+    })
+    
   }
 
   edit(usuario?: User) {

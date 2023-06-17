@@ -1,8 +1,10 @@
 <div style="height: 85px"></div>
+<div>
+<div class="bg-black justify-content-center align-items-center">
 <div
   *ngIf="!this.editOpt"
-  style="height: 90vh"
-  class="d-flex justify-content-center align-items-center flex-column"
+  style="height: 90vh 70vw"
+  class="d-flex justify-content-center align-items-center flex-column bg-light mt-5"
 >
   <h1 class="fw-bold">MI PERFIL</h1>
   <h2>{{ RegisterService.user.nombre }}</h2>
@@ -15,7 +17,9 @@
   <h2>{{ RegisterService.user.complemento }}</h2>
   <h2>{{ RegisterService.user.codigoPostal }}</h2>
   <h2>{{ RegisterService.user.telefono }}</h2>
-
+  <button (click)="edit(RegisterService.user)">
+    Editar
+  </button>
 </div>
 <div
   *ngIf="this.editOpt"
@@ -104,6 +108,5 @@
     <button type="submit">Guardar</button>
   </form>
 </div>
-<button *ngIf="!this.editOpt" (click)="edit(RegisterService.user)">
-  Editar
-</button>
+</div>
+</div>
