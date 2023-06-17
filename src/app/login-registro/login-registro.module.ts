@@ -8,6 +8,11 @@ import { SharedModule } from '../Shared/shared.module';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
+import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
+import { FormComponent } from './components/form/form.component';
+import { AdminUserService } from './services/admin-user.service';
+import { TableComponent } from './components/table/table.component';
+
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
 
 
@@ -15,9 +20,12 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
   declarations: [
     RegistroComponent,
     LoginComponent,
+    AdminUsersComponent,
+    FormComponent,
+    TableComponent,
     AdminUsuarioPropioComponent,
   ],
-  imports: [    
+  imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -25,6 +33,9 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
     SharedModule,
     HttpClientModule,
   ],
-  providers: [RegistroService]
+  providers: [
+    RegistroService,
+    AdminUserService
+  ]
 })
 export class LoginRegistroModule { }
