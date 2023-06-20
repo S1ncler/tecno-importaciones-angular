@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { paginasPrincipalesRoutingModule } from './paginas-principales-routing.module';
 import { DesarrolloComponent } from './pages/desarrollo/desarrollo.component';
+import { PoliticasComponent } from './pages/politicas/politicas.component';
 
 
 
@@ -11,7 +12,8 @@ import { DesarrolloComponent } from './pages/desarrollo/desarrollo.component';
   declarations: [
     HomeComponent,
     NosotrosComponent,
-    DesarrolloComponent
+    DesarrolloComponent,
+    PoliticasComponent
   ],
   imports: [
     CommonModule,
