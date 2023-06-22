@@ -1,0 +1,26 @@
+.accordion {
+    border: 1px solid #ccc;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .accordion-header {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f5f5f5;
+  }
+  
+  .accordion-icon::after {
+    content: "+";
+    float: right;
+  }
+  
+  .accordion-icon.open::after {
+    content: "-";
+  }
+  
+  .accordion-content {
+    padding: 10px;
+  }

@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
+import { AcordeonComponent } from './components/acordeon/acordeon.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
     RegistroComponent,
     LoginComponent,
     AdminUsuarioPropioComponent,
+    AcordeonComponent,
   ],
   imports: [    
     FormsModule,

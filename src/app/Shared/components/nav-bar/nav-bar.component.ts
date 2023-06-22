@@ -22,8 +22,6 @@ export class NavBarComponent implements OnInit{
    }
 
   ngOnInit() {
-
-   
     this.navBarService.getProductosCarrito$().subscribe(productosCarrito => {
       this.cartCant = productosCarrito.length;
     });
@@ -34,6 +32,7 @@ export class NavBarComponent implements OnInit{
 
   eliminarToken() {
     this.navBarService.removeToken();
+    this.tokenExist = this.navBarService.testToken()
   }
 
 

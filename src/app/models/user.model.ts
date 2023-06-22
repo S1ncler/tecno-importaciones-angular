@@ -3,7 +3,7 @@ export class User {
   nombre?: string;
   email?: string;
   username?: string;
-  cumpleanos?: string;
+  cumpleanos?: Date;
   contrasena?: string;
   departamento?: string;
   ciudad?: string;
@@ -17,7 +17,7 @@ export class User {
     nombre = '',
     email = '',
     username = '',
-    cumpleanos = '',
+    cumpleanos = new Date('2023-06-22'),
     contrasena = '',
     departamento = '',
     ciudad = '',

@@ -8,6 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { user } from '../interfaces/user.interface';
 import { User } from 'src/app/models/user.model';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +19,7 @@ export class RegistroService {
     username: "",
     nombre: "",
     email: "",
-    cumpleanos: "",
+    cumpleanos: new Date('2023-06-22'),
     telefono: "",
     contrasena: "",
     departamento: "",

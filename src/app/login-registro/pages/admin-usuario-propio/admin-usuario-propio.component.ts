@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RegistroService } from '../../services/login-registro.service';
 import { User } from '../../../models/user.model';
 import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'app-admin-usuario-propio',
@@ -15,7 +17,9 @@ export class AdminUsuarioPropioComponent {
     iat:"",
     username:""
   }
-  constructor(public RegisterService: RegistroService) {}
+  
+  constructor(public RegisterService: RegistroService) {
+  }
   ngOnInit() {
     this.getUser();
   }

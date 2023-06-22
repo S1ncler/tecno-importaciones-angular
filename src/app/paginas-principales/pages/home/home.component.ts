@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  tokenExist: boolean = false;
   public mostrarCuadro1: boolean = false;
   public mostrarCuadro2: boolean = false;
   public mostrarCuadro3: boolean = false;
@@ -14,7 +16,12 @@ export class HomeComponent {
   public mostrarCuadro6: boolean = false;
   public mostrarCuadro7: boolean = false;
   public mostrarCuadro8: boolean = false;
- 
+  
+    constructor(private navBarService: NavBarService) {
+      this.tokenExist = navBarService.testToken();
+     }
+   
+
   public toggleCuadro(cuadro: string): void {
     switch (cuadro) {
       case 'cuadro1':
@@ -45,6 +52,4 @@ export class HomeComponent {
         break;
     }
   }
-
- 
 }
