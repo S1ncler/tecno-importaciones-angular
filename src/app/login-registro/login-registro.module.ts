@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistroService } from './services/login-registro.service';
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
 import { AcordeonComponent } from './components/acordeon/acordeon.component';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AcordeonComponent } from './components/acordeon/acordeon.component';
     LoginComponent,
     AdminUsuarioPropioComponent,
     AcordeonComponent,
+    ForgPassComponent,
   ],
   imports: [    
     FormsModule,
@@ -26,6 +28,7 @@ import { AcordeonComponent } from './components/acordeon/acordeon.component';
     LoginRegistroRoutingModule,
     SharedModule,
     HttpClientModule,
+    SweetAlert2Module,
   ],
   providers: [RegistroService]
 })
