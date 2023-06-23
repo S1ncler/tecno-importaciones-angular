@@ -7,11 +7,13 @@ import { Page404Component } from './pages/page404/page404.component';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
     NosotrosComponent,
-    Page404Component
+    Page404Component,
+ 
   ],
   imports: [
     CommonModule,

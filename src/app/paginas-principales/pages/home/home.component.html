@@ -44,95 +44,29 @@
  </div>
 
  <!-- inicio categorias-->
-      <div class="linea-azul shadow mx-auto"></div>
+<div class="linea-azul shadow mx-auto"></div>
 
-      <p class="categorias d-flex justify-content-center fw-bold">Categorías</p>
+<p class="categorias d-flex justify-content-center fw-bold">Categorías</p>
 
-      <div
-        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
-      >
-        <div class="" >
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/tarjeta-de-video.png"
-            alt=""
-          />
-          <h1 class="fw-bold m-3" >Tarjetas Gráficas</h1>
-        </div>
+<div class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap">
+  <div *ngFor="let categoria of categorias" class="">
+    <img class="img-categorias" [src]="categoria.imagen" alt=""  (click)="redireccionarTienda(categoria.nombre)" />
+    <h1 class="fw-bold m-3">{{ categoria.nombre }}</h1>
+  </div>
+</div>
 
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/memoria-ram.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Memorias Ram</h2>
-        </div>
+<div class="linea-azul mx-auto shadow"></div>
 
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/fuente-de-alimentacion.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Fuentes de poder</h2>
-        </div>
+<p class="categorias d-flex justify-content-center fw-bold">Nuevos productos</p>
 
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/Motherboard.jpeg"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Motherboards</h2>
-        </div>
-      </div>
+<div class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap">
+  <div *ngFor="let nuevoProducto of nuevosProductos" class="">
+    <img class="img-categorias" [src]="nuevoProducto.imagen" alt="" />
+    <h1 class="fw-bold m-3">{{ nuevoProducto.nombre }}</h1>
+  </div>
+</div>
 
-      <div class="linea-azul mx-auto shadow"></div>
-
-      <p class="categorias d-flex justify-content-center fw-bold">Nuevos productos</p>
-
-      <div
-        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
-      >
-        <div class="">
-          <img
-            class="img-categorias"
-            src="assets/images/tarjeta-de-video.png"
-            alt=""
-          />
-          <h1 class="fw-bold m-3">Tarjetas Gráficas</h1>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/memoria-ram.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Memorias Ram</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/fuente-de-alimentacion.png"
-            alt=""
-          />
-         <h2 class="fw-bold m-3">Fuentes de poder</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/Motherboard.jpeg"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Motherboards</h2>
-        </div>
-      </div>
-
-      <div class="linea-azul shadow mx-auto"></div>
+<div class="linea-azul shadow mx-auto"></div>
 
       <div class="marcas d-flex justify-content-start">
       <!--Marcas-->
