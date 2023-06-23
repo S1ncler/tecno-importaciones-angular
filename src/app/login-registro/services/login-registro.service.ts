@@ -5,12 +5,14 @@ import { Observable, map } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegistroService {
-  token: string = "";
+  token: string = '';
+
   loginForm: any = {
     username: '',
     password: '',
@@ -26,12 +28,12 @@ export class RegistroService {
       })
       .subscribe((res) => {
         const res2 = JSON.parse(JSON.stringify(res));
-        if(res2.token){
+        if (res2.token) {
           this.token = res2.token;
-          this.router.navigate(["../../comercio/"]);
-        }
-        else{
-          alert("Usuario o contraseña incorrectos")
+          localStorage.setItem('token', this.token);
+          this.router.navigate(['../../comercio/']);
+        } else {
+          alert('Usuario o contraseña incorrectos');
         }
       });
   }
@@ -84,13 +86,47 @@ export class RegistroService {
     else return false;
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return localStorage.getItem('token') ? true : false;
   }
 
-  decodeToken(){
+  decodeToken() {
     const token = localStorage.getItem('token');
-    const decoded = jwtDecode(token ? token : "Error en el token");
+    const decoded = jwtDecode(token ? token : 'Error en el token');
     return decoded;
+  }
+
+  sendEmail(email: string) {
+    const url = environment.API_URI + 'auth/forgpass';
+    const link = 'http://localhost:4200/usuarios/forgpass/';
+    this.http.post(url, { email: email, link: link }).subscribe((res) => {
+      const res2 = JSON.parse(JSON.stringify(res));
+      if (res2.msg === 'Email sended ok') console.log(res2.msg);
+      else console.log('Error sending email');
+    });
+  }
+
+  updatePass(email: string, pass: string) {
+    
+    let updateOk = false;
+    const url = environment.API_URI + 'auth/updatepass';
+    this.http.post(url, { email: email, password: pass }).subscribe((res) => {
+      const res2 = JSON.parse(JSON.stringify(res));
+      if (res2.msg === 'Password updated ok') {
+        Swal.fire({
+          title: 'Exito',
+          text: 'Se cambio tu contraseña correctamente',
+          icon: 'success',
+        });
+        this.router.navigate(['usuarios/login']);
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Hubo un error al actualizar la contraseña',
+          icon: 'error',
+        });
+      }
+    });
+    return updateOk;
   }
 }

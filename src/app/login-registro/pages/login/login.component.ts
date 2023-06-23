@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RegistroService } from '../../services/login-registro.service';
-import { ForgPassComponent } from '../../components/forg-pass/forg-pass.component';
 import Swal from 'sweetalert2';
+import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(public RegisterService: RegistroService) {}
+  constructor(public RegisterService: RegistroService, private router: Router) {}
+
+  ngOnInit() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      let decoded: any = jwt_decode(token);
+      if (decoded.exp > (new Date().getTime() + 2) / 1000)
+        this.router.navigate(['comercio']);
+    }
+  }
 
   showModal() {
     Swal.fire({
@@ -18,9 +28,10 @@ export class LoginComponent {
       input: 'email',
       inputPlaceholder: 'example@correo.com',
       showCloseButton: true,
-      confirmButtonText: 'enviar'
+      confirmButtonText: 'enviar',
     }).then((result) => {
       if (result.isConfirmed) {
+        this.RegisterService.sendEmail(result.value);
         Swal.fire({
           icon: 'success',
           text: 'Si el email es correcto te llegara un link de recuperacion',
