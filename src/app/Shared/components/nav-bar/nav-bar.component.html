@@ -75,7 +75,9 @@
           ></a>
   <div class="menu">
   
-<div class="option-name">Hola Nombre</div>
+<div class="option-name">Hola {{
+  navBarService.user.nombre
+}}</div>
 <div class="linea-pequeña"></div>
 <a [routerLink]="'/usuarios/usuario-propio'" class="text-decoration-none"><div class="option">Mi perfil</div></a>
 <button (click)="eliminarToken()"class="boton-cerrar"type="Boton">Cerrar sesión</button>

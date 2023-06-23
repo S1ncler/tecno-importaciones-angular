@@ -1,10 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
+import jwtDecode from 'jwt-decode';
+import { user } from 'src/app/login-registro/interfaces/user.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavBarService {
+
+  user: user = {
+    _id: "",
+    username: "",
+    nombre: "",
+    email: "",
+    cumpleanos: new Date('2023-06-22'),
+    telefono: "",
+    contrasena: "",
+    departamento: "",
+    ciudad: "",
+    direccion: "",
+    complemento: "",
+    codigoPostal: ""
+  }
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;
   private tokenExist$: Subject<boolean>;
@@ -15,7 +35,16 @@ export class NavBarService {
     this.tokenExist$ = new Subject();
 
     this.testToken();
+    
    }
+   ngOnInit(){
+    
+   }
+
+  //  usuarioPropio(usuario:string){
+  //   const url = environment.API_URI + `usuarios/${usuario}`
+  //   return this.http?.get(url)
+  // }
 
   loadCart(){
     this.productosCarrito = JSON.parse(localStorage.getItem('carrito') || "[]");
@@ -56,6 +85,11 @@ getTokenExist$():Observable<boolean> {
 removeToken() {
   localStorage.removeItem('token');
   this.tokenExist$.next(false);
+}
+decodeToken(){
+  const token = localStorage.getItem('token');
+  const decoded = jwtDecode(token ? token : "Error en el token");
+  return decoded;
 }
 
 

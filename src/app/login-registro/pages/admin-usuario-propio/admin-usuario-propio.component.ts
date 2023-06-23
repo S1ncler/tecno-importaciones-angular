@@ -36,10 +36,9 @@ export class AdminUsuarioPropioComponent {
 
   getUser() {
     this.token = this.RegisterService.decodeToken()
-    this.RegisterService.usuarioPropio(this.token.username).subscribe((res: any) => {
+    this.RegisterService.usuarioPropio(this.token.email).subscribe((res: any) => {
       this.RegisterService.user = JSON.parse(JSON.stringify(res)) || [];
     })
-    
   }
 
   edit(usuario?: User) {

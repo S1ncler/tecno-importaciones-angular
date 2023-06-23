@@ -7,6 +7,11 @@ import { NavBarService } from '../../services/nav-bar.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
+  token:any= {
+    exp: "",
+    iat:"",
+    username:""
+  }
 
   // variable con la cantidad de items del carrito
   cartCant: number = 0;
@@ -16,7 +21,7 @@ export class NavBarComponent implements OnInit{
 // nombre y appellido 
 
   // llama el servicio del navbar
-  constructor(private navBarService: NavBarService) {
+  constructor(public navBarService: NavBarService) {
     this.cartCant = navBarService.loadCart();
     this.tokenExist = navBarService.testToken();
    }
@@ -24,10 +29,18 @@ export class NavBarComponent implements OnInit{
   ngOnInit() {
     this.navBarService.getProductosCarrito$().subscribe(productosCarrito => {
       this.cartCant = productosCarrito.length;
+      
     });
    
 
   }
+
+  // getUser() {
+  //   this.token = this.navBarService.decodeToken()
+  //   this.navBarService.usuarioPropio(this.token.email).subscribe((res: any) => {
+  //     this.navBarService.user = JSON.parse(JSON.stringify(res)) || [];
+  //   })
+  // }
  
 
   eliminarToken() {
