@@ -67,13 +67,11 @@ body {
   font-size: 2rem;
   border-radius: 80px;
   border: none;
-  background-color: whitesmoke;
   text-align: center;
   width: 2rem;
   height: 2rem;
 }
 .input-suma {
-  background-color: whitesmoke;
   font-size: 1rem;
   border-radius: 80px;
   border: none;
@@ -81,7 +79,6 @@ body {
   height: 2rem;
 }
 .input-total {
-  background-color: whitesmoke;
   font-size: 1rem;
   border-radius: 80px;
   border: none;
@@ -92,15 +89,16 @@ body {
   align-items: center;
 }
 .cont-prod {
-  background-color: #bd5349;
+  border: #bd5349 solid 10px;
   width: 19rem;
   height: 26rem;
   border-radius: 40px;
 }
 
 .span-prod {
-  background-color: whitesmoke;
   border-radius: 30px;
+  font-size: larger;
+  font-weight: bold;
   width: auto;
   height: auto;
   text-align: center;
@@ -112,12 +110,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .btn-quitar {
-  background-color: #e43636;
+  background-color: #bd5349;
   color: whitesmoke;
   border: #a33f3f solid 2px;
   border-radius: 40px;
   width: 10rem;
   height: 2rem;
+  font-weight: bold;
+  color: whitesmoke;
 }
 .btn-quitar:hover {
   background-color: #c60a0a;
