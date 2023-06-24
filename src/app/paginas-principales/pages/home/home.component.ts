@@ -121,8 +121,8 @@ export class HomeComponent {
   }
 
   async emitProductosMostrarChange(typeQuery: string, query: string): Promise<void> {
+    console.log(typeQuery)
     localStorage.setItem('typeQuery2', typeQuery);
-    localStorage.setItem('query2', query);
 
     const data: Record<string, any> = {};
     if (localStorage.getItem('typeQuery')) {
