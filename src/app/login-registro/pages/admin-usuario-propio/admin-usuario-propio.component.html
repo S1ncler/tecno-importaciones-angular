@@ -24,7 +24,7 @@
           </div>
           <div class="d-flex gap-3 align-items-center justify-content-between">
             <h2 class="fw-bold">Fecha de nacimiento:</h2>
-            <h2>{{ RegisterService.user.cumpleanos }}</h2>
+            <h2>{{ fecha }}</h2>
           </div>
           <div class="d-flex gap-3 align-items-center justify-content-between">
             <h2 class="fw-bold">Departamento:</h2>
@@ -51,6 +51,7 @@
             <h2>{{ RegisterService.user.telefono }}</h2>
           </div>
           <button
+            href="#inicio"
             class="btn btn-reg fw-bold fs-3 helvetic"
             (click)="edit(RegisterService.user)"
           >
@@ -87,8 +88,10 @@
         class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6 bg-white p-5 mt-5"
       >
         <!-- titulo registro -->
-        <div class="d-flex justify-content-center align-items-center mt-5">
-          <span class="fw-bold text-reg helvetic">{{
+        <div
+          class="d-flex flex-wrap justify-content-center align-items-center mt-5"
+        >
+          <span id="inicio" class="fw-bold text-reg helvetic">{{
             RegisterService.user.nombre
           }}</span>
         </div>
@@ -128,12 +131,10 @@
               id="nombre"
               placeholder="Ingresa tu nombre"
               value="{{ RegisterService.user.nombre }}"
+              (change)="valNombre(RegisterService.user.nombre)"
             />
           </div>
-          <div
-            *nfIf="!nombre.valid || !nombre.pristine"
-            class="alert alert-danger"
-          >
+          <div *ngIf="vNombre === true" class="alert alert-danger">
             El campo nombre es obligatorio
           </div>
           <!-- Username -->
@@ -145,22 +146,15 @@
               id="username"
               name="username"
               #username="ngModel"
+              value="{{ RegisterService.user.username }}"
               [(ngModel)]="RegisterService.userToUpdate.username"
+              (change)="valNick(RegisterService.user.username)"
               required
             />
           </div>
-          <!-- <div
-            *nfIf="
-              (username.valid || username.pristine || username.untouched) &&
-              valnick
-            "
-            class="alert alert-danger"
-          >
-            <span *ngIf="username.errors?.['required']"
-              >El campo Nick es obligatorio</span
-            >
-            <span *ngIf="!valnick">Este nick ya existe</span>
-          </div> -->
+          <div *ngIf="vNick === true" class="alert alert-danger">
+            El campo nombre es obligatorio
+          </div>
           <!-- Correo -->
           <div class="form-group mt-3 z-index-99">
             <label for="email" class="fw-bold helvetic"
@@ -175,24 +169,19 @@
               #email="ngModel"
               [(ngModel)]="RegisterService.userToUpdate.email"
               value="{{ RegisterService.user.email }}"
+              (change)="valmail(RegisterService.user.email)"
               required
             />
           </div>
-          <div
-            class="alert alert-danger"
-            [hidden]="email.valid || email.pristine || email.untouched"
-          >
-            <span *ngIf="email.errors?.['required']"
-              >El email es obligatorio</span
-            >
-            <span *ngIf="email.errors?.['email']">Ingrese un email valido</span>
+          <div *ngIf="vEmail === true" class="alert alert-danger">
+            {{ error }}
           </div>
           <!-- cumpleaños -->
           <div class="form-group mt-3 z-index-99">
             <label for="cumpleaños" class="fw-bold helvetic">cumpleaños:</label>
             <input
               type="date"
-              value="{{ RegisterService.user.cumpleanos }}"
+              value="{{ fecha }}"
               class="form-control input-registro"
               id="cumpleaños"
               placeholder="Ingresa tu cumpleaños"
@@ -200,24 +189,9 @@
               #cumpleanos="ngModel"
               [(ngModel)]="RegisterService.userToUpdate.cumpleanos"
               required
+              (change)="valFecha(RegisterService.userToUpdate.cumpleanos)"
             />
           </div>
-          <!-- <div
-            class="alert alert-danger"
-            [hidden]="
-              (cumpleanos.valid ||
-                cumpleanos.pristine ||
-                cumpleanos.untouched) &&
-              valfecha
-            "
-          >
-            <span *ngIf="cumpleanos.errors?.['required']"
-              >La fecha de cumpleaños es obligatoria</span
-            >
-            <span *ngIf="!valfecha"
-              >Tienes que ser mayor de edad para registrarte</span
-            >
-          </div> -->
           <!-- Telefono -->
           <div class="form-group mt-3 z-index-99">
             <label for="telefono" class="fw-bold helvetic">Telefono:</label>
@@ -230,21 +204,13 @@
               #telefono="ngModel"
               [(ngModel)]="RegisterService.userToUpdate.telefono"
               value="{{ RegisterService.user.telefono }}"
+              (change)="valTel(RegisterService.user.telefono)"
               required
             />
           </div>
-          <!-- <div
-            class="alert alert-danger"
-            [hidden]="
-              (telefono.valid || telefono.pristine || telefono.untouched) &&
-              valTel
-            "
-          >
-            <span *ngIf="telefono.errors?.['required']"
-              >El campo telefono es obligatorio</span
-            >
-            <span *ngIf="!valTel">Ingrese un telefono valido</span>
-          </div> -->
+          <div *ngIf="vTel === true" class="alert alert-danger">
+            El campo nombre es obligatorio
+          </div>
           <!-- Contraseña -->
           <div class="form-group mt-3 z-index-99">
             <label for="contraseña" class="fw-bold helvetic">Contraseña:</label>
@@ -258,22 +224,12 @@
               [(ngModel)]="RegisterService.userToUpdate.contrasena"
               value="{{ RegisterService.user.contrasena }}"
               required
+              (change)="valContra(RegisterService.user.contrasena)"
             />
           </div>
-          <!-- <div
-            class="alert alert-danger"
-            [hidden]="
-              (contrasena.valid ||
-                contrasena.pristine ||
-                contrasena.untouched) &&
-              valCont
-            "
-          >
-            <span *ngIf="contrasena.errors?.['required']"
-              >El contraseña es obligatorio</span
-            >
-            <span *ngIf="!valCont">Ingrese una contraseña valida</span>
-        </div> -->
+          <div *ngIf="vContra === true" class="alert alert-danger">
+            El campo nombre es obligatorio
+          </div>
           <!-- div para poner la seleccion de departamento y ciudad juntos -->
           <div class="container-fluid z-index-99">
             <div class="row">
@@ -289,6 +245,7 @@
                   class="form-control input-registro helvetic"
                   id="departamento"
                   value="{{ RegisterService.user.departamento }}"
+                  (change)="valDepartamento(RegisterService.user.departamento)"
                 >
                   <option value="">Seleccione un departamento</option>
                   <option value="Amazonas">Amazonas</option>
@@ -326,11 +283,8 @@
                   <option value="Vaupés">Vaupés</option>
                   <option value="Vichada">Vichada</option>
                 </select>
-                <div
-                  class="alert alert-danger"
-                  [hidden]="departamento.valid || departamento.pristine"
-                >
-                  El campo departamento es obligatorio
+                <div *ngIf="vDepartamento === true" class="alert alert-danger">
+                  El campo nombre es obligatorio
                 </div>
               </div>
               <!-- Ciudad -->
@@ -343,6 +297,7 @@
                   class="form-control input-registro helvetic"
                   id="ciudad"
                   value="{{ RegisterService.user.ciudad }}"
+                  (change)="valCiudad(RegisterService.user.ciudad)"
                 >
                   <option value="">Seleccione una ciudad</option>
                   <option value="Barranquilla">Barranquilla</option>
@@ -360,21 +315,13 @@
                   <option value="Valledupar">Valledupar</option>
                   <option value="Villavicencio">Villavicencio</option>
                 </select>
-                <div
-                  class="alert alert-danger"
-                  [hidden]="ciudad.valid || ciudad.pristine"
-                >
-                  El campo ciudad es obligatorio
+                <div *ngIf="vCiudad === true" class="alert alert-danger">
+                  El campo nombre es obligatorio
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="alert alert-danger"
-            [hidden]="nombre.valid || nombre.pristine"
-          >
-            El campo nombre es obligatorio
-          </div>
+
           <!-- direccion -->
           <div class="form-group mt-3" style="z-index: 100">
             <label for="direccion" class="fw-bold helvetic" style="z-index: 100"
@@ -390,14 +337,13 @@
               [(ngModel)]="RegisterService.userToUpdate.direccion"
               required
               value="{{ RegisterService.user.direccion }}"
+              (change)="valDireccion(RegisterService.user.direccion)"
             />
           </div>
-          <div
-            class="alert alert-danger"
-            [hidden]="direccion.valid || direccion.pristine"
-          >
-            El campo direccion es obligatorio
+          <div *ngIf="vDireccion === true" class="alert alert-danger">
+            El campo nombre es obligatorio
           </div>
+
           <!-- complemento de la direccion -->
           <div class="form-group mt-3 z-index-99">
             <label for="complemento" class="fw-bold helvetic"
@@ -412,7 +358,11 @@
               #complemento="ngModel"
               [(ngModel)]="RegisterService.userToUpdate.complemento"
               value="{{ RegisterService.user.complemento }}"
+              (change)="valComplemento(RegisterService.user.complemento)"
             />
+          </div>
+          <div *ngIf="vComplemento === true" class="alert alert-danger">
+            El campo nombre es obligatorio
           </div>
           <!-- codigo postal -->
           <div class="form-group mt-3 z-index-99">
@@ -428,13 +378,29 @@
               #codigoPostal="ngModel"
               [(ngModel)]="RegisterService.userToUpdate.codigoPostal"
               value="{{ RegisterService.user.codigoPostal }}"
+              (change)="valCodigoPostal(RegisterService.user.codigoPostal)"
             />
+          </div>
+          <div *ngIf="vCodigoPostal === true" class="alert alert-danger">
+            El campo nombre es obligatorio
           </div>
           <!-- boton de registro -->
           <div
             class="d-flex justify-content-center align-items-center mt-5 z-index-1"
           >
-            <button type="submit" class="btn btn-reg fw-bold fs-3 helvetic">
+            <button
+              type="submit"
+              *ngIf="ready == false"
+              disabled
+              class="btn btn-reg fw-bold fs-3 helvetic"
+            >
+              Guardar
+            </button>
+            <button
+              type="submit"
+              *ngIf="ready == true"
+              class="btn btn-reg fw-bold fs-3 helvetic"
+            >
               Guardar
             </button>
           </div>

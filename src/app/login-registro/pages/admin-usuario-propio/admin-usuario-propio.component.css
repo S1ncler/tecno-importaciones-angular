@@ -292,7 +292,7 @@
     color: white;
   }
   .text-reg {
-    font-size: 600%;
+    font-size: 275%;
   }
   .footer-final {
     background-color: #b9cbd6;
@@ -389,7 +389,7 @@
       color: white;
     }
     .text-reg {
-      font-size: 520%;
+      font-size: 275%;
     }
   }
   
@@ -428,7 +428,7 @@
       color: white;
     }
     .text-reg {
-      font-size: 450%;
+      font-size: 275%;
     }
   }
   @media (max-width: 666px) {

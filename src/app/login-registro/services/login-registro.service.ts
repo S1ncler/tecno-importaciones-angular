@@ -8,45 +8,43 @@ import jwtDecode from 'jwt-decode';
 import { user } from '../interfaces/user.interface';
 import { User } from 'src/app/models/user.model';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class RegistroService {
-  userToUpdate: User = new User ()
+  userToUpdate: User = new User();
   user: user = {
-    _id: "",
-    username: "",
-    nombre: "",
-    email: "",
+    _id: '',
+    username: '',
+    nombre: '',
+    email: '',
     cumpleanos: new Date('2023-06-22'),
-    telefono: "",
-    contrasena: "",
-    departamento: "",
-    ciudad: "",
-    direccion: "",
-    complemento: "",
-    codigoPostal: ""
-  }
-  token: string = "";
+    telefono: '',
+    contrasena: '',
+    departamento: '',
+    ciudad: '',
+    direccion: '',
+    complemento: '',
+    codigoPostal: '',
+  };
+  token: string = '';
   loginForm: any = {
     username: '',
     password: '',
   };
 
   constructor(private http: HttpClient, private router: Router) {}
-  usuarioPropio(usuario:string){
-    const url = environment.API_URI + `usuarios/${usuario}`
-    return this.http.get(url)
+  usuarioPropio(usuario: string) {
+    const url = environment.API_URI + `usuarios/${usuario}`;
+    return this.http.get(url);
   }
-  updateUser(usuario: User){
-    const url = environment.API_URI + `usuarios`
+  updateUser(usuario: User) {
+    const url = environment.API_URI + `usuarios`;
     let data = {
       _id: usuario._id,
-      dataToUpdate: usuario
-    }
-    return this.http.put(`${url}`, data)
-    
+      dataToUpdate: usuario,
+    };
+    return this.http.put(`${url}`, data);
   }
 
   login() {
@@ -58,13 +56,12 @@ export class RegistroService {
       })
       .subscribe((res) => {
         const res2 = JSON.parse(JSON.stringify(res));
-        if(res2.token){
+        if (res2.token) {
           this.token = res2.token;
-          localStorage.setItem("token", this.token);
-          this.router.navigate(["../../comercio/"]);
-        }
-        else{
-          alert("Usuario o contraseña incorrectos")
+          localStorage.setItem('token', this.token);
+          this.router.navigate(['../../comercio/']);
+        } else {
+          alert('Usuario o contraseña incorrectos');
         }
       });
   }
@@ -117,14 +114,13 @@ export class RegistroService {
     else return false;
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return localStorage.getItem('token') ? true : false;
   }
 
-  decodeToken(){
+  decodeToken() {
     const token = localStorage.getItem('token');
-    const decoded = jwtDecode(token ? token : "Error en el token");
+    const decoded = jwtDecode(token ? token : 'Error en el token');
     return decoded;
   }
-  
 }
