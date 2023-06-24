@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
  
+  currentIndex = 0;
+ 
   public mostrarCuadro1: boolean = false;
   public mostrarCuadro2: boolean = false;
   public mostrarCuadro3: boolean = false;
@@ -49,23 +51,42 @@ export class HomeComponent {
         break;
     }
   };
+ 
+
+
+
+
+
+
   categorias = [
     {
-      nombre: 'Tarjetas Gráficas',
+      nombre: 'Graficas',
       imagen: '../../../../assets/images/tarjeta-de-video.png'
     },
     {
-      nombre: 'Memorias Ram',
+      nombre: 'Rams',
       imagen: '../../../../assets/images/memoria-ram.png'
     },
     {
-      nombre: 'Fuentes de poder',
+      nombre: 'Psus',
       imagen: '../../../../assets/images/fuente-de-alimentacion.png'
     },
     {
       nombre: 'Motherboards',
       imagen: '../../../../assets/images/Motherboard.jpeg'
-    }
+    },
+    {
+      nombre: 'Hdds',
+      imagen: '../../../../assets/images/hdds.jpeg'
+    },
+    {
+      nombre: 'Procesadores',
+      imagen: '../../../../assets/images/procesadores.jpg'
+    },
+    {
+      nombre: 'Ssds',
+      imagen: '../../../../assets/images/ssd.png'
+    },
   ];
 
   nuevosProductos = [
@@ -87,16 +108,15 @@ export class HomeComponent {
     }
   ];
 
-  
+//CATEGORIAS Y MARCAS GENERAR EN EL LOCAL STORAGE PARA APLICAR FILTROS 
   redireccionarTienda(categoria: string): void {
-    // Guardar los valores en el localStorage
+    // Guarda los valores en el localStorage
     localStorage.setItem('typeQuery2', 'categoria');
     localStorage.setItem('query2', categoria);
 
-    // Redireccionar a la página de la tienda
+    // Cambia a la página de la tienda
     this.router.navigate(['/comercio']);
 
-    // Emitir el evento para actualizar los productos en la tienda
     this.emitProductosMostrarChange('categoria', categoria);
   }
 
@@ -116,13 +136,32 @@ export class HomeComponent {
     try {
       const response = await fetch(url);
       const result = await response.json();
-      // Hacer algo con el resultado de la llamada a la API
     } catch (error) {
       console.log(error);
     }
   }
 
+ //Carrusel
+  previousSlide() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
   
+  nextSlide() {
+    const maxIndex = this.categorias.length - 4;
+    if (this.currentIndex < maxIndex) {
+      this.currentIndex++;
+    }
+  }
+
+
+  //Redirigir marcas 
+  redirigir(typeQuery: string, query: string) {
+    localStorage.setItem('typeQuery', typeQuery);
+    localStorage.setItem('query', query);
+    this.router.navigate(['/comercio']);
+  }
 }
 
 

@@ -12,7 +12,7 @@ export class NavBarComponent implements OnInit{
   cartCant: number = 0;
 
   //variable para saber si el token existe
-  tokenExist: boolean = false;
+  tokenExist = false;
 // nombre y appellido 
 
   // llama el servicio del navbar

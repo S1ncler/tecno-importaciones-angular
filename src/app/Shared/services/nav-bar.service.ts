@@ -34,8 +34,10 @@ export class NavBarService {
 
 testToken(){
   const token = localStorage.getItem('token');
+  //convierte a booleano 
   return !!token;
 }
+//si existe el token o no
 getTokenExist$():Observable<boolean> {
   return this.tokenExist$.asObservable();
 }
