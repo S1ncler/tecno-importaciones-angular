@@ -17,7 +17,7 @@ export interface productoCompleto {
   price: number;
   image: string[];
   categoria: string;
-  stock: number;  
+  stock: number;
 }
 
 @Injectable({
@@ -32,16 +32,16 @@ export class TiendaService {
     marca: '',
     descripcion: '',
     price: 0,
-    image: [""],
+    image: [''],
     categoria: '',
-    stock: 0
+    stock: 0,
   };
   public ELEMENT_DATA: productoTabla[] = [];
   private url = `${environment.API_URI}productos`;
 
   constructor(private http: HttpClient) {}
 
-  async traerProductos(productosMostrar: any[] = []) {
+  async traerProductos(productosMostrar: any[] = [], search: string = "") {
     let url1: string = 'http://localhost:3002/productos/r';
     // llena los ids de los productos ya mostrados para que no se repitan en la nueva consulta
     let idsProductos: number[] = [];
@@ -55,6 +55,8 @@ export class TiendaService {
     if (localStorage.getItem('typeQuery2'))
       data[localStorage.getItem('typeQuery2') || ''] =
         localStorage.getItem('query2');
+    if (search !== "")
+      data['criterion'] = search;
     data['ids'] = idsProductos;
     // realiza la peticion a la api
     await fetch(url1, {
@@ -116,7 +118,7 @@ export class TiendaService {
   }
 
   traerTodosProductos(): Observable<any> {
-    return this.http.get(`${this.url}/`)
+    return this.http.get(`${this.url}/`);
   }
 
   mostrarFormulario(state: boolean, fun: boolean): void {
@@ -125,24 +127,26 @@ export class TiendaService {
   }
 
   enviarProducto(): void {
-    this.http.post(`${this.url}`, this.productoFormulario).subscribe(data => {
+    this.http.post(`${this.url}`, this.productoFormulario).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
       alert(data2.msg);
-    })
+    });
   }
 
   actualizarProducto(id: number): void {
-    this.http.put(`${this.url}/${id}`, this.productoFormulario).subscribe(data => {
-      const data2 = JSON.parse(JSON.stringify(data));
-      alert(data2.msg);
-    })
+    this.http
+      .put(`${this.url}/${id}`, this.productoFormulario)
+      .subscribe((data) => {
+        const data2 = JSON.parse(JSON.stringify(data));
+        alert(data2.msg);
+      });
   }
 
   traerUnProducto(id: number): void {
-    this.http.get(`${this.url}/${id}`).subscribe(data => {
+    this.http.get(`${this.url}/${id}`).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
-      if (data2.msg === "No encontrado") {
-        alert("Producto no encontrado");
+      if (data2.msg === 'No encontrado') {
+        alert('Producto no encontrado');
         return;
       }
       this.productoFormulario.id = data2.msg.id;
@@ -153,13 +157,13 @@ export class TiendaService {
       this.productoFormulario.marca = data2.msg.marca;
       this.productoFormulario.price = data2.msg.price;
       this.productoFormulario.stock = data2.msg.stock;
-    })
+    });
   }
 
   eliminarProducto(id: number): void {
-    this.http.delete(`${this.url}/${id}`).subscribe(data => {
+    this.http.delete(`${this.url}/${id}`).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
       alert(data2.msg);
-    })
+    });
   }
 }

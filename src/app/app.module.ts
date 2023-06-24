@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './Shared/shared.module';
 import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [TiendaService],
   bootstrap: [AppComponent]

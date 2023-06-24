@@ -8,6 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import { RouterLink } from '@angular/router';
 import { TiendaService } from '../comercio/services/tienda.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,8 @@ import { TiendaService } from '../comercio/services/tienda.service';
     MatBadgeModule, 
     MatButtonModule, 
     MatIconModule,
-    RouterLink
+    RouterLink,
+    FormsModule
   ],
   providers: [TiendaService],
   exports:[

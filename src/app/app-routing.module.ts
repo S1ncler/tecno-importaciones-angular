@@ -4,23 +4,36 @@ import { Page404Component } from './paginas-principales/pages/page404/page404.co
 
 const routes: Routes = [
   {
-    path: "comercio",
-    loadChildren: () => import('./comercio/comercio.module').then(m => m.ComercioModule)
+    path: 'comercio',
+    loadChildren: () =>
+      import('./comercio/comercio.module').then((m) => m.ComercioModule),
   },
   {
-    path: "usuarios",
-    loadChildren: () => import('./login-registro/login-registro.module').then(m => m.LoginRegistroModule)
+    path: 'usuarios',
+    loadChildren: () =>
+      import('./login-registro/login-registro.module').then(
+        (m) => m.LoginRegistroModule
+      ),
   },
   {
-    path: "principal",
-    loadChildren: () => import('./paginas-principales/paginas-principales.module').then(m => m.PaginasPrincipalesModule)
+    path: 'principal',
+    loadChildren: () =>
+      import('./paginas-principales/paginas-principales.module').then(
+        (m) => m.PaginasPrincipalesModule
+      ),
   },
-  {path: "**", component: Page404Component},
- 
+  {
+    path: '',
+    loadChildren: () =>
+      import('./paginas-principales/paginas-principales.module').then(
+        (m) => m.PaginasPrincipalesModule
+      ),
+  },
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

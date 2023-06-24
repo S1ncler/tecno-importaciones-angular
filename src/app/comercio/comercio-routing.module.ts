@@ -11,6 +11,10 @@ const routes: Routes = [
     component: TiendaComponent
   },
   {
+    path: ":search",
+    component: TiendaComponent
+  },
+  {
     path: "administrar",
     component: AdministrarProductosComponent
   },
