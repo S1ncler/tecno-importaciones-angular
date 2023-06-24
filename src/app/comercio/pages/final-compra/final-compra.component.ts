@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
+import { FinalizarService } from '../../services/finalizar.service';
+import { RouterModule } from '@angular/router';
+import { Route } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-final-compra',
@@ -7,8 +11,9 @@ import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
   styleUrls: ['./final-compra.component.css']
 })
 export class FinalCompraComponent {
+  [x: string]: any;
 
-  constructor (public navBarService: NavBarService){}
+  constructor (public navBarService: NavBarService, public finalizarService: FinalizarService){}
   arrayProductos:any[] = [];
   subtotal: number=0;
   iva:number=0;
@@ -38,6 +43,8 @@ export class FinalCompraComponent {
     this.iva= Math.round(this.subtotal*0.19) 
     //se obtiene el total
     this.total = Math.round(this.subtotal + this.iva)
+
+    this.finalizarService.getUser()
   }
 
 
@@ -49,5 +56,16 @@ export class FinalCompraComponent {
     }
     localStorage.setItem("factura" , JSON.stringify(factura))
   }
-
+alert1(){
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Gracias por su compra',
+    showConfirmButton: false,
+    timer: 2500
+  })
+  const carrito = localStorage.removeItem("carrito")
+  console.log(carrito);
+  const vaciar = this.navBarService.removeFromCart(this.arrayProductos)
+}
 }

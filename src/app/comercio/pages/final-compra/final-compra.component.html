@@ -1,10 +1,10 @@
-<body class="body ps-3 pe-3 pb-3">
+<body class="body ps-3 pe-3 pb-3 mt-4">
     <div class="container-prin  p-0">
       
 
-      <div class="d-flex mt-2 pt-3 flex-wrap justify-content-center">
+      <div class="d-flex mt-5 pt-3 flex-wrap justify-content-center">
         <div>
-          <div class="card my-4 shadow-lg p-3 mb-5 m-5" style="width: 48vw">
+          <div class="card my-4 shadow-lg p-3 mb-5 m-5 mt-5" style="width: 48vw">
             <div class="card-body">
               <h5 class="card-title">Dirección de envío</h5>
               <hr
@@ -20,10 +20,10 @@
                   id="flexRadioDefault1"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
-                  Calle 124 # 89-98
+                  {{finalizarService.direccion}}
                 </label>
               </div>
-              <div class="form-check">
+              <div class="form-check" *ngIf="false" >
                 <input
                   class="form-check-input"
                   type="radio"
@@ -32,7 +32,7 @@
                   checked
                 />
                 <label class="form-check-label" for="flexRadioDefault2">
-                  Calle 85 # 90-69
+                  {{finalizarService.direccion}}
                 </label>
               </div>
             </div>
@@ -46,18 +46,18 @@
                 style="width: 11vw"
               />
               <h6 class="card-subtitle">+ Añadír metodo de pago</h6>
-              <div class="form-check">
+              <div * ngIf="false" class="form-check">
                 <input
                   class="form-check-input"
                   type="radio"
                   name="flexRadioDefault1"
                   id="flexRadioDefault3"
                 />
-                <label class="form-check-label" for="flexRadioDefault3">
+                <label  class=" form-check-label" for="flexRadioDefault3">
                   Tarjeta de crédito *5889
                 </label>
               </div>
-              <div class="form-check">
+              <div * ngIf="false" class="form-check">
                 <input
                   class="form-check-input"
                   type="radio"
@@ -80,6 +80,7 @@
                 <label class="form-check-label" for="flexRadioDefault4">
                   Paypall
                 </label>
+                <div class="img-3"></div>
               </div>
             </div>
           </div>
@@ -89,7 +90,7 @@
           <article>
             <div class="d-flex flex-column gap-4 fs-3 m-4">
               <div
-                class="text-black border-bottom border-3 border-dark fw-semibold"
+                class=" mt-5 border-bottom border-3 border-dark fw-semibold"
               >
                 Resumen de compra
               </div>
@@ -106,7 +107,11 @@
           <div class="d-flex justify-content-between">
             <span>Total</span> <span> ${{total}}COP</span>
           </div>
-          <a  routerLink="carrito-compras"><button class=" mx-5 btn1 ">Finalizar compra</button></a>
+                   
+          <div id="paypal-button-container">
+            
+            <button class=" mx-5 btn1" (click)="alert1(); " [routerLink]="'/'" >Finalizar compra</button></div>
+          
             </div>
           </article>
         </div>
@@ -118,7 +123,7 @@
             
           </div>
           <div class="col-12">
-            <article
+            <article *ngIf="false"
               style="background-color: #f1eeee"
               class="d-flex gap-5 flex-wrap justify-content-evenly mt-3">
               <div ><img src="/src/assets/images/CPU02.png" alt=""> </div>
