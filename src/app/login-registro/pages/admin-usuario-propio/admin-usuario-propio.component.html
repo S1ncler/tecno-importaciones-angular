@@ -1,3 +1,4 @@
+<!doctype html>
 <div *ngIf="!this.editOpt" style="margin-bottom: -40px; margin-top: 67px">
   <div class="waterMark position-absolute w-100 vh-100"></div>
   <div class="d-flex flex-column contenedorPrincipal">
@@ -15,7 +16,7 @@
             <h2>{{ RegisterService.user.nombre }}</h2>
           </div>
           <div class="d-flex gap-3 align-items-center justify-content-between">
-            <h2 class="fw-bold">Nick:</h2>
+            <h2 class="fw-bold">Usuario:</h2>
             <h2>{{ RegisterService.user.username }}</h2>
           </div>
           <div class="d-flex gap-3 align-items-center justify-content-between">
@@ -139,7 +140,7 @@
           </div>
           <!-- Username -->
           <div class="form-group mt-3 z-index-99">
-            <label for="userName" class="fw-bold helvetic">Nick:</label>
+            <label for="userName" class="fw-bold helvetic">Usuario:</label>
             <input
               type="text"
               class="form-control input-registro"
@@ -178,7 +179,7 @@
           </div>
           <!-- cumpleaños -->
           <div class="form-group mt-3 z-index-99">
-            <label for="cumpleaños" class="fw-bold helvetic">cumpleaños:</label>
+            <label for="cumpleaños" class="fw-bold helvetic">Cumpleaños:</label>
             <input
               type="date"
               value="{{ fecha }}"
@@ -187,9 +188,9 @@
               placeholder="Ingresa tu cumpleaños"
               name="cumpleanos"
               #cumpleanos="ngModel"
-              [(ngModel)]="RegisterService.userToUpdate.cumpleanos"
+              [(ngModel)]="this.fecha"
               required
-              (change)="valFecha(RegisterService.userToUpdate.cumpleanos)"
+              
             />
           </div>
           <!-- Telefono -->

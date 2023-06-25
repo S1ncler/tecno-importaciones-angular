@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
+  
 })
+
 export class NavBarService {
 
   user: user = {

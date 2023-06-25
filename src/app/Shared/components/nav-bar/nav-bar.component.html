@@ -1,71 +1,76 @@
 <nav class="navbar navbar-expand-lg bg-light fixed-top borde-abajo">
-    <div class="container-fluid">
-      <a [routerLink]= "'principal/home'"
-        ><img
-          class="logo-nav"
-          src="../../assets/images/logo-horizontal.png"
-          alt=""
-      /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/comercio'" 
-              >Componentes PC</a
-            >
-          </li>
-          <div class="linea-a"></div>
-          <li class="nav-item">
-            <a class="nav-link active" href="desarrollo.html">Desarrollo Web</a>
-          </li>
-          <div class="linea-a"></div>
-        </ul>
-        <form class="d-flex" role="search">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="buscar form-control"
-              placeholder="Buscar"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
-            />
-            <span
-              class="buscar input-group-text material-symbols-outlined"
-              id="basic-addon2"
-            >
-              search
-            </span>
-          </div>
-        </form>
-        
-  
-        <div div matBadge="{{cartCant}}" matBadgeOverlap="true" class="demo-section me-3">
-          <a [routerLink]="'/comercio/tusCompras'"
-            ><button class="border border-0 bg-light" type="">
-              <img
-                class="logo-nav"
-                src="../../assets/images/logo-compras.png"
-                alt=""
-              /></button
-          ></a>
+  <div class="container-fluid">
+    <a [routerLink]="'principal/home'"
+      ><img
+        class="logo-nav"
+        src="../../assets/images/logo-horizontal.png"
+        alt=""
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="'/comercio'"
+            >Componentes PC</a
+          >
+        </li>
+        <div class="linea-a"></div>
+        <li class="nav-item">
+          <a class="nav-link active" href="desarrollo.html">Desarrollo Web</a>
+        </li>
+        <div class="linea-a"></div>
+      </ul>
+      <form class="d-flex" role="search">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="buscar form-control"
+            placeholder="Buscar"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <span
+            class="buscar input-group-text material-symbols-outlined"
+            id="basic-addon2"
+          >
+            search
+          </span>
         </div>
-    
+      </form>
 
- <!-- ha iniciado sesión -->
-<div *ngIf="tokenExist">
+      <div
+        div
+        matBadge="{{ cartCant }}"
+        matBadgeOverlap="true"
+        class="demo-section me-3"
+      >
+        <a [routerLink]="'/comercio/tusCompras'"
+          ><button class="border border-0 bg-light" type="">
+            <img
+              class="logo-nav"
+              src="../../assets/images/logo-compras.png"
+              alt=""
+            /></button
+        ></a>
+      </div>
 
-<div class="contai-d">
-  <a class="texto-a"
+      <!-- ha iniciado sesión -->
+      <div *ngIf="tokenExist">
+        <div class="contai-d">
+          <a class="texto-a"
             ><button class="border border-0 bg-light" type="">
               <img
                 class="logo-nav-2"
@@ -73,53 +78,34 @@
                 alt=""
               /></button
           ></a>
-  <div class="menu">
-  
-<div class="option-name">Hola {{
-  navBarService.user.nombre
-}}</div>
-<div class="linea-pequeña"></div>
-<a [routerLink]="'/usuarios/usuario-propio'" class="text-decoration-none"><div class="option">Mi perfil</div></a>
-<button (click)="eliminarToken()"class="boton-cerrar"type="Boton">Cerrar sesión</button>
-</div>
-</div>
+          <div class="menu">
+            <div class="option-name">
+              Hola, {{ this.RegisterService.user.nombre }}
+            </div>
+            <div class="linea-pequeña"></div>
+            <a
+              [routerLink]="'/usuarios/usuario-propio'"
+              class="text-decoration-none"
+              ><div class="option">Mi perfil</div></a
+            >
+            <button (click)="eliminarToken()" class="boton-cerrar" type="Boton">
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </div>
 
-
-</div>
-
-
-
-
-
- <!--No  ha iniciado sesión -->
-<div *ngIf="!tokenExist">
-<a [routerLink]="'/usuarios/registro'"
-            ><button class="border border-0 bg-light" type="">
-              <img
-                class="logo-nav"
-                src="../../assets/images/login.png"
-                alt=""
-              /></button
-          ></a>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <!--No  ha iniciado sesión -->
+      <div *ngIf="!tokenExist">
+        <a [routerLink]="'/usuarios/registro'"
+          ><button class="border border-0 bg-light" type="">
+            <img
+              class="logo-nav"
+              src="../../assets/images/login.png"
+              alt=""
+            /></button
+        ></a>
       </div>
     </div>
-  </nav>  
+  </div>
+</nav>
