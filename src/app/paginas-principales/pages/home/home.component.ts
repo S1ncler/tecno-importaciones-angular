@@ -161,6 +161,8 @@ export class HomeComponent {
     localStorage.setItem('query', query);
     this.router.navigate(['/comercio']);
   }
+
+  
 }
 
 
