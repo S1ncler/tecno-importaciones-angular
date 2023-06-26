@@ -58,12 +58,7 @@ export class RegistroService {
       .subscribe((res) => {
         const res2 = JSON.parse(JSON.stringify(res));
         if (res2.token) {
-        if (res2.token) {
           this.token = res2.token;
-          localStorage.setItem('token', this.token);
-          this.router.navigate(['../../comercio/']);
-        } else {
-          alert('Usuario o contraseña incorrectos');
           localStorage.setItem('token', this.token);
           this.router.navigate(['../../comercio/']);
         } else {
@@ -120,15 +115,14 @@ export class RegistroService {
     else return false;
   }
 
-  isLoggedIn() {
+
   isLoggedIn() {
     return localStorage.getItem('token') ? true : false;
   }
 
-  decodeToken() {
+  
   decodeToken() {
     const token = localStorage.getItem('token');
-    const decoded = jwtDecode(token ? token : 'Error en el token');
     const decoded = jwtDecode(token ? token : 'Error en el token');
     return decoded;
   }
