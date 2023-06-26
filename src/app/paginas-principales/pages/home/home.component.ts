@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductHomeService } from '../../api/products-home/product-home.service';
 import { Router } from '@angular/router';
+import { TiendaService } from 'src/app/comercio/services/tienda.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +20,7 @@ export class HomeComponent {
   public mostrarCuadro7: boolean = false;
   public mostrarCuadro8: boolean = false;
   
-  constructor(private router: Router, private productHomeService: ProductHomeService) { }
+  constructor(private router: Router, private productHomeService: ProductHomeService, private tiendaservice: TiendaService) { }
 
   public toggleCuadro(cuadro: string): void {
     switch (cuadro) {
@@ -112,12 +113,10 @@ export class HomeComponent {
   redireccionarTienda(categoria: string): void {
     // Guarda los valores en el localStorage
     localStorage.setItem('typeQuery2', 'categoria');
-    localStorage.setItem('query2', categoria);
+    localStorage.setItem('query2', categoria.toLowerCase());
 
     // Cambia a la página de la tienda
-    this.router.navigate(['/comercio']);
-
-    this.emitProductosMostrarChange('categoria', categoria);
+    this.router.navigate(['/comercio']);  
   }
 
   async emitProductosMostrarChange(typeQuery: string, query: string): Promise<void> {
