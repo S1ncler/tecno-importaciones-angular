@@ -1,24 +1,27 @@
 import { Component } from '@angular/core';
 import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 import { FinalizarService } from '../../services/finalizar.service';
-import { RouterModule } from '@angular/router';
-import { Route } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-final-compra',
   templateUrl: './final-compra.component.html',
-  styleUrls: ['./final-compra.component.css']
+  styleUrls: ['./final-compra.component.css'],
 })
 export class FinalCompraComponent {
   [x: string]: any;
 
-  constructor (public navBarService: NavBarService, public finalizarService: FinalizarService){}
-  arrayProductos:any[] = [];
-  subtotal: number=0;
-  iva:number=0;
-  total:number=0;
- 
+  constructor(
+    public navBarService: NavBarService,
+    public finalizarService: FinalizarService,
+    private router: Router
+  ) {}
+  arrayProductos: any[] = [];
+  subtotal: number = 0;
+  iva: number = 0;
+  total: number = 0;
+  precios: string[] = [];
 
   ngOnInit() {
     //se recurpera la informacion del local storage
@@ -27,45 +30,60 @@ export class FinalCompraComponent {
     //si la informacion es valida, se convierte de string a objeto
     if (entrada) {
       this.arrayProductos = JSON.parse(entrada);
-    //se lanza error si la informacion es invalida
+      //se lanza error si la informacion es invalida
     } else {
       return console.log('El valor es nulo o indefinido');
     }
 
     //se suman los precios de los productos
-    for (let item of this.arrayProductos){
-      if(item.repetidos){
-        this.subtotal = this.subtotal + item.price * item.repetidos
-      } else this.subtotal = this.subtotal + item.price
+    for (let item of this.arrayProductos) {
+      this.precios.push(`${item.name},${item.price}`);
+      if (item.repetidos) {
+        this.subtotal = this.subtotal + item.price * item.repetidos;
+      } else this.subtotal = this.subtotal + item.price;
     }
-    this.subtotal = Math.round(this.subtotal)
+    this.subtotal = Math.round(this.subtotal);
     //se obtiene el iva
-    this.iva= Math.round(this.subtotal*0.19) 
+    this.iva = Math.round(this.subtotal * 0.19);
     //se obtiene el total
-    this.total = Math.round(this.subtotal + this.iva)
-
-    this.finalizarService.getUser()
+    this.total = Math.round(this.subtotal + this.iva);
+    this.finalizarService.getUser();
   }
-
-
-  factura(){
-    let factura = {
-      subtotal: this.subtotal,
-      iva: this.iva,
-      total: this.total
-    }
-    localStorage.setItem("factura" , JSON.stringify(factura))
+  alert1() {
+    let factura = JSON.parse(localStorage.getItem('factura') || '');
+    factura['precios'] = this.precios;
+    this.finalizarService
+      .finishBuy(
+        JSON.stringify(factura),
+        this.arrayProductos,
+        this.finalizarService.email
+      )
+      .subscribe((res) => {
+        let ok = false;
+        const res2 = JSON.parse(JSON.stringify(res));
+        if (res2.msg === 'Compra realizada correctamente') ok = true;
+        else ok = false;
+        if (ok) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Gracias por su compra',
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          localStorage.removeItem('carrito');
+          localStorage.removeItem('factura');
+          this.navBarService.removeFromCart(this.arrayProductos);
+          this.router.navigate(['principal/home']);
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Error al realizar la compra',
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+      });
   }
-alert1(){
-  Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Gracias por su compra',
-    showConfirmButton: false,
-    timer: 2500
-  })
-  const carrito = localStorage.removeItem("carrito")
-  console.log(carrito);
-  const vaciar = this.navBarService.removeFromCart(this.arrayProductos)
-}
 }

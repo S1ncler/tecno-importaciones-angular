@@ -5,6 +5,7 @@ import { AdministrarProductosComponent } from './pages/administrar-productos/adm
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { DetallesProductoComponent } from './pages/detalles-producto/detalles-producto.component';
 import { FinalCompraComponent } from './pages/final-compra/final-compra.component';
+import { PayguardGuard } from '../guards/payguard.guard';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
   },
   {
     path: "finalCompra",
+    canActivate: [PayguardGuard],
     component: FinalCompraComponent
   }
 ]
