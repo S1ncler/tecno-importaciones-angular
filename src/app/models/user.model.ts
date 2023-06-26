@@ -1,8 +1,9 @@
 export class User {
+  _id: string;
   nombre?: string;
   email?: string;
   username?: string;
-  cumpleanos?: string;
+  cumpleanos?: Date;
   contrasena?: string;
   departamento?: string;
   ciudad?: string;
@@ -12,10 +13,11 @@ export class User {
   telefono?: string;
 
   constructor(
+    _id = '',
     nombre = '',
     email = '',
     username = '',
-    cumpleanos = '',
+    cumpleanos = new Date('2023-06-22'),
     contrasena = '',
     departamento = '',
     ciudad = '',
@@ -24,6 +26,7 @@ export class User {
     codigoPostal = '',
     telefono = ''
   ) {
+    this._id = _id
     this.nombre = nombre;
     this.email = email;
     this.username = username;

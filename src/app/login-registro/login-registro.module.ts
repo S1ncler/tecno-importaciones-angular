@@ -14,7 +14,9 @@ import { AdminUserService } from './services/admin-user.service';
 import { TableComponent } from './components/table/table.component';
 
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
-
+import { AcordeonComponent } from './components/acordeon/acordeon.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
     FormComponent,
     TableComponent,
     AdminUsuarioPropioComponent,
+    AcordeonComponent,
+    ForgPassComponent,
   ],
   imports: [
     FormsModule,
@@ -32,6 +36,7 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
     LoginRegistroRoutingModule,
     SharedModule,
     HttpClientModule,
+    SweetAlert2Module,
   ],
   providers: [
     RegistroService,

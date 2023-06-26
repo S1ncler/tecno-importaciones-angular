@@ -10,11 +10,12 @@ export class SquareCardComponent {
   // recibe el item a mostrar
   @Input() item: any;
 
-  constructor(private navBarService: NavBarService){  }
+  constructor(private navBarService: NavBarService){}
 
   // agrega el id del item y llama una funcion en el componente padre
   addToCart(item: any){
     // llama la funcion padre para que el navbar actualice la cantidad de elementos del carrito
     this.navBarService.addToCart(item);
+    
   }
 }

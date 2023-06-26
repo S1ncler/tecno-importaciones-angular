@@ -1,0 +1,80 @@
+<div
+  class="container justify-content-center align-items-center mt-5 pt-5 pb-5 pb-5"
+>
+  <div
+    style="max-width: 400px"
+    class="container-fluid justify-content-center align-items-center mt-5 p-5 form shadow rounded"
+  >
+    <div class="text-center row w-100  text-capitalize fw-bold ps-3">
+      <h1>Recuperar contraseña</h1>
+    </div>
+    <form
+          name="form"
+          action="login.html"
+          method="POST"
+          class="z-index-99 position-relative"
+          (ngSubmit)="update()"
+          (ngSubmit)="contrasena2Input.value = ''"
+          [formGroup]="formUser"
+        >
+     <!-- Contraseña -->
+     <div class="form-group mt-3 z-index-99">
+      <label for="contraseña" class="fw-bold helvetic">Contraseña:</label>
+      <input
+        type="password"
+        class="form-control input-registro"
+        id="contraseña"
+        placeholder="Ingresa una nueva contraseña"
+        name="contrasena"
+        formControlName="contrasena"
+        required
+        (change)="validarContrasena()"
+      />
+    </div>
+    <div
+      class="alert alert-danger"
+      [hidden]="
+        (contrasena.valid ||
+          contrasena.pristine ||
+          contrasena.untouched) &&
+        valCont
+      "
+    >
+      <span *ngIf="contrasena.errors?.['required']"
+        >El contraseña es obligatorio</span
+      >
+      <span *ngIf="!valCont">Ingrese una contraseña valida</span>
+    </div>
+    <!-- Confirmar contraseña -->
+    <div class="form-group mt-3 z-index-99">
+      <label for="conf-contraseña helvetic" class="fw-bold"
+        >Confirmar contraseña:</label
+      >
+      <input
+        type="password"
+        class="form-control input-registro"
+        id="conf-contraseña"
+        placeholder="Confirma tu contraseña"
+        name="conf-contraseña"
+        required
+        #contrasena2Input
+        (change)="confirmarContrasena(contrasena2Input.value)"
+      />
+    </div>
+    <div class="alert alert-danger" [hidden]="confirmCont">
+      <span *ngIf="!confirmCont"
+        >Las dos contraseñas deben ser iguales</span
+      >
+    </div>
+    <div class="row w-100 ps-3">
+      <button
+              type="submit"
+              class="btn btn-primary fw-bold helvetic mt-3"
+              [disabled]="formUser.invalid"
+            >
+              Registrarse
+            </button>
+    </div>
+    </form>
+  </div>
+</div>

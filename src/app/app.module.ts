@@ -9,6 +9,7 @@ import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
 import { AdminUserService } from "./login-registro/services/admin-user.service";
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AdminUserService } from "./login-registro/services/admin-user.service";
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [
     TiendaService,

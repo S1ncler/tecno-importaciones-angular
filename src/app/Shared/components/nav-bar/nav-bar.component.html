@@ -26,7 +26,7 @@
           </li>
           <div class="linea-a"></div>
           <li class="nav-item">
-            <a class="nav-link active" href="desarrollo.html">Desarrollo Web</a>
+            <a class="nav-link active" [routerLink]="'principal/desarrollo'">Desarrollo Web</a>
           </li>
           <div class="linea-a"></div>
         </ul>
@@ -38,10 +38,13 @@
               placeholder="Buscar"
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
+              name="search"
+              [(ngModel)]="searchBar"
             />
             <span
               class="buscar input-group-text material-symbols-outlined"
               id="basic-addon2"
+              (click)="search()"
             >
               search
             </span>
@@ -59,8 +62,41 @@
               /></button
           ></a>
         </div>
-        <div>
-          <a [routerLink]="'/usuarios/registro'"
+    
+
+ <!-- ha iniciado sesión -->
+<div *ngIf="tokenExist">
+
+<div class="contai-d">
+  <a class="texto-a"
+            ><button class="border border-0 bg-light" type="">
+              <img
+                class="logo-nav-2"
+                src="../../assets/images/icono-perfil.jpg"
+                alt=""
+              /></button
+          ></a>
+  <div class="menu">
+  
+<div class="option-name">Hola {{
+  navBarService.user.nombre
+}}</div>
+<div class="linea-pequeña"></div>
+<a [routerLink]="'/usuarios/usuario-propio'" class="text-decoration-none"><div class="option">Mi perfil</div></a>
+<button (click)="eliminarToken()"class="boton-cerrar"type="Boton">Cerrar sesión</button>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+ <!--No  ha iniciado sesión -->
+<div *ngIf="!tokenExist">
+<a [routerLink]="'/usuarios/registro'"
             ><button class="border border-0 bg-light" type="">
               <img
                 class="logo-nav"
@@ -68,7 +104,25 @@
                 alt=""
               /></button
           ></a>
-        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   </nav>  

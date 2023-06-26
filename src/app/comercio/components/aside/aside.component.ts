@@ -138,7 +138,10 @@ export class AsideComponent {
   // elimina todos los filtros aplicados
   eliminarFiltros() {
     let otherFilters = false;
-    if (localStorage.getItem('typeQuery') || localStorage.getItem('typeQuery2'))
+    if (
+      localStorage.getItem('typeQuery') ||
+      localStorage.getItem('typeQuery2')
+    )
       otherFilters = true;
     if (otherFilters) {
       localStorage.removeItem('typeQuery');

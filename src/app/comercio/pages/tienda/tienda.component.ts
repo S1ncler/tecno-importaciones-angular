@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TiendaService } from '../../services/tienda.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tienda',
@@ -7,14 +8,21 @@ import { TiendaService } from '../../services/tienda.service';
   styleUrls: ['./tienda.component.css'],
 })
 export class TiendaComponent implements OnInit {
-
   // valor que guarda la opcion con la que ordenar
-  opcionOrdenar: string = "ordenar";
+  opcionOrdenar: string = 'ordenar';
 
-  constructor(private tiendaService: TiendaService) {}
-  
+  constructor(
+    private tiendaService: TiendaService,
+    private router: ActivatedRoute
+  ) {
+    this.router.params.subscribe((data) => {
+      this.search(data['search']);
+      this.searching = data['search'];
+    });
+  }
+
   // para saber si hay algun filtro de precio aplicado
-  filtradoPrecio: boolean = false
+  filtradoPrecio: boolean = false;
   // almacenar los productos completos cuando haya un filtro de precios
   productos: any[] = [];
   // almacena los productos que se muestran al usuario
@@ -23,23 +31,32 @@ export class TiendaComponent implements OnInit {
   horVer: boolean = false;
   // almacena 4 rangos de precios de los productos que se estan mostrando a usuario
   rangosPrecios: any[] = [];
+  //almacena la busqueda del usuario
+  searching?: string;
 
   // ejecucion apenas se carga el componente
   async ngOnInit(): Promise<void> {
     // al iniciar elimina las variables de filtros del local storage
     localStorage.removeItem('typeQuery');
     localStorage.removeItem('typeQuery2');
+    //localStorage.removeItem('typeQuery3');
     localStorage.removeItem('query');
     localStorage.removeItem('query2');
+    //localStorage.removeItem('query3');
     // realiza una consulta inicial de 10 productos random
-    await this.tiendaService.traerProductos().then(data => this.productosMostrar = data);
+
     // obtiene el rango de precios de los productos que se estan mostrando
     this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
   }
 
   // funcion que se ejecuta en caso de que se accione el boton de mostrar mas productos
   async mostrarMas() {
-    await this.tiendaService.traerProductos(this.productosMostrar).then(data => this.productosMostrar = data);
+    await this.tiendaService
+      .traerProductos(
+        this.productosMostrar,
+        this.searching ? this.searching : ''
+      )
+      .then((data) => (this.productosMostrar = data));
     // obtiene el rango de precios de los productos que se estan mostrando
     this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
   }
@@ -60,9 +77,9 @@ export class TiendaComponent implements OnInit {
   filtroPrecio(rangoprecio: number[]) {
     if (rangoprecio[0] === -1) {
       this.productosMostrar = this.productos;
-      return
+      return;
     }
-    if ( !this.filtradoPrecio ) this.productos = this.productosMostrar;
+    if (!this.filtradoPrecio) this.productos = this.productosMostrar;
     this.filtradoPrecio = true;
     this.productosMostrar = [];
     for (let producto of this.productos)
@@ -71,8 +88,22 @@ export class TiendaComponent implements OnInit {
   }
 
   // funcion para ordenar segun lo que escoja el usuario
-  ordenar(){
-    this.productosMostrar = this.tiendaService.ordenar(this.productosMostrar, this.opcionOrdenar)
+  ordenar() {
+    this.productosMostrar = this.tiendaService.ordenar(
+      this.productosMostrar,
+      this.opcionOrdenar
+    );
+  }
+
+  async search(search: string) {
+    if (search)
+      await this.tiendaService
+        .traerProductos([], search)
+        .then((data) => (this.productosMostrar = data));
+    else
+      await this.tiendaService
+        .traerProductos()
+        .then((data) => (this.productosMostrar = data));
   }
 
   // es la funcion que recibe la informacion de que se agrego un item al carrito desde el card

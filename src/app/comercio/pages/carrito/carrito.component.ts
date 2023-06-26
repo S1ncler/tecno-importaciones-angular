@@ -19,6 +19,7 @@ export interface productoCompleto {
   styleUrls: ['./carrito.component.css'],
 })
 export class CarritoComponent {
+  log : boolean = false
   public productoFormulario: productoCompleto = {
     id: 0,
     name: '',
@@ -41,6 +42,7 @@ export class CarritoComponent {
   // suma del subtotal y el iva
   total: number = 0
   ngOnInit() {
+    this.logged()
     //se recurpera la informacion del local storage
     let entrada = localStorage.getItem('carrito');
 
@@ -110,6 +112,13 @@ export class CarritoComponent {
     this.iva=0
     this.total=0
     this.ngOnInit()
+  }
+
+  logged(){
+    let token = localStorage.getItem("token")
+    if (token){
+      this.log = true
+    }
   }
 
 }

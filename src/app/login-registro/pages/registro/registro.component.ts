@@ -68,7 +68,7 @@ export class RegistroComponent {
   valfecha = true;
   valTel = true;
   valCont  = true;
-  confirmCont = true
+  confirmCont = true;
 
   // funcion para registrar el usuario en la base de datos mediante la api
   registrar() {

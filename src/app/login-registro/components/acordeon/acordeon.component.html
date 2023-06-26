@@ -1,0 +1,13 @@
+<div class="accordion">
+    <div *ngFor="let item of items" class="accordion-item">
+      <div class="accordion-header" (click)="toggleItem(item)">
+        {{ item.title }}
+        <span class="accordion-icon" [ngClass]="{'open': item.open, 'closed': !item.open}"></span>
+      </div>
+      <div class="accordion-content" [hidden]="!item.open">
+        {{ item.content }}
+      </div>
+    </div>
+  </div>
+  
+  
