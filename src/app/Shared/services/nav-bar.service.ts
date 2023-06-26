@@ -8,6 +8,7 @@ import { TiendaService } from 'src/app/comercio/services/tienda.service';
 @Injectable({
   providedIn: 'root',
 })
+
 export class NavBarService {
   user: user = {
     _id: '',

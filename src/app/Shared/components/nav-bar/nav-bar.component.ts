@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 import { TiendaService } from 'src/app/comercio/services/tienda.service';
 import { Router } from '@angular/router';
+import { RegistroService } from 'src/app/login-registro/services/login-registro.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -25,9 +27,7 @@ export class NavBarComponent implements OnInit {
   // nombre y appellido
 
   // llama el servicio del navbar
-  constructor(
-    public navBarService: NavBarService,
-  ) {
+  constructor(public navBarService: NavBarService , public RegisterService: RegistroService) {
     this.cartCant = navBarService.loadCart();
     this.tokenExist = navBarService.testToken();
   }
@@ -36,14 +36,20 @@ export class NavBarComponent implements OnInit {
     this.navBarService.getProductosCarrito$().subscribe((productosCarrito) => {
       this.cartCant = productosCarrito.length;
     });
+    this.getUser()
+   
+
   }
 
-  // getUser() {
-  //   this.token = this.navBarService.decodeToken()
-  //   this.navBarService.usuarioPropio(this.token.email).subscribe((res: any) => {
-  //     this.navBarService.user = JSON.parse(JSON.stringify(res)) || [];
-  //   })
-  // }
+  getUser() {
+    this.token = this.RegisterService.decodeToken();
+    this.RegisterService.usuarioPropio(this.token.email).subscribe(
+      (res: any) => {
+        this.RegisterService.user = JSON.parse(JSON.stringify(res)) || [];
+      }
+    );
+  }
+ 
 
   eliminarToken() {
     this.navBarService.removeToken();
