@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "forgpass/:token",
     component: ForgPassComponent
+  },
+  {
+    path: "pedidos",
+    component: PedidosComponent
   },
   {
     path: "",

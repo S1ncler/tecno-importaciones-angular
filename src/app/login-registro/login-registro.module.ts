@@ -17,6 +17,7 @@ import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-
 import { AcordeonComponent } from './components/acordeon/acordeon.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
     AdminUsuarioPropioComponent,
     AcordeonComponent,
     ForgPassComponent,
+    PedidosComponent,
   ],
   imports: [
     FormsModule,
