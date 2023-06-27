@@ -23,6 +23,8 @@ export class NavBarService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
+    rol:'',
+    facturas: []
   };
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;
@@ -75,7 +77,7 @@ export class NavBarService {
 testToken(){
   const token = localStorage.getItem('token');
   //convierte a booleano 
-  return !!token;
+  return this.tokenExist$.next(!!token);
 }
 //si existe el token o no
 getTokenExist$():Observable<boolean> {

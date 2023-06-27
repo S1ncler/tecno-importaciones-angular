@@ -11,4 +11,6 @@ export interface user {
     direccion: string;
     complemento: string;
     codigoPostal: string;
+    rol: string;
+    facturas: any[];
   }

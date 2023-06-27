@@ -8,6 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { user } from '../interfaces/user.interface';
 import { User } from 'src/app/models/user.model';
 import Swal from 'sweetalert2';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,8 @@ export class RegistroService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
+    rol:'',
+    facturas:[]
   };
   token: string = '';
   loginForm: any = {
@@ -34,7 +37,7 @@ export class RegistroService {
     password: '',
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private navbarService: NavBarService) {}
   usuarioPropio(usuario: string) {
     const url = environment.API_URI + `usuarios/${usuario}`;
     return this.http.get(url);
@@ -60,7 +63,8 @@ export class RegistroService {
         if (res2.token) {
           this.token = res2.token;
           localStorage.setItem('token', this.token);
-          this.router.navigate(['../../comercio/']);
+          this.navbarService.testToken();
+          this.router.navigate(['comercio/tienda']);
         } else {
           alert('Usuario o contraseña incorrectos');
         }
@@ -120,7 +124,7 @@ export class RegistroService {
     return localStorage.getItem('token') ? true : false;
   }
 
-  
+
   decodeToken() {
     const token = localStorage.getItem('token');
     const decoded = jwtDecode(token ? token : 'Error en el token');
@@ -138,7 +142,7 @@ export class RegistroService {
   }
 
   updatePass(email: string, pass: string) {
-    
+
     let updateOk = false;
     const url = environment.API_URI + 'auth/updatepass';
     this.http.post(url, { email: email, password: pass }).subscribe((res) => {

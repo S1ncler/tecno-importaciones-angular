@@ -17,6 +17,7 @@ export class FinalizarService {
     const token = localStorage.getItem('token');
     const decode: any = jwtDecode(token ? token : 'Error en el token');
     this.email = decode.email;
+    console.log(`${url + this.email}`)
     this.http.get(`${url + this.email}`).subscribe((res) => {
       const res2 = JSON.parse(JSON.stringify(res));
       this.direccion = res2.direccion;

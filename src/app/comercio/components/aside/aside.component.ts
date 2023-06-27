@@ -47,6 +47,9 @@ export class AsideComponent {
       .catch((error: any) => {
         console.log(error);
       });
+    // verifica si hay filtros y activa el boton de eliminar filtros
+    if (localStorage.getItem('typeQuery') || localStorage.getItem('typeQuery2'))
+      this.filtros = true;
   }
 
   // funcion que se ejecuta al momento de aplicar un filtro y devuelve  la nueva lista
@@ -138,10 +141,7 @@ export class AsideComponent {
   // elimina todos los filtros aplicados
   eliminarFiltros() {
     let otherFilters = false;
-    if (
-      localStorage.getItem('typeQuery') ||
-      localStorage.getItem('typeQuery2')
-    )
+    if (localStorage.getItem('typeQuery') || localStorage.getItem('typeQuery2'))
       otherFilters = true;
     if (otherFilters) {
       localStorage.removeItem('typeQuery');

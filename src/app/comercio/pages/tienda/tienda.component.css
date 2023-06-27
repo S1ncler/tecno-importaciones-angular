@@ -12,6 +12,11 @@
   background-color: rgb(226, 226, 226);
   border-radius: 5px;
 }
+.sticky-top-p {
+  position: sticky;
+  top: 110px;
+  z-index: 1020;
+}
 .apps:hover {
   background-color: rgb(226, 226, 226);
   border-radius: 5px;

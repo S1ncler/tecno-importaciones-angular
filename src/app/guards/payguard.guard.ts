@@ -33,7 +33,7 @@ export class PayguardGuard implements CanActivate {
     Swal.fire({
       icon: 'info',
       title: 'Inicia sesión',
-      text: 'Por favor inicia sesión para realizar tu compra o registrate',
+      text: 'Por favor inicia sesión o registrate para continuar',
     });
     this.router.navigate(['usuarios/registro']);
     return false;

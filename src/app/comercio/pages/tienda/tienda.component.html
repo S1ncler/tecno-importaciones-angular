@@ -5,6 +5,7 @@
     class="d-flex m-4 mt-5 bg_gray rounded obr d-none d-sm-none d-md-block d-lg-block d-xl-block pt-5"
   >
     <app-aside
+    class="sticky-top-p"
       (productosMostrarChange)="getporductosMostrar($event)"
       [RangoPrecios]="rangosPrecios"
       (filtroPrecio)="filtroPrecio($event)"

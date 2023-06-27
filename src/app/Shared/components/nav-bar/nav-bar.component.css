@@ -52,6 +52,14 @@ border:  solid #02153e 3px;
     background-color: rgb(196, 215, 227);
     display: block;
   }
+  .contai-d:hover .menu-admn {
+   
+    border:  solid #02153e 3px;
+        
+        border-radius: 10px;
+        background-color: rgb(196, 215, 227);
+        display: block;
+      }
   
   .menu {
     
@@ -59,7 +67,16 @@ border:  solid #02153e 3px;
     position: absolute;
     top: 100%;
     width: 190px;
-    height: 200px;
+    height: 230px;
+    right: 0; 
+  }
+
+  .menu-admn {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 190px;
+    height: 300px;
     right: 0; 
   }
   

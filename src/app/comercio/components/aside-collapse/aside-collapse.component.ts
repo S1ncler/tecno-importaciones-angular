@@ -47,13 +47,16 @@ export class AsideCollapseComponent {
       .catch((error: any) => {
         console.log(error);
       });
+    // verifica si hay filtros y activa el boton de eliminar filtros
+    if (localStorage.getItem('typeQuery') || localStorage.getItem('typeQuery2'))
+      this.filtros = true;
   }
 
   // funcion que se ejecuta al momento de aplicar un filtro y devuelve  la nueva lista
   // de productos a mostrar con los filtros aplicados
   @Output() productosMostrarChange = new EventEmitter<JSON[]>();
   //se crea una funcion que va a devolver la variable al componente padre
-  async emitProductosMostrarChange(typeQuery: string = "", query: string = "") {
+  async emitProductosMostrarChange(typeQuery: string = '', query: string = '') {
     // se selecciona que si hay filtros
     this.filtros = true;
     // evalua si se filtro por marca y almacena en el local storage el filtro
@@ -99,7 +102,8 @@ export class AsideCollapseComponent {
   @Output() filtroPrecio = new EventEmitter<number[]>();
   // devuelve el rango de precios seleccionado por el usuario para que lo aplique la funcion
   // del componente tienda
-  async emitfitroPrecioChange(rango: number[]) {    
+  async emitfitroPrecioChange(rango: number[]) {
+    this.filtros = true;
     this.filtroPrecio.emit(rango);
   }
 
@@ -119,7 +123,7 @@ export class AsideCollapseComponent {
         .catch((error: any) => {
           console.log(error);
         });
-    } 
+    }
     // si se deben mostrar todas las marcas
     else {
       const url2: string = 'http://localhost:3002/productos/marcas';
@@ -136,11 +140,17 @@ export class AsideCollapseComponent {
 
   // elimina todos los filtros aplicados
   eliminarFiltros() {
-    localStorage.removeItem('typeQuery');
-    localStorage.removeItem('query');
-    localStorage.removeItem('typeQuery2');
-    localStorage.removeItem('query2');
-    this.emitProductosMostrarChange();
+    let otherFilters = false;
+    if (localStorage.getItem('typeQuery') || localStorage.getItem('typeQuery2'))
+      otherFilters = true;
+    if (otherFilters) {
+      localStorage.removeItem('typeQuery');
+      localStorage.removeItem('query');
+      localStorage.removeItem('typeQuery2');
+      localStorage.removeItem('query2');
+      this.emitProductosMostrarChange();
+    }
+    this.emitfitroPrecioChange([-1, 0]);
     this.filtros = false;
   }
 }

@@ -1,0 +1,35 @@
+<div style="height: 20px;"></div>
+<div style="margin-bottom: -40px; margin-top: 67px">
+    <div class="waterMark position-absolute w-100 vh-100"></div>
+    <div class="d-flex flex-column contenedorPrincipal align-items-center justify-content-center">
+      <!-- Contenedor principal -->
+      <div
+        class="mt-5 mb-5 contenedorPrincipal d-flex flex-column justify-content-center align-items-center gap-5"
+      >
+        <div class="d-flex flex-column justify-content-center gap-4">
+          <h1 class="text-center text-white-50 mb-3 fw-bold">Mis pedidos</h1>
+          <main
+            class="main"
+            *ngFor="let pedido of RegisterService.user.facturas"
+          >
+            <div class="d-flex justify-content-center"><h2 class="fw-bold">Pedido #{{RegisterService.user.facturas.indexOf(pedido)+1}}</h2></div>
+            <div class="d-flex justify-content-between">
+            <div class="ms-3">
+                <ul>
+                    <li *ngFor="let producto of pedido.precios">{{producto.split(',')[0]}}</li>
+                </ul>
+            </div>
+            <div class="me-5">
+                <ol>
+                    <li><span class="fw-bold">Subtotal:</span> ${{pedido.subtotal}}</li>
+                    <li><span class="fw-bold">Iva:</span> ${{pedido.iva}}</li>
+                    <li><span class="fw-bold">Total:</span> ${{pedido.total}}</li>
+                </ol>
+            </div>
+
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
