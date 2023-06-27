@@ -9,10 +9,12 @@ import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http'
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CarritoComponent,
+    
   ],
   imports: [
     FormsModule,
