@@ -22,6 +22,8 @@ export class FinalCompraComponent {
   iva: number = 0;
   total: number = 0;
   precios: string[] = [];
+  opcionSeleccionada: string []= [];
+  
 
   ngOnInit() {
     //se recurpera la informacion del local storage
@@ -85,5 +87,18 @@ export class FinalCompraComponent {
           });
         }
       });
+  }
+
+  verificarSeleccion() {
+    let opcionSeleccionada = document.querySelector('input[name="direccion1"]:checked');
+    if (this.opcionSeleccionada) {
+      // La opción está seleccionada, puedes continuar con el envío
+      // Aquí puedes agregar tu lógica adicional si es necesario
+      
+      console.log("Opción seleccionada: " + this.opcionSeleccionada);
+    } else {
+      // La opción no está seleccionada, muestra un mensaje de error o realiza alguna acción
+      console.log("Debes seleccionar una opción antes de enviar.");
+    }
   }
 }
