@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
-import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
-
+import { Component, OnInit } from '@angular/core';
+import { ProductHomeService } from '../../api/products-home/product-home.service';
+import { Router } from '@angular/router';
+import { TiendaService } from 'src/app/comercio/services/tienda.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  tokenExist: boolean = false;
+ 
+  currentIndex = 0;
+ 
   public mostrarCuadro1: boolean = false;
   public mostrarCuadro2: boolean = false;
   public mostrarCuadro3: boolean = false;
@@ -17,10 +20,7 @@ export class HomeComponent {
   public mostrarCuadro7: boolean = false;
   public mostrarCuadro8: boolean = false;
   
-    constructor(private navBarService: NavBarService) {
-      this.tokenExist = navBarService.testToken();
-     }
-   
+  constructor(private router: Router, private productHomeService: ProductHomeService, private tiendaservice: TiendaService) { }
 
   public toggleCuadro(cuadro: string): void {
     switch (cuadro) {
@@ -51,5 +51,119 @@ export class HomeComponent {
       default:
         break;
     }
+  };
+ 
+
+
+
+
+
+
+  categorias = [
+    {
+      nombre: 'Graficas',
+      imagen: '../../../../assets/images/tarjeta-de-video.png'
+    },
+    {
+      nombre: 'Rams',
+      imagen: '../../../../assets/images/memoria-ram.png'
+    },
+    {
+      nombre: 'Psus',
+      imagen: '../../../../assets/images/fuente-de-alimentacion.png'
+    },
+    {
+      nombre: 'Motherboards',
+      imagen: '../../../../assets/images/Motherboard.jpeg'
+    },
+    {
+      nombre: 'Hdds',
+      imagen: '../../../../assets/images/hdds.jpeg'
+    },
+    {
+      nombre: 'Procesadores',
+      imagen: '../../../../assets/images/procesadores.jpg'
+    },
+    {
+      nombre: 'Ssds',
+      imagen: '../../../../assets/images/ssd.png'
+    },
+  ];
+
+  nuevosProductos = [
+    {
+      nombre: 'Producto 1',
+      imagen: '../../../../assets/images/tarjeta-de-video.png'
+    },
+    {
+      nombre: 'Producto 2',
+      imagen: '../../../../assets/images/memoria-ram.png'
+    },
+    {
+      nombre: 'Producto 3',
+      imagen: '../../../../assets/images/fuente-de-alimentacion.png'
+    },
+    {
+      nombre: 'Producto 4',
+      imagen: '../../../../assets/images/Motherboard.jpeg'
+    }
+  ];
+
+//CATEGORIAS Y MARCAS GENERAR EN EL LOCAL STORAGE PARA APLICAR FILTROS 
+  redireccionarTienda(categoria: string): void {
+    // Guarda los valores en el localStorage
+    localStorage.setItem('typeQuery2', 'categoria');
+    localStorage.setItem('query2', categoria.toLowerCase());
+
+    // Cambia a la página de la tienda
+    this.router.navigate(['/comercio']);  
   }
+
+  async emitProductosMostrarChange(typeQuery: string, query: string): Promise<void> {
+    console.log(typeQuery)
+    localStorage.setItem('typeQuery2', typeQuery);
+
+    const data: Record<string, any> = {};
+    if (localStorage.getItem('typeQuery')) {
+      data[localStorage.getItem('typeQuery') || ''] = localStorage.getItem('query');
+    }
+    if (localStorage.getItem('typeQuery2')) {
+      data[localStorage.getItem('typeQuery2') || ''] = localStorage.getItem('query2');
+    }
+    const url: string = `http://localhost:3002/productos/r`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+ //Carrusel
+  previousSlide() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+  
+  nextSlide() {
+    const maxIndex = this.categorias.length - 4;
+    if (this.currentIndex < maxIndex) {
+      this.currentIndex++;
+    }
+  }
+
+
+  //Redirigir marcas 
+  redirigir(typeQuery: string, query: string) {
+    localStorage.setItem('typeQuery', typeQuery);
+    localStorage.setItem('query', query);
+    this.router.navigate(['/comercio']);
+  }
+
+  
 }
+
+
+
