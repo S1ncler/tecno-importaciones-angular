@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
+import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
 
 const routes: Routes = [
   {
     path: "registro",
     component: RegistroComponent
+  },
+  {
+    path: "manageUsers",
+    component: AdminUsersComponent
   },
   {
     path: "login",
@@ -30,7 +35,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class LoginRegistroRoutingModule { }
