@@ -33,7 +33,25 @@ body {
     width: 100%;
     height: 60em;
   }
+
+  @media (max-width:600px) {
+    .imag_logo{
+      width: 100%;
+      height: 100em;
+    }
+    
+  }
   
+  .cont-tex {
+    align-content: center;
+
+  }
+  @media (max-width: 600px) {
+    .cont-tex{
+      height: 100%;
+    }
+    
+  }
   
   
   .title-aviso {
@@ -58,10 +76,131 @@ body {
   }
   
   .text {
+    
     justify-content: center;
     align-items: center;
     text-align: justify;
     margin: 20px;
     padding-left: 40px;
     padding-right: 40px;
+  }
+  @media (max-width: 600px) {
+    .text {
+      height: 400px;
+      align-items: baseline;
+      text-align: justify;
+      margin-left: 9%;
+      padding: 60px;
+    }
+  
+  }
+
+  @media (max-width: 400px) {
+    .text {
+      height: 400px;
+      align-items: baseline;
+      text-align: justify;
+      margin-left: 9%;
+      padding: 60px;
+    }
+    }
+    
+  
+
+  .footer-final {
+    background-color: #b9cbd6;
+    margin-top: 40px;
+  }
+  
+  .linea-azul-pequeña {
+    margin-top: 20px;
+    height: 3px;
+    width: 250px;
+    background-color: #02153e;
+    box-shadow: 8px #666;
+  }
+  
+  .contacto {
+    margin-left: 65px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .cont {
+    font-weight: bold;
+  }
+  
+  .redes {
+    height: 30px;
+  }
+  
+  .redes-1 {
+    margin-top: 10px;
+  }
+  
+  .opciones-1 {
+    margin-top: 90px;
+    margin-left: 130px;
+  }
+  
+  .opciones-2 {
+    margin-top: 90px;
+    margin-left: 40px;
+  }
+  
+  .codico-qr {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+  }
+  
+  .logo-footer {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .img-2l {
+    height: 150px;
+  }
+  
+  .borde-rojo-abajo {
+    width: 100%;
+    height: 3vh;
+    background-color: #bd5349;
+  }
+  
+  .logo-footer-img {
+    height: 120px;
+    width: 120px;
+  }
+  
+  @media (max-width: 1340px) {}
+  
+  .logo-footer {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .logo-footer-img {
+    height: 90px;
+    width: 90px;
+  }
+  
+  .codico-qr {
+    height: 100px;
+    width: 100px;
+  }
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 666px) {
+    .wrap-666 {
+      flex-wrap: wrap;
+    }
   }
