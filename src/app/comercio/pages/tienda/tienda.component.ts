@@ -37,12 +37,10 @@ export class TiendaComponent implements OnInit {
   // ejecucion apenas se carga el componente
   async ngOnInit(): Promise<void> {
     // al iniciar elimina las variables de filtros del local storage
-    localStorage.removeItem('typeQuery');
-    localStorage.removeItem('typeQuery2');
-    //localStorage.removeItem('typeQuery3');
-    localStorage.removeItem('query');
-    localStorage.removeItem('query2');
-    //localStorage.removeItem('query3');
+    // localStorage.removeItem('typeQuery');
+    // localStorage.removeItem('typeQuery2');
+    // localStorage.removeItem('query');
+    // localStorage.removeItem('query2');
     // realiza una consulta inicial de 10 productos random
 
     // obtiene el rango de precios de los productos que se estan mostrando

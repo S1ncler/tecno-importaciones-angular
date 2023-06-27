@@ -1,6 +1,18 @@
 .home {
     margin-top: 23px;
   }
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 3rem;
+    margin: 50px;
+    width: auto; 
+    height: 80px; 
+    background-color:#BD5349; 
+  
+  }
+  .margenes{
+    margin-left: 105px;
+  }
   .imagen-1-carrusel {
     background-image: url(https://m.media-amazon.com/images/I/41KxCjeWHyL._SL500_.jpg);   
     background-size: cover;
