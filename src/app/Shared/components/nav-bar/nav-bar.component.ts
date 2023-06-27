@@ -38,7 +38,6 @@ export class NavBarComponent implements OnInit {
     this.getUser()
     // se suscribe a los cambios del tocken
     this.navBarService.getTokenExist$().subscribe((token) => {
-      console.log(token)
       this.tokenExist = token;
     })    
     //revisa si hay token al iniciar
