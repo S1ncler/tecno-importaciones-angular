@@ -18,7 +18,7 @@ export class User {
     nombre = '',
     email = '',
     username = '',
-    cumpleanos = new Date('2023-06-22'),
+    cumpleanos = new Date(),
     contrasena = '',
     departamento = '',
     ciudad = '',
