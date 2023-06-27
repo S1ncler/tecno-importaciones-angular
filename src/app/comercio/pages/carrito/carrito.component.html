@@ -80,9 +80,8 @@
           <a *ngIf="!log"
             ><button class="btn-r shadow-lg">Iniciar sesion para finalizar compra</button></a
           >
-          <a *ngIf="total && log"
-            ><button class="btn-r shadow-lg">Finalizar Compra</button></a
-          >
+          <a [routerLink]="'/comercio/finalCompra'"
+            ><button class="btn-r shadow-lg" (click)="factura()">Finalizar Compra</button></a>
         </div>
       </article>
     </section>

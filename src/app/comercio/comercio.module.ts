@@ -20,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { DetallesProductoComponent } from './pages/detalles-producto/detalles-producto.component';
-import { AcordeonComponent } from './components/acordeon/acordeon.component'
+import { AcordeonComponent } from './components/acordeon/acordeon.component';
+import { FinalCompraComponent } from './pages/final-compra/final-compra.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AcordeonComponent } from './components/acordeon/acordeon.component'
     FormularioComponent,
     ConfirmDialogComponent,
     DetallesProductoComponent,
+    FinalCompraComponent,
     AcordeonComponent,
   ],
   imports: [
