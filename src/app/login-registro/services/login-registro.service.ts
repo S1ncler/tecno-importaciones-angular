@@ -65,7 +65,11 @@ export class RegistroService {
           this.navbarService.testToken();
           this.router.navigate(['comercio/tienda']);
         } else {
-          alert('Usuario o contraseña incorrectos');
+          Swal.fire({
+            title: "Error",
+            text: 'Usuario o contraseña incorrectos',
+            icon: "error"
+          })
         }
       });
   }
