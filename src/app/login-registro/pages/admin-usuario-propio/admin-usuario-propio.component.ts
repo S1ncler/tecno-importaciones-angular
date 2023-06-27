@@ -52,7 +52,6 @@ export class AdminUsuarioPropioComponent {
   UpdateUser(form: NgForm) {
     let data = form.value;
     data.cumpleanos = new Date(`${this.fecha}`)
-    console.log(data)
     if (data._id) {
     }
     this.RegisterService.updateUser(data).subscribe((data) => {

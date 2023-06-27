@@ -24,10 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule,
+    HttpClientModule
+  ],
+  providers: [
+    TiendaService,
     AdminUserService
   ],
-  providers: [TiendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
