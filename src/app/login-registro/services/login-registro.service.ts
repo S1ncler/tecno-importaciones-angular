@@ -27,6 +27,7 @@ export class RegistroService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
+    rol:''
   };
   token: string = '';
   loginForm: any = {

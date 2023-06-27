@@ -23,6 +23,7 @@ export class NavBarService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
+    rol:''
   };
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;
