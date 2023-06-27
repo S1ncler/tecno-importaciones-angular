@@ -9,10 +9,13 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    Page404Component,
+ 
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,7 @@ import { TiendaService } from 'src/app/comercio/services/tienda.service';
 @Injectable({
   providedIn: 'root',
 })
+
 export class NavBarService {
   user: user = {
     _id: '',
@@ -71,22 +72,19 @@ export class NavBarService {
     return this.productosCarrito$.asObservable();
   }
 
-  testToken() {
-    const token = localStorage.getItem('token');
-    return !!token;
-  }
-  getTokenExist$(): Observable<boolean> {
-    return this.tokenExist$.asObservable();
-  }
-  removeToken() {
-    localStorage.removeItem('token');
-    this.tokenExist$.next(false);
-  }
-  decodeToken() {
-    const token = localStorage.getItem('token');
-    const decoded = jwtDecode(token ? token : 'Error en el token');
-    return decoded;
-  }
+testToken(){
+  const token = localStorage.getItem('token');
+  //convierte a booleano 
+  return !!token;
+}
+//si existe el token o no
+getTokenExist$():Observable<boolean> {
+  return this.tokenExist$.asObservable();
+}
+removeToken() {
+  localStorage.removeItem('token');
+  this.tokenExist$.next(false);
+}
 
   search(searchBar: string) {
     this._router.navigate([`comercio/tienda/${searchBar}`]);

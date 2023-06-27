@@ -44,95 +44,44 @@
  </div>
 
  <!-- inicio categorias-->
-      <div class="linea-azul shadow mx-auto"></div>
+<div class="linea-azul shadow mx-auto"></div>
 
-      <p class="categorias d-flex justify-content-center fw-bold">Categorías</p>
+<p class="categorias d-flex justify-content-center fw-bold">Categorías</p>
 
-      <div
-        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
-      >
-        <div class="" >
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/tarjeta-de-video.png"
-            alt=""
-          />
-          <h1 class="fw-bold m-3" >Tarjetas Gráficas</h1>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/memoria-ram.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Memorias Ram</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/fuente-de-alimentacion.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Fuentes de poder</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/Motherboard.jpeg"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Motherboards</h2>
+<div id="carouselCategorias" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner container-categorias">
+    <div class="carousel-item active margenes">
+      <div class="row">
+        <div *ngFor="let categoria of categorias.slice(currentIndex, currentIndex + 4)" class="col-md-3 ">
+          <img class="img-categorias" [src]="categoria.imagen" alt="" (click)="redireccionarTienda(categoria.nombre)" />
+          <h1 class="fw-bold m-3">{{ categoria.nombre }}</h1>
         </div>
       </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselCategorias" data-bs-slide="prev" (click)="previousSlide()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselCategorias" data-bs-slide="next" (click)="nextSlide()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+<!--
+<div class="linea-azul mx-auto shadow"></div>
 
-      <div class="linea-azul mx-auto shadow"></div>
+<p class="categorias d-flex justify-content-center fw-bold">Nuevos productos</p>
 
-      <p class="categorias d-flex justify-content-center fw-bold">Nuevos productos</p>
+<div class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap">
+  <div *ngFor="let nuevoProducto of nuevosProductos" class="">
+    <img class="img-categorias" [src]="nuevoProducto.imagen" alt="" />
+    <h1 class="fw-bold m-3">{{ nuevoProducto.nombre }}</h1>
+  </div>
+</div>
+-->
 
-      <div
-        class="container-categorias d-flex justify-content-evenly gap-5 flex-wrap"
-      >
-        <div class="">
-          <img
-            class="img-categorias"
-            src="assets/images/tarjeta-de-video.png"
-            alt=""
-          />
-          <h1 class="fw-bold m-3">Tarjetas Gráficas</h1>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/memoria-ram.png"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Memorias Ram</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/fuente-de-alimentacion.png"
-            alt=""
-          />
-         <h2 class="fw-bold m-3">Fuentes de poder</h2>
-        </div>
-
-        <div class="">
-          <img
-            class="img-categorias"
-            src="../../../../assets/images/Motherboard.jpeg"
-            alt=""
-          />
-          <h2 class="fw-bold m-3">Motherboards</h2>
-        </div>
-      </div>
-
-      <div class="linea-azul shadow mx-auto"></div>
+<div class="linea-azul shadow mx-auto"></div>
 
       <div class="marcas d-flex justify-content-start">
       <!--Marcas-->
@@ -149,16 +98,16 @@
         <!--Marcas logos-->
         <div class="marcas-imgs">
 
-       <!--nvidia-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro1 = true" (mouseleave)="mostrarCuadro1 = false">
+       <!--Patriot-->
+<div class="cuadro-marcas" (click)="redirigir('marca', 'Patriot')" (mouseenter)="mostrarCuadro1 = true" (mouseleave)="mostrarCuadro1 = false">
   <ng-container *ngIf="!mostrarCuadro1">
-    <img class="img-marcas" src="../../../../assets/images/Untitled-1-01.png" alt="" />
+    <img class="img-marcas" src="../../../../assets/images/patriot.jpg" alt="" />
   </ng-container>
-  <div *ngIf="mostrarCuadro1" class="texto-cuadro fw-medium">Diseña unidades de procesamiento de gráficos para los mercados de videojuegos.</div>
+  <div *ngIf="mostrarCuadro1" class="texto-cuadro fw-medium">Diseña Y fabrica módulos de memoria de alto rendimiento y equipos de juego.</div>
 </div>
 
 <!--msi-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro2 = true" (mouseleave)="mostrarCuadro2 = false">
+<div class="cuadro-marcas" (click)="redirigir('marca', 'MSI')" (mouseenter)="mostrarCuadro2 = true" (mouseleave)="mostrarCuadro2 = false">
   <ng-container *ngIf="!mostrarCuadro2">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-02.png" alt="" />
   </ng-container>
@@ -166,7 +115,7 @@
 </div>
 
 <!--asrock-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro3 = true" (mouseleave)="mostrarCuadro3 = false">
+<div class="cuadro-marcas"(click)="redirigir('marca', 'ASRock')"  (mouseenter)="mostrarCuadro3 = true" (mouseleave)="mostrarCuadro3 = false">
   <ng-container *ngIf="!mostrarCuadro3">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-03.png" alt="" />
   </ng-container>
@@ -174,7 +123,7 @@
 </div>
 
 <!--kingston-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro4 = true" (mouseleave)="mostrarCuadro4 = false">
+<div class="cuadro-marcas" (click)="redirigir('marca', 'Kingston')"  (mouseenter)="mostrarCuadro4 = true" (mouseleave)="mostrarCuadro4 = false">
   <ng-container *ngIf="!mostrarCuadro4">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-04.png" alt="" />
   </ng-container>
@@ -182,7 +131,7 @@
 </div>
 
 <!--evga-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro5 = true" (mouseleave)="mostrarCuadro5 = false">
+<div class="cuadro-marcas" (click)="redirigir('marca', 'EVGA')"  (mouseenter)="mostrarCuadro5 = true" (mouseleave)="mostrarCuadro5 = false">
   <ng-container *ngIf="!mostrarCuadro5">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-05.png" alt="" />
   </ng-container>
@@ -191,7 +140,7 @@
 
 
 <!--Asus-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro6 = true"  (mouseleave)="mostrarCuadro6 = false">
+<div class="cuadro-marcas"(click)="redirigir('marca', 'ASUS')"  (mouseenter)="mostrarCuadro6 = true"  (mouseleave)="mostrarCuadro6 = false">
   <ng-container *ngIf="!mostrarCuadro6">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-06.png" alt="" />
   </ng-container>
@@ -199,7 +148,7 @@
 </div>
 
 <!--Corsair-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro7 = true" (mouseleave)="mostrarCuadro7 = false">
+<div class="cuadro-marcas"(click)="redirigir('marca', 'Corsair')"  (mouseenter)="mostrarCuadro7 = true" (mouseleave)="mostrarCuadro7 = false">
   <ng-container *ngIf="!mostrarCuadro7">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-07.png" alt="" />
   </ng-container>
@@ -207,7 +156,7 @@
 </div>
 
 <!--Amd-->
-<div class="cuadro-marcas" (mouseenter)="mostrarCuadro8 = true" (mouseleave)="mostrarCuadro8 = false">
+<div class="cuadro-marcas" (click)="redirigir('marca', 'AMD')" (mouseenter)="mostrarCuadro8 = true" (mouseleave)="mostrarCuadro8 = false">
   <ng-container *ngIf="!mostrarCuadro8">
     <img class="img-marcas" src="../../../../assets/images/Untitled-1-08.png" alt="" />
   </ng-container>

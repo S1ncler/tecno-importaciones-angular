@@ -11,6 +11,7 @@ export class User {
   complemento?: string;
   codigoPostal?: string;
   telefono?: string;
+  pedidos?: any[];
 
   constructor(
     _id = '',
@@ -24,7 +25,8 @@ export class User {
     direccion = '',
     complemento = '',
     codigoPostal = '',
-    telefono = ''
+    telefono = '',
+    pedidos = []
   ) {
     this._id = _id
     this.nombre = nombre;
@@ -37,6 +39,7 @@ export class User {
     this.direccion = direccion;
     this.complemento = complemento;
     this.codigoPostal = codigoPostal;
-    this.telefono = telefono
+    this.telefono = telefono;
+    this.pedidos = []
   }
 }
