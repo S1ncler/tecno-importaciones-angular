@@ -20,7 +20,8 @@ export class NavBarService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
-    rol: '',
+    rol:'',
+    facturas: []
   };
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;

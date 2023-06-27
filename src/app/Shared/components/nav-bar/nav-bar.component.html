@@ -94,6 +94,11 @@
               ><div class="option">Mi perfil</div></a
             >
             <a
+              [routerLink]="'/usuarios/pedidos'"
+              class="text-decoration-none"
+              ><div class="option">Pedidos</div></a
+            >
+            <a
               class="text-decoration-none"
               [routerLink]="'/usuarios/manageUsers'"
               ><div class="option">Usuarios</div></a
@@ -116,6 +121,11 @@
               [routerLink]="'/usuarios/usuario-propio'"
               class="text-decoration-none"
               ><div class="option">Mi perfil</div></a
+            >
+            <a
+              [routerLink]="'/usuarios/pedidos'"
+              class="text-decoration-none"
+              ><div class="option">Pedidos</div></a
             >
             <button (click)="eliminarToken()" class="boton-cerrar" type="Boton">
               Cerrar sesión
