@@ -21,7 +21,7 @@
     >
       <div class="d-flex gap-4 flex-wrap flex-column gap-4">
         <div
-          *ngIf="!arrayProductos[0]"
+          *ngIf="!total"
           class="d-flex justify-content-center flex-column align-items-center"
         >
           <h1>¡No has agregado nada a tu carrito!</h1>
@@ -30,7 +30,7 @@
             style="width: 30%; height: 55%"
             alt=""
           />
-          <button class="btn btn-success mt-3" [routerLink]="'/comercio'">
+          <button class="btn btn-success mt-3" [routerLink]="'/comercio/tienda'">
             ¡Visita nuestros productos aqui!
           </button>
         </div>
@@ -107,7 +107,7 @@
               Iniciar sesion para finalizar compra
             </button></a
           >
-          <a [routerLink]="'/comercio/finalCompra'"
+          <a [routerLink]="'/comercio/finalCompra'" *ngIf="log && total"
             ><button class="btn-r shadow-lg" (click)="factura()">Finalizar Compra</button></a>
         </div>
       </article>

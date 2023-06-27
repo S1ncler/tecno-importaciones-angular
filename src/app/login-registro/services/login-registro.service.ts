@@ -27,6 +27,7 @@ export class RegistroService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
+    rol:''
   };
   token: string = '';
   loginForm: any = {
@@ -60,7 +61,7 @@ export class RegistroService {
         if (res2.token) {
           this.token = res2.token;
           localStorage.setItem('token', this.token);
-          this.router.navigate(['../../comercio/']);
+          this.router.navigate(['../../comercio/tienda']);
         } else {
           alert('Usuario o contraseña incorrectos');
         }
@@ -120,7 +121,7 @@ export class RegistroService {
     return localStorage.getItem('token') ? true : false;
   }
 
-  
+
   decodeToken() {
     const token = localStorage.getItem('token');
     const decoded = jwtDecode(token ? token : 'Error en el token');
@@ -138,7 +139,7 @@ export class RegistroService {
   }
 
   updatePass(email: string, pass: string) {
-    
+
     let updateOk = false;
     const url = environment.API_URI + 'auth/updatepass';
     this.http.post(url, { email: email, password: pass }).subscribe((res) => {
