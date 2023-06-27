@@ -15,6 +15,7 @@ export class TiendaComponent implements OnInit {
     private tiendaService: TiendaService,
     private router: ActivatedRoute
   ) {
+    // recibe el parametro de la url para pasarlo a la funcion de busqueda
     this.router.params.subscribe((data) => {
       this.search(data['search']);
       this.searching = data['search'];
@@ -36,11 +37,6 @@ export class TiendaComponent implements OnInit {
 
   // ejecucion apenas se carga el componente
   async ngOnInit(): Promise<void> {
-    // al iniciar elimina las variables de filtros del local storage
-    // localStorage.removeItem('typeQuery');
-    // localStorage.removeItem('typeQuery2');
-    // localStorage.removeItem('query');
-    // localStorage.removeItem('query2');
     // realiza una consulta inicial de 10 productos random
 
     // obtiene el rango de precios de los productos que se estan mostrando
@@ -93,17 +89,18 @@ export class TiendaComponent implements OnInit {
     );
   }
 
+  // funcion que ejecuta la busqueda en la api deacuerdo al valor ingresador por el usuario
   async search(search: string) {
-    if (search)
+    if (search) {
       await this.tiendaService
         .traerProductos([], search)
         .then((data) => (this.productosMostrar = data));
-    else
+      this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
+    } else {
       await this.tiendaService
         .traerProductos()
         .then((data) => (this.productosMostrar = data));
+      this.rangosPrecios = this.tiendaService.getPrecios(this.productosMostrar);
+    }
   }
-
-  // es la funcion que recibe la informacion de que se agrego un item al carrito desde el card
-  // y le dice al navbar que actualice el conteo
 }

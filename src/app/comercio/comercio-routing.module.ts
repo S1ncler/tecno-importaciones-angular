@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/tienda",
+    redirectTo: "tienda",
     pathMatch: "full",
   },
   {

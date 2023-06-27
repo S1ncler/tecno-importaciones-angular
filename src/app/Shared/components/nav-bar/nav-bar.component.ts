@@ -29,7 +29,6 @@ export class NavBarComponent implements OnInit {
   // llama el servicio del navbar
   constructor(public navBarService: NavBarService , public RegisterService: RegistroService) {
     this.cartCant = navBarService.loadCart();
-    this.tokenExist = navBarService.testToken();
   }
 
   ngOnInit() {
@@ -37,8 +36,13 @@ export class NavBarComponent implements OnInit {
       this.cartCant = productosCarrito.length;
     });
     this.getUser()
-   
-
+    // se suscribe a los cambios del tocken
+    this.navBarService.getTokenExist$().subscribe((token) => {
+      console.log(token)
+      this.tokenExist = token;
+    })    
+    //revisa si hay token al iniciar
+    this.navBarService.testToken();
   }
 
   getUser() {
@@ -53,7 +57,6 @@ export class NavBarComponent implements OnInit {
 
   eliminarToken() {
     this.navBarService.removeToken();
-    this.tokenExist = this.navBarService.testToken();
   }
 
   search() {
