@@ -45,6 +45,7 @@ body {
   display: flex;
   align-items: center;
   justify-self: center;
+  justify-content: center;
 
 }
 
@@ -127,6 +128,7 @@ body {
 
 
 .soft {
+  justify-content: center;
   background-color: #02153E;
   border-radius: 20px;
   height: 170px;
@@ -148,5 +150,10 @@ body {
     padding: 60px;
   }
 
+}
+
+.title-software {
+  justify-content: center;
+  padding-bottom: 10px;
 }
 

@@ -1,76 +1,80 @@
 <!-- lista de marcas de los productos -->
 <div>
-<span
-  class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
-  >Marcas</span
->
-<ul
-  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
->
-  <li
-    *ngFor="let marca of marcas"
-    class="list-group-item"
-    (click)="emitProductosMostrarChange('marca', marca)"
+  <!-- boton que se muestra cuando hay filtros aplicados y que elimina los filtros que esten aplicados -->
+  <button
+    class="btn btn-dark ms-5 mt-3 mb-4"
+    *ngIf="filtros"
+    (click)="eliminarFiltros()"
   >
-    {{ marca }}
-  </li>
-  <!-- boton para expandir o comprimir la lista de marcas -->
+    <span
+      class="fs-5 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
+      >Eliminar filtros</span
+    >
+  </button>
   <span
-    *ngIf="expand"
-    (click)="expandChanger(false)"
-    class="material-symbols-outlined expand list-group-item"
+    class="fs-4 fw-bold obr obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
+    >Marcas</span
   >
-    expand_more
-  </span>
-  <span
-    *ngIf="!expand"
-    (click)="expandChanger(true)"
-    class="material-symbols-outlined list-group-item"
+  <ul
+    class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
   >
-    expand_less
-  </span>
-</ul>
+    <li
+      *ngFor="let marca of marcas"
+      class="list-group-item"
+      (click)="emitProductosMostrarChange('marca', marca)"
+    >
+      {{ marca }}
+    </li>
+    <!-- boton para expandir o comprimir la lista de marcas -->
+    <span
+      *ngIf="expand"
+      (click)="expandChanger(false)"
+      class="material-symbols-outlined expand list-group-item"
+    >
+      expand_more
+    </span>
+    <span
+      *ngIf="!expand"
+      (click)="expandChanger(true)"
+      class="material-symbols-outlined list-group-item"
+    >
+      expand_less
+    </span>
+  </ul>
 </div>
 <!-- lista de los rangos de precios de los productos que se estan mostrando -->
 <div>
-<span
-  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
-  >Precio</span
->
-<ul
-  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
->
-  <li *ngFor="let precioRango of RangoPrecios" class="list-group-item m-1" (click)="emitfitroPrecioChange(precioRango)">
-    De ${{ precioRango[0] }} hasta $ {{ precioRango[1] }}
-  </li>
-</ul>
+  <span
+    class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
+    >Precio</span
+  >
+  <ul
+    class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
+  >
+    <li
+      *ngFor="let precioRango of RangoPrecios"
+      class="list-group-item m-1"
+      (click)="emitfitroPrecioChange(precioRango)"
+    >
+      De ${{ precioRango[0] }} hasta $ {{ precioRango[1] }}
+    </li>
+  </ul>
 </div>
 <!-- lista de las categorias de productos -->
 <div>
-<span
-  class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
-  >Categorias</span
->
-<ul
-  class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
->
-  <li
-    *ngFor="let categoria of categorias"
-    class="list-group-item m-1 text-capitalize"
-    (click)="emitProductosMostrarChange('categoria', categoria)"
-  >
-    {{ categoria }}
-  </li>
-</ul>
-</div>
-<!-- boton que se muestra cuando hay filtros aplicados y que elimina los filtros que esten aplicados -->
-<button
-  class="btn btn-dark ms-5 mt-3 mb-4"
-  *ngIf="filtros"
-  (click)="eliminarFiltros()"
->
   <span
-    class="fs-5 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic"
-    >Eliminar filtros</span
+    class="fs-4 fw-bold obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic ms-5 mb-3"
+    >Categorias</span
   >
-</button>
+  <ul
+    class="obr d-none d-sm-none d-md-block d-lg-block d-xl-block helvetic list-group-flush ms-3"
+  >
+    <li
+      *ngFor="let categoria of categorias"
+      class="list-group-item m-1 text-capitalize"
+      (click)="emitProductosMostrarChange('categoria', categoria)"
+    >
+      {{ categoria }}
+    </li>
+  </ul>
+</div>

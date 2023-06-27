@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: "administrar",
+    canActivate: [PayguardGuard],
     component: AdministrarProductosComponent
   },
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/tienda",
+    redirectTo: "tienda",
     pathMatch: "full",
   },
   {

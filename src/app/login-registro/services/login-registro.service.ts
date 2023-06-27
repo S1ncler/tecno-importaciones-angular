@@ -8,6 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { user } from '../interfaces/user.interface';
 import { User } from 'src/app/models/user.model';
 import Swal from 'sweetalert2';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +37,7 @@ export class RegistroService {
     password: '',
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private navbarService: NavBarService) {}
   usuarioPropio(usuario: string) {
     const url = environment.API_URI + `usuarios/${usuario}`;
     return this.http.get(url);
@@ -62,7 +63,8 @@ export class RegistroService {
         if (res2.token) {
           this.token = res2.token;
           localStorage.setItem('token', this.token);
-          this.router.navigate(['../../comercio/tienda']);
+          this.navbarService.testToken();
+          this.router.navigate(['comercio/tienda']);
         } else {
           alert('Usuario o contraseña incorrectos');
         }
