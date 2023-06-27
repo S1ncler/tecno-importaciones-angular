@@ -83,7 +83,7 @@
                 alt=""
               /></button
           ></a>
-          <div class="menu">
+          <div class="menu-admn" *ngIf="this.RegisterService.user.rol === 'Admin'">
             <div class="option-name">
               Hola, {{ this.RegisterService.user.nombre }}
             </div>
@@ -96,14 +96,26 @@
             <a
               class="text-decoration-none"
               [routerLink]="'/usuarios/manageUsers'"
-              *ngIf="this.RegisterService.user.rol === 'Admin'"
               ><div class="option">Usuarios</div></a
             >
             <a
               class="text-decoration-none"
               [routerLink]="'/comercio/administrar'"
-              *ngIf="this.RegisterService.user.rol === 'Admin'"
               ><div class="option">Productos</div></a
+            >
+            <button (click)="eliminarToken()" class="boton-cerrar" type="Boton">
+              Cerrar sesión
+            </button>
+          </div>
+          <div class="menu" *ngIf="this.RegisterService.user.rol === 'User'">
+            <div class="option-name">
+              Hola, {{ this.RegisterService.user.nombre }}
+            </div>
+            <div class="linea-pequeña d-flex flex-column gap-3"></div>
+            <a
+              [routerLink]="'/usuarios/usuario-propio'"
+              class="text-decoration-none"
+              ><div class="option">Mi perfil</div></a
             >
             <button (click)="eliminarToken()" class="boton-cerrar" type="Boton">
               Cerrar sesión
