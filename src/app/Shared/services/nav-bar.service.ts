@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import jwtDecode from 'jwt-decode';
 import { user } from 'src/app/login-registro/interfaces/user.interface';
 import { Router } from '@angular/router';
-import { TiendaService } from 'src/app/comercio/services/tienda.service';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class NavBarService {
   user: user = {
     _id: '',
@@ -23,19 +20,20 @@ export class NavBarService {
     direccion: '',
     complemento: '',
     codigoPostal: '',
-    rol:''
+    rol: '',
   };
   private productosCarrito: any[];
   private productosCarrito$: Subject<any[]>;
+  private tokenExist: boolean;
   private tokenExist$: Subject<boolean>;
+  
   router: any;
 
-  constructor(private tiendaService: TiendaService, private _router: Router) {
+  constructor(private _router: Router) {
     this.productosCarrito = [];
     this.productosCarrito$ = new Subject();
+    this.tokenExist = false;
     this.tokenExist$ = new Subject();
-
-    this.testToken();
   }
   ngOnInit() {}
 
@@ -71,21 +69,22 @@ export class NavBarService {
 
   getProductosCarrito$(): Observable<any[]> {
     return this.productosCarrito$.asObservable();
+  }  
+  //si existe el token o no
+  testToken() {
+    const token = localStorage.getItem('token') || "";
+    token !== "" ? this.tokenExist = true : this.tokenExist = false;
+    this.tokenExist$.next(this.tokenExist)
+    return this.tokenExist;
   }
-
-testToken(){
-  const token = localStorage.getItem('token');
-  //convierte a booleano 
-  return this.tokenExist$.next(!!token);
-}
-//si existe el token o no
-getTokenExist$():Observable<boolean> {
-  return this.tokenExist$.asObservable();
-}
-removeToken() {
-  localStorage.removeItem('token');
-  this.tokenExist$.next(false);
-}
+  getTokenExist$(): Observable<boolean> {
+    return this.tokenExist$.asObservable();
+  }
+  removeToken() {
+    localStorage.removeItem('token');
+    this.tokenExist = false;
+    this.tokenExist$.next(this.tokenExist);
+  }
 
   search(searchBar: string) {
     this._router.navigate([`comercio/tienda/${searchBar}`]);
