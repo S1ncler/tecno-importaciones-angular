@@ -76,53 +76,34 @@
                 alt=""
               /></button
           ></a>
-  <div class="menu">
-  
-<div class="option-name">Hola {{
-  navBarService.user.nombre
-}}</div>
-<div class="linea-pequeña"></div>
-<a [routerLink]="'/usuarios/usuario-propio'" class="text-decoration-none"><div class="option">Mi perfil</div></a>
-<button (click)="eliminarToken()"class="boton-cerrar"type="Boton">Cerrar sesión</button>
-</div>
-</div>
+          <div class="menu">
+            <div class="option-name">
+              Hola, {{ this.RegisterService.user.nombre }}
+            </div>
+            <div class="linea-pequeña"></div>
+            <a
+              [routerLink]="'/usuarios/usuario-propio'"
+              class="text-decoration-none"
+              ><div class="option">Mi perfil</div></a
+            >
+            <button (click)="eliminarToken()" class="boton-cerrar" type="Boton">
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </div>
 
-
-</div>
-
-
-
-
-
- <!--No  ha iniciado sesión -->
-<div *ngIf="!tokenExist">
-<a [routerLink]="'/usuarios/registro'"
-            ><button class="border border-0 bg-light" type="">
-              <img
-                class="logo-nav"
-                src="../../assets/images/login.png"
-                alt=""
-              /></button
-          ></a>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <!--No  ha iniciado sesión -->
+      <div *ngIf="!tokenExist">
+        <a [routerLink]="'/usuarios/registro'"
+          ><button class="border border-0 bg-light" type="">
+            <img
+              class="logo-nav"
+              src="../../assets/images/login.png"
+              alt=""
+            /></button
+        ></a>
       </div>
     </div>
-  </nav>  
+  </div>
+</nav>
