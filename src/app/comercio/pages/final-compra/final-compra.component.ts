@@ -3,6 +3,7 @@ import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 import { FinalizarService } from '../../services/finalizar.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-final-compra',
@@ -92,9 +93,7 @@ export class FinalCompraComponent {
   verificarSeleccion() {
     let opcionSeleccionada = document.querySelector('input[name="direccion1"]:checked');
     if (this.opcionSeleccionada) {
-      // La opción está seleccionada, puedes continuar con el envío
-      // Aquí puedes agregar tu lógica adicional si es necesario
-      
+      // La opción está seleccionada, puedes continuar con el envío      
       console.log("Opción seleccionada: " + this.opcionSeleccionada);
     } else {
       // La opción no está seleccionada, muestra un mensaje de error o realiza alguna acción

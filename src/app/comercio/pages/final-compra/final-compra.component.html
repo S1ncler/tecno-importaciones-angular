@@ -18,11 +18,12 @@
                   type="radio"
                   name="direccion1"
                   id="flexRadioDefault1"
+                  [(ngModel)]="opcionSeleccionada"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   {{finalizarService.direccion}}
                 </label>
-              </div>
+              </div>git a
               <div class="form-check" *ngIf="false" >
                 <input
                   class="form-check-input"
@@ -110,7 +111,7 @@
                    
           <div id="paypal-button-container">
             
-            <button class=" mx-5 btn1" (click)="alert1(); verificarSeleccion(); " >Finalizar compra</button></div>
+            <button class=" mx-5 btn1" (click)="alert1(); verificarSeleccion()" >Finalizar compra</button></div>
           
             </div>
           </article>
