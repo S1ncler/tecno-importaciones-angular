@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AdminUsuarioPropioComponent } from './pages/admin-usuario-propio/admin-usuario-propio.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { ForgPassComponent } from './pages/forg-pass/forg-pass.component';
+import { PayguardGuard } from '../guards/payguard.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
   },
   {
     path: "manageUsers",
+    canActivate: [PayguardGuard],
     component: AdminUsersComponent
   },
   {

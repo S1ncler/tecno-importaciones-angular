@@ -18,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: "administrar",
+    canActivate: [PayguardGuard],
     component: AdministrarProductosComponent
   },
   {
