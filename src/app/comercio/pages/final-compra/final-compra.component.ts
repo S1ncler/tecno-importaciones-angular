@@ -72,7 +72,7 @@ export class FinalCompraComponent {
             icon: 'success',
             title: 'Gracias por su compra',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 7500,
           });
           localStorage.removeItem('carrito');
           localStorage.removeItem('factura');
@@ -84,27 +84,19 @@ export class FinalCompraComponent {
             icon: 'error',
             title: 'Error al realizar la compra',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 7500,
           });
         }
       });
-  }
+    }  
 
-  verificarSeleccion() {
-   
-    if (this.opcionSeleccionada) {
-      this.opcionSeleccionada=true 
-    } else {
-       alert("Debes seleccionar una direccion de envio.");
+    verificarSeleccion() {
+      if (!this.opcionSeleccionada) {
+        alert("Debes seleccionar una dirección de envío.");
+      } else if (!this.opcionSeleccionada1) {
+        alert("Debes seleccionar un método de pago.");
+      } else {
+        this.alert1();
+      }
     }
-    if (this.opcionSeleccionada1) {
-      this.opcionSeleccionada1=true
-      
-    } else {      
-      alert("Debes seleccionar una medio de pago.");
-    }
-  }
-  if(){
-    
-  }
 }
