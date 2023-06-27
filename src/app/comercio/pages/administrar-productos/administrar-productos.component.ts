@@ -8,6 +8,8 @@ import { TiendaService } from '../../services/tienda.service';
 })
 export class AdministrarProductosComponent {
 
-  constructor(public tiendaService: TiendaService) {}
+  constructor(public tiendaService: TiendaService) {
+    window.scrollTo(0, 0);
+  }
 
 }

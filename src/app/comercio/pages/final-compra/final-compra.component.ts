@@ -26,6 +26,7 @@ export class FinalCompraComponent {
   
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     //se recurpera la informacion del local storage
     let entrada = localStorage.getItem('carrito');
 

@@ -11,6 +11,7 @@ import { AdminUserService } from "../../services/admin-user.service";
 export class AdminUsersComponent {
 
   constructor(public adminUserService: AdminUserService) {
+    window.scrollTo(0, 0);
   }
 
 }

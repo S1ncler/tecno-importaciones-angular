@@ -16,6 +16,7 @@ export class PedidosComponent {
   constructor(public RegisterService: RegistroService) {
   }
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getUser()
   }
 

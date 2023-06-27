@@ -10,7 +10,9 @@ import { RegistroService } from '../../services/login-registro.service';
 export class RegistroComponent {
 
   // Se inportan los servicios de este componente
-  constructor(private registroService: RegistroService) {}
+  constructor(private registroService: RegistroService) {
+    window.scrollTo(0, 0);
+  }
 
   // funciones para la asignacion de variables en el formGroup
   get nombre() {

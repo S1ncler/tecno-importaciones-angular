@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nosotros.component.css']
 })
 export class NosotrosComponent {
+  ngOnInit(){
+    window.scrollTo(0, 0);
+  }
   public mostrarInfo1: boolean = false;
   public mostrarInfo2: boolean = false;
   public mostrarInfo3: boolean = false;

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./desarrollo.component.css']
 })
 export class DesarrolloComponent {
+  ngOnInit(){
+    window.scrollTo(0, 0);
+  }
 
 }

@@ -37,6 +37,7 @@ export class TiendaComponent implements OnInit {
 
   // ejecucion apenas se carga el componente
   async ngOnInit(): Promise<void> {
+    window.scrollTo(0, 0);
     // realiza una consulta inicial de 10 productos random
 
     // obtiene el rango de precios de los productos que se estan mostrando
