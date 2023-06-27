@@ -86,3 +86,23 @@
     }
   }
   
+  .derechos, .politicas{
+  justify-content: center;
+  }
+  @media (max-width: 666px) {
+    .derechos,
+    .politicas{
+      display: flex;
+      text-align: center;
+    }
+  }
+   @media (max-width: 420px) {
+    .derechos,
+    .politicas{
+      display: flex;
+      text-align: center;
+    
+   } 
+  }
+  
+  

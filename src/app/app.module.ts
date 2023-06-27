@@ -11,10 +11,12 @@ import { AdminUserService } from "./login-registro/services/admin-user.service";
 
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CarritoComponent,
+    
   ],
   imports: [
     FormsModule,

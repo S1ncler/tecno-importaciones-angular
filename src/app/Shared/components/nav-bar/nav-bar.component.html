@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light fixed-top borde-abajo">
     <div class="container-fluid">
-      <a [routerLink]= "'principal/home'"
+      <a [routerLink]="'/principal/home'"
         ><img
           class="logo-nav"
           src="../../assets/images/logo-horizontal.png"
@@ -20,13 +20,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/comercio'" 
+            <a class="nav-link active" aria-current="page" [routerLink]="'/comercio/tienda'" 
               >Componentes PC</a
             >
           </li>
           <div class="linea-a"></div>
           <li class="nav-item">
-            <a class="nav-link active" [routerLink]="'principal/desarrollo'">Desarrollo Web</a>
+            <a class="nav-link active" [routerLink]="'/principal/desarrollo'">Desarrollo Web</a>
           </li>
           <div class="linea-a"></div>
         </ul>

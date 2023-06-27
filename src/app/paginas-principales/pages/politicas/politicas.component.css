@@ -1,0 +1,67 @@
+body { 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: auto;
+    margin-bottom: 100px;
+    
+  }
+  
+  
+  @media (min-width: 600px) {
+    body,
+    .imag_logo{
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 150px;
+    
+    }
+  }
+  
+  @media (max-width: 300px) {
+    body
+    {
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 45em;
+      height: 50em;
+    }
+  }
+  
+  .imag_logo {
+    align-content: center;
+    width: 100%;
+    height: 60em;
+  }
+  
+  
+  
+  .title-aviso {
+    text-align: center;
+  }
+  
+  @media (min-width: 900px) {
+    .title-aviso h1 {
+      font-size: 32px;
+      margin: 20px;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .title-aviso h1 {
+      font-size: 24px;
+      margin: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  .text {
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
