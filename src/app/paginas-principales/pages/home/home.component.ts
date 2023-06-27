@@ -116,7 +116,7 @@ export class HomeComponent {
     localStorage.setItem('query2', categoria.toLowerCase());
 
     // Cambia a la página de la tienda
-    this.router.navigate(['/comercio']);  
+    this.router.navigate(['/comercio/tienda']);  
   }
 
   async emitProductosMostrarChange(typeQuery: string, query: string): Promise<void> {
@@ -159,7 +159,7 @@ export class HomeComponent {
   redirigir(typeQuery: string, query: string) {
     localStorage.setItem('typeQuery', typeQuery);
     localStorage.setItem('query', query);
-    this.router.navigate(['/comercio']);
+    this.router.navigate(['/comercio/tienda']);
   }
 
   
