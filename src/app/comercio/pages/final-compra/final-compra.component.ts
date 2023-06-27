@@ -22,7 +22,8 @@ export class FinalCompraComponent {
   iva: number = 0;
   total: number = 0;
   precios: string[] = [];
-  opcionSeleccionada: string []= [];
+  opcionSeleccionada: boolean= false;
+  opcionSeleccionada1: boolean= false;
   
 
   ngOnInit() {
@@ -90,15 +91,20 @@ export class FinalCompraComponent {
   }
 
   verificarSeleccion() {
-    let opcionSeleccionada = document.querySelector('input[name="direccion1"]:checked');
+   
     if (this.opcionSeleccionada) {
-      // La opción está seleccionada, puedes continuar con el envío
-      // Aquí puedes agregar tu lógica adicional si es necesario
-      
-      console.log("Opción seleccionada: " + this.opcionSeleccionada);
+      this.opcionSeleccionada=true 
     } else {
-      // La opción no está seleccionada, muestra un mensaje de error o realiza alguna acción
-      console.log("Debes seleccionar una opción antes de enviar.");
+       alert("Debes seleccionar una direccion de envio.");
     }
+    if (this.opcionSeleccionada1) {
+      this.opcionSeleccionada1=true
+      
+    } else {      
+      alert("Debes seleccionar una medio de pago.");
+    }
+  }
+  if(){
+    
   }
 }

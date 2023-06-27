@@ -15,9 +15,11 @@
               <div class="form-check">
                 <input
                   class="form-check-input"
-                  type="radio"
+                  type="checkbox"
                   name="direccion1"
                   id="flexRadioDefault1"
+                  [(ngModel)]="opcionSeleccionada"
+                  (ngModelChange)="opcionSeleccionada = $event"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   {{finalizarService.direccion}}
@@ -63,7 +65,7 @@
                   type="radio"
                   name="flexRadioDefault1"
                   id="flexRadioDefault4"
-                  checked
+                 
                 />
                 <label class="form-check-label" for="flexRadioDefault4">
                   PSE
@@ -72,11 +74,12 @@
               <div class="form-check">
                 <input
                   class="form-check-input"
-                  type="radio"
+                  type="checkbox"
                   name="flexRadioDefault1"
                   id="flexRadioDefault5"
-                  checked
-                />
+                  [(ngModel)]="opcionSeleccionada1"
+                  (ngModelChange)="opcionSeleccionada1 = $event"
+                  />
                 <label class="form-check-label" for="flexRadioDefault4">
                   Paypall
                 </label>
@@ -110,7 +113,7 @@
                    
           <div id="paypal-button-container">
             
-            <button class=" mx-5 btn1" (click)="alert1(); verificarSeleccion(); " >Finalizar compra</button></div>
+            <button class=" mx-5 btn1" (click)="verificarSeleccion(); alert1() " >Finalizar compra</button></div>
           
             </div>
           </article>
