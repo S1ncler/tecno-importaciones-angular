@@ -7,11 +7,11 @@ import { DetallesProductoComponent } from './pages/detalles-producto/detalles-pr
 
 const routes: Routes = [
   {
-    path: "",
+    path: "tienda",
     component: TiendaComponent
   },
   {
-    path: ":search",
+    path: "tienda/:search",
     component: TiendaComponent
   },
   {
@@ -25,6 +25,11 @@ const routes: Routes = [
   {
     path: "detallesProductos",
     component: DetallesProductoComponent
+  },
+  {
+    path: "",
+    redirectTo: "/tienda",
+    pathMatch: "full",
   }
 ]
 

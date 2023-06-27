@@ -89,6 +89,6 @@ export class NavBarService {
   }
 
   search(searchBar: string) {
-    this._router.navigate([`comercio/${searchBar}`]);
+    this._router.navigate([`comercio/tienda/${searchBar}`]);
   }
 }
