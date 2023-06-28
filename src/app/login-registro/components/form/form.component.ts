@@ -34,7 +34,10 @@ export class FormComponent {
 
   deleteUser(_id: string) {
     this.adminUserService.deleteUser(_id).subscribe((data) => {
-      alert('Usuario Eliminado');
+      Swal.fire({
+        icon: "success",
+        text: 'Usuario Eliminado'
+      })
       this.getAllUsers();
     });
 
