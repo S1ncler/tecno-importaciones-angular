@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminUserService } from "../../services/admin-user.service";
 import { NgForm } from "@angular/forms";
 import { useer } from "src/app/models/useer.model";
+import Swal from 'sweetalert2';
 
 
 
@@ -48,8 +49,13 @@ export class FormComponent {
     if (data._id) {
 
       // actualizar
+
+
       this.adminUserService.updateUser(data).subscribe((data) => {
-        alert('Usuario actualizado');
+        Swal.fire({
+          icon: "success",
+          text: 'Usuario actualizado'
+        })
         this.getAllUsers();
       });
       this.cleanForm();
@@ -60,7 +66,10 @@ export class FormComponent {
     delete data._id;
 
     this.adminUserService.createUser(data).subscribe((data: any) => {
-      alert('Usuario creado');
+      Swal.fire({
+        icon: "success",
+        text: 'Usuario creado'
+      })
       this.getAllUsers();
       this.cleanForm();
     });
@@ -68,7 +77,10 @@ export class FormComponent {
 
   updateUser(user: useer) {
     this.adminUserService.userToCreate = user;
-    alert('Usuario cargado en el formulario');
+    Swal.fire({
+      icon: "success",
+      text: 'Usuario cargado en el formulario'
+    })
     console.log(user);
 
   }

@@ -13,6 +13,9 @@ export class LoginComponent {
   constructor(public RegisterService: RegistroService, private router: Router) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
+    this.RegisterService.loginForm.username = undefined;
+    this.RegisterService.loginForm.password = undefined;
     let token = localStorage.getItem('token');
     if (token) {
       let decoded: any = jwt_decode(token);

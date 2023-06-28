@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./page404.component.css']
 })
 export class Page404Component {
-
+  ngOnInit(){
+    window.scrollTo(0, 0);
+  }
 }

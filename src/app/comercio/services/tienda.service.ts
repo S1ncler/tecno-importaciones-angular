@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 export interface productoTabla {
   id: number;
   name: string;
@@ -129,7 +130,10 @@ export class TiendaService {
   enviarProducto(): void {
     this.http.post(`${this.url}`, this.productoFormulario).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
-      alert(data2.msg);
+      Swal.fire({
+        icon: "info",
+        text: data2.msg
+      })
     });
   }
 
@@ -138,7 +142,10 @@ export class TiendaService {
       .put(`${this.url}/${id}`, this.productoFormulario)
       .subscribe((data) => {
         const data2 = JSON.parse(JSON.stringify(data));
-        alert(data2.msg);
+        Swal.fire({
+          icon: "info",
+          text: data2.msg
+        })
       });
   }
 
@@ -146,7 +153,10 @@ export class TiendaService {
     this.http.get(`${this.url}/${id}`).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
       if (data2.msg === 'No encontrado') {
-        alert('Producto no encontrado');
+        Swal.fire({
+          icon: "info",
+          text: 'Producto no encontrado'
+        })
         return;
       }
       this.productoFormulario.id = data2.msg.id;
@@ -163,7 +173,14 @@ export class TiendaService {
   eliminarProducto(id: number): void {
     this.http.delete(`${this.url}/${id}`).subscribe((data) => {
       const data2 = JSON.parse(JSON.stringify(data));
-      alert(data2.msg);
+      Swal.fire({
+        icon: "info",
+        text: data2.msg
+      })
     });
   }
+
+  
+
 }
+

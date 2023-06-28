@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistroService } from '../../services/login-registro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +11,9 @@ import { RegistroService } from '../../services/login-registro.service';
 export class RegistroComponent {
 
   // Se inportan los servicios de este componente
-  constructor(private registroService: RegistroService) {}
+  constructor(private registroService: RegistroService) {
+    window.scrollTo(0, 0);
+  }
 
   // funciones para la asignacion de variables en el formGroup
   get nombre() {
@@ -75,7 +78,10 @@ export class RegistroComponent {
     // llamado al servicio que comunica el formulario con la api
     this.registroService.registrar(this.formUser).subscribe(data => {
       // mensaje del resultado del intento de registro
-      alert(data.msg === "ALREADY_USER" ? "Ya tienes un usuario con este mismo email" : data.msg);
+      Swal.fire({
+        icon: "info",
+        text: data.msg === "ALREADY_USER" ? "Ya tienes un usuario con este mismo email" : data.msg
+      })
       // se resetea el formulario
       this.formUser.reset();
       // se resetea el valor de la validacion de la contraseña ya que esta fuera del formGroup

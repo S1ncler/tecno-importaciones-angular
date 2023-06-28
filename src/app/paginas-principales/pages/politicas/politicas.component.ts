@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./politicas.component.css']
 })
 export class PoliticasComponent {
-
+  ngOnInit(){
+    window.scrollTo(0, 0);
+  }
 }

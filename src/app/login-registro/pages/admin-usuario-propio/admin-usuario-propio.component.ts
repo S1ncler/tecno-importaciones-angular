@@ -38,6 +38,7 @@ export class AdminUsuarioPropioComponent {
 
   constructor(public RegisterService: RegistroService) {}
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getUser();
     this.obtFecha(this.RegisterService.user.cumpleanos)
   }

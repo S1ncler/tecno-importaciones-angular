@@ -24,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: "usuario-propio",
+    canActivate: [PayguardGuard],
     component: AdminUsuarioPropioComponent
   },
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
   },
   {
     path: "pedidos",
+    canActivate: [PayguardGuard],
     component: PedidosComponent
   },
   {

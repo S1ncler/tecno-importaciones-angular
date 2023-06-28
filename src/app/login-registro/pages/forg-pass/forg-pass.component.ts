@@ -30,6 +30,7 @@ export class ForgPassComponent {
   repass?: string;
   email: string = "";
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.token = this.router.snapshot.params['token'];
     let decoded: any = jwt_decode(this.token);
     if (decoded.exp < (new Date().getTime() + 2) / 1000)

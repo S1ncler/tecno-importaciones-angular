@@ -18,30 +18,31 @@ export class NavBarComponent implements OnInit {
   };
 
   searchBar?: string;
-
+ 
   // variable con la cantidad de items del carrito
   cartCant: number = 0;
 
   //variable para saber si el token existe
-  tokenExist = false;
+  tokenExist:boolean;
 // nombre y appellido 
 
   // llama el servicio del navbar
-  constructor(public navBarService: NavBarService , public RegisterService: RegistroService) {
+  constructor(public navBarService: NavBarService , public RegisterService: RegistroService,private router: Router,) {
     this.cartCant = navBarService.loadCart();
+    this.tokenExist = navBarService.testToken();
   }
 
   ngOnInit() {
-    this.navBarService.getProductosCarrito$().subscribe((productosCarrito) => {
-      this.cartCant = productosCarrito.length;
-    });
-    this.getUser()
     // se suscribe a los cambios del tocken
     this.navBarService.getTokenExist$().subscribe((token) => {
       this.tokenExist = token;
-    })    
-    //revisa si hay token al iniciar
-    this.navBarService.testToken();
+    }) 
+    // se suscribe a los cambios del tocken
+    this.navBarService.getProductosCarrito$().subscribe((productosCarrito) => {
+      this.cartCant = productosCarrito.length;
+    });
+    this.getUser()       
+    this.tokenExist = this.navBarService.testToken();
   }
 
   getUser() {
@@ -56,6 +57,7 @@ export class NavBarComponent implements OnInit {
 
   eliminarToken() {
     this.navBarService.removeToken();
+    this.router.navigate(['/principal/home']);
   }
 
   search() {

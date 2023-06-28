@@ -42,6 +42,7 @@ export class CarritoComponent {
   // suma del subtotal y el iva
   total: number = 0;
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.logged();
     //se recurpera la informacion del local storage
     let entrada = localStorage.getItem('carrito');

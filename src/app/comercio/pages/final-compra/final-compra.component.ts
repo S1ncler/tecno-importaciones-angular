@@ -27,6 +27,7 @@ export class FinalCompraComponent {
   
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     //se recurpera la informacion del local storage
     let entrada = localStorage.getItem('carrito');
 
@@ -78,6 +79,14 @@ export class FinalCompraComponent {
           localStorage.removeItem('factura');
           this.navBarService.removeFromCart(this.arrayProductos);
           this.router.navigate(['principal/home']);
+        } else if(res2.msg === 'sin stock') {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'No hay stock de los productos que deseas comprar',
+            showConfirmButton: false,
+            timer: 2500,
+          });
         } else {
           Swal.fire({
             position: 'center',
