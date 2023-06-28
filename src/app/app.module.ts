@@ -8,7 +8,6 @@ import { SharedModule } from './Shared/shared.module';
 import { TiendaService } from './comercio/services/tienda.service';
 import { CarritoComponent } from './comercio/pages/carrito/carrito.component';
 import { AdminUserService } from "./login-registro/services/admin-user.service";
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -24,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [
     TiendaService,

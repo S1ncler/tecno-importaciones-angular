@@ -26,7 +26,7 @@ const routes: Routes = [
     component: CarritoComponent
   },
   {
-    path: "detallesProductos",
+    path: "detallesProducto/:id", //aqui hay que poner para que reciba el id del producto que va a mostrar
     component: DetallesProductoComponent
   },
   {
