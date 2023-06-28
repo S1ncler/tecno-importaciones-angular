@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TiendaService, productoCompleto } from '../../services/tienda.service';
+import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 
 
 @Component({
@@ -10,13 +12,31 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class DetallesProductoComponent {
-  id:number = 0;
-  constructor(private router: ActivatedRoute){}
 
-  ngOnInit(){
+  producto: productoCompleto = {
+    id: 0,
+    name: '',
+    marca: '',
+    descripcion: '',
+    price: 0,
+    image: [''],
+    categoria: '',
+    stock: 0,
+  };
+
+  id:number = 0;
+  constructor(private router: ActivatedRoute, private tiendaservice:TiendaService,
+               public narbarservice: NavBarService, public imageproducto: TiendaService){}
+
+  async ngOnInit(){
     this.id = this.router.snapshot.params['id'];
-    console.log(this.id)
+    this.tiendaservice.traerUnProducto(this.id);
+    this.producto = this.tiendaservice.productoFormulario
   }
+
   
 }
+
+
+
 
