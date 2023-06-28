@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 export interface productoTabla {
   id: number;
   name: string;
@@ -166,4 +166,8 @@ export class TiendaService {
       alert(data2.msg);
     });
   }
+
+  
+
 }
+
