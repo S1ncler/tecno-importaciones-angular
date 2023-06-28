@@ -29,6 +29,7 @@ export class DetallesProductoComponent {
                public narbarservice: NavBarService, public imageproducto: TiendaService){}
 
   async ngOnInit(){
+    window.scrollTo(0, 0);
     this.id = this.router.snapshot.params['id'];
     this.tiendaservice.traerUnProducto(this.id);
     this.producto = this.tiendaservice.productoFormulario
