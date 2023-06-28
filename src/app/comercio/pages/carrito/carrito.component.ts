@@ -44,6 +44,11 @@ export class CarritoComponent {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.logged();
+    this.infoLocal()
+    this.sumarPrecio()
+  }
+
+  infoLocal(){
     //se recurpera la informacion del local storage
     let entrada = localStorage.getItem('carrito');
 
@@ -54,8 +59,9 @@ export class CarritoComponent {
     } else {
       return console.log('El valor es nulo o indefinido');
     }
+  }
 
-    //se suman los precios de los productos
+  sumarPrecio(){
     for (let item of this.arrayProductos) {
       if (item.repetidos) {
         this.subtotal = this.subtotal + item.price * item.repetidos;
@@ -79,7 +85,8 @@ export class CarritoComponent {
     this.subtotal = 0;
     this.iva = 0;
     this.total = 0;
-    this.ngOnInit();
+    this.sumarPrecio()
+    this.infoLocal()
   }
 
   addProduct(data: object) {
@@ -96,7 +103,7 @@ export class CarritoComponent {
     this.subtotal = 0;
     this.iva = 0;
     this.total = 0;
-    this.ngOnInit();
+    this.sumarPrecio()
   }
 
   substractProduct(data: object) {
@@ -112,7 +119,7 @@ export class CarritoComponent {
     this.subtotal = 0;
     this.iva = 0;
     this.total = 0;
-    this.ngOnInit();
+    this.sumarPrecio()
   }
 
   logged() {
