@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
   };
 
   searchBar?: string;
-
+ 
   // variable con la cantidad de items del carrito
   cartCant: number = 0;
 
@@ -27,7 +27,7 @@ export class NavBarComponent implements OnInit {
 // nombre y appellido 
 
   // llama el servicio del navbar
-  constructor(public navBarService: NavBarService , public RegisterService: RegistroService) {
+  constructor(public navBarService: NavBarService , public RegisterService: RegistroService,private router: Router,) {
     this.cartCant = navBarService.loadCart();
     this.tokenExist = navBarService.testToken();
   }
@@ -57,6 +57,7 @@ export class NavBarComponent implements OnInit {
 
   eliminarToken() {
     this.navBarService.removeToken();
+    this.router.navigate(['/principal/home']);
   }
 
   search() {
