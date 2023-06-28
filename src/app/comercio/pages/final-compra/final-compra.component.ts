@@ -3,6 +3,7 @@ import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 import { FinalizarService } from '../../services/finalizar.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-final-compra',
@@ -54,6 +55,12 @@ export class FinalCompraComponent {
     this.finalizarService.getUser();
   }
   alert1() {
+    if (!this.opcionSeleccionada) {
+      alert("Debes seleccionar una dirección de envío.");
+    } else if (!this.opcionSeleccionada1) {
+      alert("Debes seleccionar un método de pago.");
+    } else {
+
     let factura = JSON.parse(localStorage.getItem('factura') || '');
     factura['precios'] = this.precios;
     this.finalizarService
@@ -73,7 +80,7 @@ export class FinalCompraComponent {
             icon: 'success',
             title: 'Gracias por su compra',
             showConfirmButton: false,
-            timer: 7500,
+            timer: 3500,
           });
           localStorage.removeItem('carrito');
           localStorage.removeItem('factura');
@@ -98,14 +105,5 @@ export class FinalCompraComponent {
         }
       });
     }  
-
-    verificarSeleccion() {
-      if (!this.opcionSeleccionada) {
-        alert("Debes seleccionar una dirección de envío.");
-      } else if (!this.opcionSeleccionada1) {
-        alert("Debes seleccionar un método de pago.");
-      } else {
-        this.alert1();
-      }
-    }
+  }
 }
