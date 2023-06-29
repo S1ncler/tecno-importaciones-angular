@@ -59,6 +59,8 @@ export class FormComponent {
           icon: "success",
           text: 'Usuario actualizado'
         })
+        console.log(data);
+
         this.getAllUsers();
       });
       this.cleanForm();
