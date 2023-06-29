@@ -56,9 +56,19 @@ export class FinalCompraComponent {
   }
   alert1() {
     if (!this.opcionSeleccionada) {
-      alert("Debes seleccionar una dirección de envío.");
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Seleccione la dirección de envio',
+        showConfirmButton: false,
+        timer: 7500,});
     } else if (!this.opcionSeleccionada1) {
-      alert("Debes seleccionar un método de pago.");
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Seleccione un método de pago',
+        showConfirmButton: false,
+        timer: 7500,});
     } else {
 
     let factura = JSON.parse(localStorage.getItem('factura') || '');
