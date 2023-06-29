@@ -7,6 +7,21 @@ body {
     
   }
   
+
+  .imag_logo {
+    align-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width:600px) {
+    .imag_logo{
+      width: 100%;
+      height: 100%;
+      
+    }
+    
+  }
   
   @media (min-width: 600px) {
     body,
@@ -14,6 +29,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 150px;
+    align-content: center;
     
     }
   }
@@ -28,19 +44,9 @@ body {
     }
   }
   
-  .imag_logo {
-    align-content: center;
-    width: 100%;
-    height: 60em;
-  }
+  
 
-  @media (max-width:600px) {
-    .imag_logo{
-      width: 100%;
-      height: 100em;
-    }
-    
-  }
+  
   
   .cont-tex {
     align-content: center;
@@ -204,3 +210,7 @@ body {
       flex-wrap: wrap;
     }
   }
+
+.base {
+  margin-top: 150px;
+}
