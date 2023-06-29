@@ -20,7 +20,7 @@ export class RegistroService {
     username: '',
     nombre: '',
     email: '',
-    cumpleanos: new Date('2023-06-22'),
+    cumpleanos: "",
     telefono: '',
     contrasena: '',
     departamento: '',

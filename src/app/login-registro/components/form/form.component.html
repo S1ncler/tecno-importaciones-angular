@@ -6,7 +6,7 @@
       <form #userForm="ngForm" (ngSubmit)="createOrUpdateUser(userForm)">
         <div class="d-flex flex-column gap-3">
           <div class="d-flex justify-content-center">
-            <h1>Sign up</h1>
+            <h1>DATOS</h1>
           </div>
           <div class="d-flex flex-column flex-sm-row gap-3">
             <input
@@ -28,7 +28,7 @@
               #email="ngModel"
               [(ngModel)]="adminUserService.userToCreate.email"
               type="text"
-              placeholder="Email"
+              placeholder="Correo"
             />
           </div>
 
@@ -39,7 +39,7 @@
               #username="ngModel"
               [(ngModel)]="adminUserService.userToCreate.username"
               type="text"
-              placeholder="Username"
+              placeholder="Apodo"
             />
             <input
               class="icon"
@@ -47,7 +47,7 @@
               #direccion="ngModel"
               [(ngModel)]="adminUserService.userToCreate.direccion"
               type="text"
-              placeholder="Direccion"
+              placeholder="Dirección"
             />
             <input
               class="icon"
@@ -90,18 +90,18 @@
                 #telefono="ngModel"
                 [(ngModel)]="adminUserService.userToCreate.telefono"
                 type="text"
-                placeholder="Telefono"
+                placeholder="Teléfono"
               />
             </div>
           </div>
           <div class="d-flex flex-column flex-sm-row gap-3">
             <select
               class="form-select"
-              name="role"
-              #role="ngModel"
+              name="rol"
+              #rol="ngModel"
               [(ngModel)]="adminUserService.userToCreate.rol"
             >
-              <option selected>Role</option>
+              <option selected>Rol</option>
               <option value="Admin">Administrador</option>
               <option value="User">Cliente</option>
             </select>
@@ -111,14 +111,14 @@
               #metodosDePago="ngModel"
               [(ngModel)]="adminUserService.userToCreate.metodosDePago"
             >
-              <option selected value="0" disabled> Payment Methods</option>
-              <option value="1">Credit Card</option>
-              <option value="2">Debit Card</option>
-              <option value="3">Transfer</option>
+              <option selected value="0" disabled> Métodos de pago</option>
+              <option value="1">Tarjeta de crédito</option>
+              <option value="2">Tarjeta de débito</option>
+              <option value="3">Transferencia</option>
             </select>
           </div>
           <button class="text-info rounded-5" type="submit">
-            <i class="fa-solid fa-paper-plane pe-1"></i> Send
+            <i class="fa-solid fa-paper-plane pe-1"></i> Actualizar
           </button>
         </div>
       </form>
@@ -131,8 +131,8 @@
 <div class="container mt-5">
   <table class="table table-striped border">
     <thead class="text-center">
-      <th class="p-3 bg-dark text-white">Nickname</th>
-      <th class="p-3 bg-dark text-white">Email</th>
+      <th class="p-3 bg-dark text-white">Apodo</th>
+      <th class="p-3 bg-dark text-white">Correo</th>
       <th class="p-3 bg-dark text-white">Nombre</th>
       <th class="p-3 bg-dark text-white">Ciudad</th>
       <th class="p-3 bg-dark text-white">Telefono</th>

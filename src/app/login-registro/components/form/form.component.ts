@@ -34,7 +34,10 @@ export class FormComponent {
 
   deleteUser(_id: string) {
     this.adminUserService.deleteUser(_id).subscribe((data) => {
-      alert('Usuario Eliminado');
+      Swal.fire({
+        icon: "success",
+        text: 'Usuario Eliminado'
+      })
       this.getAllUsers();
     });
 
@@ -49,11 +52,15 @@ export class FormComponent {
     if (data._id) {
 
       // actualizar
+
+
       this.adminUserService.updateUser(data).subscribe((data) => {
         Swal.fire({
           icon: "success",
           text: 'Usuario actualizado'
         })
+        console.log(data);
+
         this.getAllUsers();
       });
       this.cleanForm();

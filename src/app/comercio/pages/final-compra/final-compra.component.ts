@@ -3,6 +3,7 @@ import { NavBarService } from 'src/app/Shared/services/nav-bar.service';
 import { FinalizarService } from '../../services/finalizar.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-final-compra',
@@ -22,7 +23,8 @@ export class FinalCompraComponent {
   iva: number = 0;
   total: number = 0;
   precios: string[] = [];
-  opcionSeleccionada: string []= [];
+  opcionSeleccionada: boolean= false;
+  opcionSeleccionada1: boolean= false;
   
 
   ngOnInit() {
@@ -53,6 +55,22 @@ export class FinalCompraComponent {
     this.finalizarService.getUser();
   }
   alert1() {
+    if (!this.opcionSeleccionada) {
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Seleccione la dirección de envio',
+        showConfirmButton: false,
+        timer: 7500,});
+    } else if (!this.opcionSeleccionada1) {
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Seleccione un método de pago',
+        showConfirmButton: false,
+        timer: 7500,});
+    } else {
+
     let factura = JSON.parse(localStorage.getItem('factura') || '');
     factura['precios'] = this.precios;
     this.finalizarService
@@ -72,7 +90,7 @@ export class FinalCompraComponent {
             icon: 'success',
             title: 'Gracias por su compra',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 3500,
           });
           localStorage.removeItem('carrito');
           localStorage.removeItem('factura');
@@ -92,22 +110,10 @@ export class FinalCompraComponent {
             icon: 'error',
             title: 'Error al realizar la compra',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 7500,
           });
         }
       });
-  }
-
-  verificarSeleccion() {
-    let opcionSeleccionada = document.querySelector('input[name="direccion1"]:checked');
-    if (this.opcionSeleccionada) {
-      // La opción está seleccionada, puedes continuar con el envío
-      // Aquí puedes agregar tu lógica adicional si es necesario
-      
-      console.log("Opción seleccionada: " + this.opcionSeleccionada);
-    } else {
-      // La opción no está seleccionada, muestra un mensaje de error o realiza alguna acción
-      console.log("Debes seleccionar una opción antes de enviar.");
-    }
+    }  
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { user } from 'src/app/login-registro/interfaces/user.interface';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class NavBarService {
     username: '',
     nombre: '',
     email: '',
-    cumpleanos: new Date('2023-06-22'),
+    cumpleanos: "",
     telefono: '',
     contrasena: '',
     departamento: '',
@@ -75,6 +76,14 @@ export class NavBarService {
   testToken() {
     const token = localStorage.getItem('token') || "";
     token !== "" ? this.tokenExist = true : this.tokenExist = false;
+    if(token != ""){
+      const decoded:any = jwtDecode(token);
+      if (decoded)
+      if (decoded.exp < (new Date().getTime() + 2) / 1000) {
+        this.tokenExist = false;
+        localStorage.removeItem("token");
+      }
+    }
     this.tokenExist$.next(this.tokenExist)
     return this.tokenExist;
   }

@@ -28,7 +28,7 @@ export class AdminUsuarioPropioComponent {
   vDireccion: boolean = false;
   vComplemento: boolean = false;
   vCodigoPostal: boolean = false;
-  fecha: any = new Date('1999-01-01');
+  fecha: any = "";
   editOpt: boolean = false;
   token: any = {
     exp: '',
@@ -40,19 +40,10 @@ export class AdminUsuarioPropioComponent {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.getUser();
-    this.obtFecha(this.RegisterService.user.cumpleanos)
-  }
-
-  obtFecha(dato:any): string{
-    this.fecha = new Date(dato)
-      .toISOString()
-      .substring(0, 10);
-      return this.fecha
   }
 
   UpdateUser(form: NgForm) {
     let data = form.value;
-    data.cumpleanos = new Date(`${this.fecha}`)
     if (data._id) {
     }
     this.RegisterService.updateUser(data).subscribe((data) => {
@@ -66,6 +57,7 @@ export class AdminUsuarioPropioComponent {
     this.RegisterService.usuarioPropio(this.token.email).subscribe(
       (res: any) => {
         this.RegisterService.user = JSON.parse(JSON.stringify(res)) || [];
+        this.RegisterService.user.cumpleanos = this.RegisterService.user.cumpleanos.substring(0,10)
       }
     );
   }

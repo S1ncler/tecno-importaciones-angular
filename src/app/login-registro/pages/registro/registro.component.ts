@@ -49,6 +49,9 @@ export class RegistroComponent {
   get codigoPostal() {
     return this.formUser.get('codigoPostal') as FormControl;
   }
+  get terminos() {
+    return this.formUser.get('terminos') as FormControl;
+  }
 
   // declaracion del formGroup
   formUser = new FormGroup({
@@ -63,6 +66,7 @@ export class RegistroComponent {
     direccion: new FormControl(``, Validators.required),
     complemento: new FormControl(``),
     codigoPostal: new FormControl(``),
+    terminos: new FormControl(``)
   });
 
   // declaracion de las variables del formulario
@@ -75,6 +79,7 @@ export class RegistroComponent {
 
   // funcion para registrar el usuario en la base de datos mediante la api
   registrar() {
+    if(this.formUser.value.terminos){
     // llamado al servicio que comunica el formulario con la api
     this.registroService.registrar(this.formUser).subscribe(data => {
       // mensaje del resultado del intento de registro
@@ -87,6 +92,13 @@ export class RegistroComponent {
       // se resetea el valor de la validacion de la contraseña ya que esta fuera del formGroup
       this.valContrasena = '';      
     })
+    }
+    else{
+      Swal.fire({
+        icon: "info",
+        text: 'Debes aceptar los terminos y condiciones'
+      })
+    }
   }
 
   // funcion para la validacion del nick mediante la api
