@@ -146,7 +146,7 @@
             "
           >
             <span *ngIf="username.errors?.['required']"
-              >El campo Nick es obligatorio</span
+              >El campo apodo es obligatorio</span
             >
             <span *ngIf="!valnick">Este nick ya existe</span>
           </div>
@@ -170,7 +170,7 @@
             [hidden]="email.valid || email.pristine || email.untouched"
           >
             <span *ngIf="email.errors?.['required']"
-              >El email es obligatorio</span
+              >El correo es obligatorio</span
             >
             <span *ngIf="email.errors?.['email']">Ingrese un email valido</span>
           </div>
