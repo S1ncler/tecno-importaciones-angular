@@ -42,7 +42,15 @@
                 class="text-decoration-none align-text-bottom font"
                 (click)="showModal()"
                 >Olvidaste tu contraseña</a
-              ><br /><br />
+              >
+              <br /><br />
+              <a
+                [routerLink]="'/usuarios/registro'"
+                class="text-decoration-none align-text-bottom font"
+                >¿No tienes una cuenta? Crea una.</a
+              >
+              <br /><br />
+
               <div class="form-check" *ngIf="false">
                 <input
                   class="form-check-input"
