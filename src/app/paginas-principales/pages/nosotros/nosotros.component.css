@@ -343,6 +343,15 @@ h5 {
 h5 {
   font-size: 1rem;
 }
+@media (max-width: 940px) {
+
+  .carrus{
+    width: auto;
+  }
+  .home{
+    width: auto;
+  }
+}
 
  @media (max-width: 940px) {
 

@@ -14,7 +14,7 @@
     margin-left: 105px;
   }
   .imagen-1-carrusel {
-    background-image: url(https://m.media-amazon.com/images/I/41KxCjeWHyL._SL500_.jpg);   
+    background-image: url(https://m.media-amazon.com/images/I/51TyDV902BL.jpg);   
     background-size: cover;
     width: 40rem;
     height: 20rem;
@@ -255,6 +255,7 @@
 width: 58%;
 
 }
+
 .color-b{
   font-size: 25px;
 }
@@ -283,6 +284,7 @@ width: 58%;
   }
   
   @media (max-width: 940px) {
+    
     .hide {
       visibility: hidden;
       font-size: 0;
@@ -338,7 +340,7 @@ width: 58%;
   
     .texto-co {
       color: #bd5349;
-      font-size: 6rem;
+      font-size: 6rem !important;
       font-weight: bold;
     }
   
@@ -367,10 +369,19 @@ width: 58%;
   
   }
   }
-  
+
   @media (max-width:655px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      font-size: 3rem;
+      margin: 16px;
+      width: auto; 
+      height: 45rem; 
+      background-color:#BD5349; 
+    
+    }
   h1{
-    font-size: 3rem !important;
+    font-size: 34px !important;
   }
   h4 {
     font-size: 1.5rem;
@@ -387,7 +398,7 @@ width: 58%;
     width: 3rem;
     gap: 20px;
     height: 468px;
-    margin-top: 3rem;
+    margin-top: 13rem;
     flex-direction: column;
   }
   .marcas {
